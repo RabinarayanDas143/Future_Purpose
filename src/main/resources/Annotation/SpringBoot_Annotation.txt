@@ -1,0 +1,96 @@
+                                                          SpringBoot Annotation
+                                             ==================================================
+
+1. @SpringBootApplication Annotation
+=====================================================
+   This annotation is used to mark the main class of a Spring Boot application.
+   It encapsulates @SpringBootConfiguration, @EnableAutoConfiguration, and @ComponentScan annotations with their default attributes.
+
+
+2. @Controller
+===========================        
+       @Controller is used to annotate your class as a controller.
+
+3. @RestController
+=========================== 
+      @RestController annotation is a combination of @Controller and @Responsebody . it is use to create a RESTful web service .
+      if we applied this annotation in our class then no need to annotate class method to @Responsebody . 
+      
+4. @RequestMapping
+===========================
+     @RequestMapping annotation which is used to map the HTTP request to our controllers method .
+     
+5. @GetMapping 
+===========================
+     @GetMapping annotation is used for mapping HTTP Get request in to specific controllers method .
+     It is a composed annotation that acts as a shortcut for @RequestMapping (method = RequestMethod.GET)
+     
+6. @PostMapping
+=============================
+    @PostMapping annotation is used for mapping HTTP post request to specific controllers method .
+    It is a composed annotation that acts as a shortcut for @RequestMapping (method = RequestMethod.POST).
+    
+7. @PutMapping
+=============================
+    @PutMapping annotation is used for mapping HTTP PUT request to a specific handler method .
+    It is a composed annotation is act as a shortcut for @RequestMapping (method = RequestMethod.PUT).
+    
+8. @DeleteMapping 
+============================
+   @DeleteMapping annotation is used to map the HHTP delete request to a specific handlers method .
+   It is composed annotation to act as a shortcut for @RequestMappting (Method = RequestMethod.DELETE).
+   
+9. @Autowired
+=============================
+   @Autowired annotation in spring framework that enables dependency injection for java classes . It allows spring to automatically inject dependency in the class.
+   eliminating the need for manual configuration .
+   
+10. @Component
+==============================
+   @Component annotation that allow spring to detect our custom beans automatically . In other word spring will scan our application class and detect which class
+    is annotated with @Component . Initiate them  and inject any dependency in to them . 
+    
+11. @Service
+===============================
+    @Service annotation indicate that they are holding the business logic .
+    
+12. @Repository
+================================
+    @Repository annotation is used to indicate that a class is a repository . This class is used for accessing and manipulating data from database.
+    
+13. @Componentscan
+================================
+   @Componentscan is used spring framework for auto detecting and register spring managed components (eg : controller,service,repository etc..) to a specific package.
+   
+14. @Configuraion
+================================
+   @Configuraion 
+   
+   
+15. @Value 
+=================================
+   @Value annotation is used to inject value from external configuration properties in to spring bean .
+   
+16. @Qualifier
+=================================
+    @Qualifier annotation is used to specify which beans we have to use , when multiple beans of the same type exist .
+    
+17. @Profile
+==================================
+   @Profile annotation is used in spring framework to indicate that a component , configuration file , class or methods should be active or inactive 
+   based on the specified profile.
+   
+18. @EnableAutoConfiguraion
+===================================
+   @EnableAutoConfiguraion annotation is used in spring boot to enable auto configure the application context .
+   
+19. @Entity
+====================================
+   @Entity indicates that they are JPA entities . Use @Table to specify table name , if our class name is different from our table name.
+   
+
+   
+    
+     
+      
+     
