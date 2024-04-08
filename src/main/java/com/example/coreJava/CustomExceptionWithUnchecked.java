@@ -8,6 +8,6 @@ class UncheckedException extends RuntimeException {
 
 public class CustomExceptionWithUnchecked {
 	public static void main(String[] args) {
-         throw new UncheckedException("Unchecked Exception");
+         throw new UncheckedException("Unchecked Exception	");
 	}
 }

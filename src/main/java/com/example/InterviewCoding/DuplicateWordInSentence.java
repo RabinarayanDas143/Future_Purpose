@@ -21,12 +21,12 @@ public class DuplicateWordInSentence {
 		for (String str : list) {
 			map.putIfAbsent(str, Collections.frequency(list, str));
 		}
-		//System.out.println(map);
+		System.out.println(map);
 		for (Entry<String, Integer> mp : map.entrySet()) {
 			//System.out.println(mp.getKey() + ":" + mp.getValue());
 		}
 		// using java8
 		Map<String, Long> str=list.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
-		System.out.println(str);
+		//System.out.println(str);
 	}
 }

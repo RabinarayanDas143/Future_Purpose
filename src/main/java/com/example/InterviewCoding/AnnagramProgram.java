@@ -1,5 +1,6 @@
 package com.example.InterviewCoding;
 
+import java.io.FileOutputStream;
 import java.util.Arrays;
 
 public class AnnagramProgram {
@@ -35,7 +36,7 @@ public class AnnagramProgram {
 	}
 	public static void main(String[] args) {
 		AnnagramProgram obj = new AnnagramProgram();
-		//obj.checkAnnagram("silent", "listen");
-		obj.checkAnnagramOther("silent", "listen");
+		obj.checkAnnagram("silent", "listen");
+		//obj.checkAnnagramOther("silent", "listen");
 	}
 }
