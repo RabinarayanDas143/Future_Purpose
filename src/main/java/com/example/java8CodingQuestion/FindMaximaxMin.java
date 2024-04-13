@@ -7,12 +7,12 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class FindMaximaxMin {
 	public void maxMin(List<Integer> list) {
 		int max = list.get(0);
 		int min = list.get(0);
-
 		for (int i = 0; i < list.size(); i++) {
 			if (max < list.get(i)) {
 				max = list.get(i);

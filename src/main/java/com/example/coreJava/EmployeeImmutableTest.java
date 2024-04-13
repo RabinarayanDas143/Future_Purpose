@@ -1,5 +1,7 @@
 package com.example.coreJava;
 
+import org.springframework.http.ResponseEntity;
+
 final class EmployeeImmutableTest implements Cloneable {
 	private static EmployeeImmutableTest obj;
 	private final int id;
@@ -28,7 +30,6 @@ final class EmployeeImmutableTest implements Cloneable {
 		//System.out.println(obj.getId());
 		//System.out.println(obj.getName());
 		EmployeeImmutableTest cloneObj = (EmployeeImmutableTest) obj.clone();
-		
 		System.out.println(obj.hashCode());
 		System.out.println(cloneObj.hashCode());
 	}
