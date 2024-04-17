@@ -1,6 +1,5 @@
 package com.example.coreJava;
 
-import org.springframework.http.ResponseEntity;
 
 final class EmployeeImmutableTest implements Cloneable {
 	private static EmployeeImmutableTest obj;
