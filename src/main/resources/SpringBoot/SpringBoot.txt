@@ -1,0 +1,8 @@
+                                  SPRING BOOT
+                     ========================================
+
+1.alternate use of @Postconstruct is initializingBean interface, this interface give method afterpropertiesSet() this 
+method is execute just after constructor created .
+
+2. Alternate use of @PreDestroy is DisposableBean interface , this interface give Destroy() , this method is execute 
+   before object destroyed.
