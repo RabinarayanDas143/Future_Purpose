@@ -16,12 +16,15 @@ public class MissingNumberInArray {
 		System.out.println(actualSum);
 		return sum - actualSum;
 	}
+	
+	
 
 	public static void main(String[] ram) {
 		MissingNumberInArray obj = new MissingNumberInArray();
 		int[] array = { 1, 2, 3, 4, 6, 7, 8, 9 };
 		int sizeOfArray = array.length + 1;
-		int result = obj.MissingNumber(array, sizeOfArray);
-		System.out.println(result);
+		//int result = obj.MissingNumber(array, sizeOfArray);
+		 
+		//System.out.println(result);
 	}
 }

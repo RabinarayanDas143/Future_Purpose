@@ -14,7 +14,7 @@ public class StreamListSorting {
 		list.add("banna");
 		list.add("fruits");
 		list.add("orange");
-
+		 
 		// this one ascending order
 		List<String> str = list.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());
 		List<String> strlambda = list.stream().sorted((o1, o2) -> o1.compareTo(o2)).collect(Collectors.toList());
