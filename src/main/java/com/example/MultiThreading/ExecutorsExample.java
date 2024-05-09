@@ -1,5 +1,6 @@
 package com.example.MultiThreading;
 
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -35,11 +36,11 @@ public class ExecutorsExample {
 		// 3 thread execute all the task one by one , it reuse the thread .
 		// newFixedThreadPool internally use the ThreadPoolExecutor concept .
 
-//		ExecutorService ex = Executors.newFixedThreadPool(3);
-//		for (int i = 1; i <= 10; i++) {
-//			ex.execute(new Task(i));
-//		}
-//		ex.shutdown();
+		ExecutorService ex = Executors.newFixedThreadPool(3);
+		for (int i = 1; i <= 10; i++) {
+			ex.execute(new Task(i));
+		}
+		ex.shutdown();
 
 		// when we are don't know how many thread we have to create then we use  newCachedThreadPool method .
 		// it automatically create the thread according to the task and destroy it with in 60 sec. if any task 
@@ -53,7 +54,7 @@ public class ExecutorsExample {
 //		}
 //		ex.shutdown();
 		
-		ScheduledExecutorService ex = Executors.newScheduledThreadPool(3);
-		ex.scheduleAtFixedRate(new Task(1), 4, 1, TimeUnit.SECONDS);
+//		ScheduledExecutorService ex = Executors.newScheduledThreadPool(3);
+//		ex.scheduleAtFixedRate(new Task(1), 4, 1, TimeUnit.SECONDS);
 	}
 }

@@ -44,7 +44,7 @@ public class GeneratePdf {
         for (String header : headers) {
             PdfPCell headerCell = new PdfPCell(new Phrase(header));
             headerCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            headerCell.setBackgroundColor(BaseColor.LIGHT_GRAY);
+            headerCell.setBackgroundColor(BaseColor.YELLOW);
             table.addCell(headerCell);
         }
 
@@ -66,13 +66,13 @@ public class GeneratePdf {
 
     public static void main(String[] args) {
         // Define the headers for the table
-        List<String> headers = Arrays.asList("Name", "Age", "City");
+        List<String> headers = Arrays.asList("Name", "Age", "City","Name", "Age", "City","Name", "Age", "City");
 
         // Example data to populate the table
         List<String[]> data = new ArrayList<>();
-        data.add(new String[]{"Alice", "30", "New York"});
-        data.add(new String[]{"Bob", "25", "Los Angeles"});
-        data.add(new String[]{"Charlie", "35", "Chicago"});
+        data.add(new String[]{"Alice", "30", "New York","Alice", "30", "New York","Alice", "30", "New York"});
+        data.add(new String[]{"Bob", "25", "Los Angeles","Bob", "25", "Los Angeles","Bob", "25", "Los Angeles"});
+        data.add(new String[]{"Charlie", "35", "Chicago","Charlie", "35", "Chicago","Charlie", "35", "Chicago"});
 
         // Set the desired path for the PDF file
         String customPath = "C:/Users/HP/OneDrive/Desktop/PdfDownload/custom_output.pdf"; // Change this to your desired path
