@@ -1,5 +1,6 @@
 package com.example.coreJava;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -58,5 +59,11 @@ public class ArrayListExample {
        // System.out.print(integer);
         
         ArrayListExample s1 = new ArrayListExample("Sonoo","address");
+        
+        ArrayList array = new ArrayList<>();
+        array.add(1);
+        array.add("a");
+        array.add(1.1);
+        System.out.println(array);
 	}
 }

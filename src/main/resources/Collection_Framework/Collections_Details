@@ -1,0 +1,158 @@
+ Collection HIERARCHY
+ ===================================
+ 
+                                        Iterator (I)
+                                            |
+                                        Collection(I) 1.2v
+                                            |
+  1) List (I)
+       * ArrayList (C) 1.2v
+       * LinkedList (C) 1.2v
+       * Vector(C) 1.0v
+       * Stack (C) 1.0v
+       
+  2) Set (I) 1.2v
+       * HashSet (C) 1.2v
+       * LinkedHashSet (C) 1.4v
+       * TreeSet (C) 1.2v implements NavigableSet (I) 6v implements SortedSet (I)1.2v
+       
+  3) Queue (I) 1.5v
+        * PriorityQueue (C) 1.2v
+        * Deque (I)
+        
+        
+==> Difference between List & Set 
+ =====================================================
+            List                                                                Set
+ -------------------------------------------------               -------------------------------------------
+ 1. List is an index based data structure .                     1 . Set is not an index based data structure . it store 
+                                                                    the data according to the hashcode value .
+ 2. List can store duplicate elements .                         2 . Set does not allow to store duplicate elements .
+ 
+ 3. List can store any number of null value .                   3. Set can store only one null value .
+ 
+ 4. List follow the insertion order .                           4. Set does not follow the insertion order .
+ 
+ 5. We can iterate (get) the list element by                    5. We can iterate (get) the set element by Iterator.
+     Iterator & ListIterator.    
+     
+     
+==> In java there are 3 type of cursors .
+    1. Iterator
+    2. ListIterator
+    3. Enumeration
+    
+==> Difference between Iterator & ListIterator
+==========================================================
+
+              Iterator                                                 ListIterator
+  -----------------------------------------------                  ----------------------------------------
+  1. We can get Iterator cursor by iterator() method.             1. We can get ListIterator cursor by listIterator() method.
+       Ex-> List<Integer> list = new ArrayList<Integer>();                Ex-> List<Integer> list = new ArrayList<Integer>();
+              list.addAll(add your elements);                                      list.addAll(add your elements);
+               Iterator itr = list.iterator();                                        ListIterator itr = list.listIterator();
+               
+  2. Iterator cursor can be used with any collection object.      2. ListIterator cursor can be used only with List implemented classes .
+                                                                       Ex-> ArrayList , LinkedList , Vector , Stack .
+                                                                       
+  3. Iterator methods are : hasNext(), next(), remove() .         3. ListIterator methods are : hasNext(), next(), hasPrevious(), previous(), remove(), set().
+  
+  4. By using Iterator cursor , we can retrive the element        4. By using ListIterator cursor we can retrive the element in forward and backward direction.
+     only in forward direction .
+     
+  5. By using Iterator cursor , we can read & remove the          5. By using ListIterator cursor we can read, remove, replace & add the elements.
+     elements.
+     
+     
+==> What is Enumeration
+==========================================================
+  
+  1. Enumeration is the cursor which is used to retrive the collection objects one by one .
+  2. Enumeration was introduced in JDK 1.0v .
+  3. Enumeration cursor can be used only with legacy classes . ex-> Vector & Stack.
+  4. Enumeration cursor can be get by element() method . ex-> Enumeration e = v.element();
+  5. methods of Enumeration cursor are -: hasMoreElement(), nextElement() .
+  6. Enumeration cursor can be used to retrive the element only in forward direction.
+  7. Enumeration cursor can be used only for read operations.
+  
+  
+==> What is ArrayList
+=======================================================
+
+ 1. ArrayList is an implemented class of List interface which is present in java.util package.
+ 2. ArrayList is created on the basis of growable array or resizable array.
+ 3. ArrayList are index based data structure.
+ 4. ArrayList can store different data-type or heterogeneous data-type.
+ 5. ArrayList can store duplicate value and any number of null value.
+ 6. ArrayList follow the insertion order.
+ 7. ArraList does not follow the sorting order.
+ 8. ArrayList are non-synchronized.
+ 
+ 
+ ==> What is LinkedList
+ ========================================================
+ 
+ 1. LinkedList is an implemented class List interface which is present in java.util package.
+ 2. The underline data structure of LinkedList is doubly LinkedList or circular LinkedList.
+ 3. Insertion and deletion operation are fast.
+ 4. We can traverse the list in forward and backward direction  both.
+ 5. It occupy extra space for previous node address.
+ 6. In case of insertion and deletion element, we have to manage previous and next node.
+ 7. LinkedList are non-synchronized collection.
+ 
+ 
+ ==> Difference between ArrayList & LinkedList
+ ============================================================
+ 
+                      ArrayList                                              LinkedList
+    ---------------------------------------------------               ----------------------------------------------
+  1. ArrayList implements List interface.                         1. LinkedList implements List and Deque interface.
+  2. The underline data structure of ArrayList is                 2. The underline data structure of LinkedList is Doubly LinkedList
+     resizable or growable array .                                      or Circular Linked List.
+  3. Elements are stored in contigeous memory location.           3. Elements are not stored in contigeous memory location.
+  4. ArrayList are good for searching purpose.                    4. LinkedList are good for insertion and deletion purpose.
+  
+  
+==> Vector Class
+==============================================================
+
+ 1. Vector is a legacy class which was introduced in JDK 1.0 version.
+ 2. Vector is an implemented class of List interface which is present in java.util package.
+ 3. The underline data structure of vector is growable array or resizable array.
+ 4. Vector is an index based data structure.
+ 5. Vector can store heterogeneous(Different) data type.
+ 6. We can store duplicate element.
+ 7. We can store multiple null value.
+ 8. Vector follow the insertion order.
+ 9. Vector does not follow the sorting order.
+ 10. Vector are synchronized collection.
+ 11. All legacy classes are synchronized.
+ 
+ 
+ 
+ ==>  Difference between ArrayList & Vector 
+ ================================================================
+     
+                   ArrayList                                                  Vector
+  ------------------------------------------------------           -----------------------------------------------------------
+  1. ArrayList was introduced in JDK 1.2 v.                           1. Vector was introduced in JDK 1.0 v.
+  2. ArrayList is not legacy class.                                   2. Vector is legacy class.
+  3. ArrayList are non synchronized collection.                       3. Vector are synchronized collection.
+  4. ArrayList is not thread safe.                                    4. Vector is thread safe.
+  5. In ArrayList perfomance is fast.                                 5. In vector perfomance is slow.
+  6. ArrayList does not provide for data consistency.                 6. Vector provide for data data consistency.
+  7. ArrayList capacity = ( oldCapacity * 3 )/2 + 1 ;                 7. Vector capacity = oldCapacity * 2 ; 
+  8. ArrayList does not provide any method to find its capacity.      8. Vector class provide a method to find capacity , i.e -> int capacity();
+  
+  
+  
+==> What is Stack class
+==================================================================
+
+ 1. Stack is a legacy class which was introduced in JDK 1.0 version.
+ 2. Stack is the child class of vector class, which is present in java.util package.
+ 3. Stack class is designed on the basis of LIFO order . ( Last in Fast Out ).
+ 4. Stack can be implemented on the basis of Array, ArrayList, LinkedList or Vector .
+ 5. Stack is an index based data structure.
+ 6. Methods are : Push(), Pop(), Peek(), Search(), empty().
+                                               
