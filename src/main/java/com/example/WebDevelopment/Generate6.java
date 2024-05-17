@@ -11,14 +11,18 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
-import com.itextpdf.text.Image;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
 
-public class Generate4 {
+public class Generate6 {
+
+    private static final int LINES_PER_PAGE = 30;
 
     public static void generatePdfWithTable(String filePath, List<String> headers, List<String[]> data, String password)
             throws IOException, DocumentException {
@@ -42,8 +46,8 @@ public class Generate4 {
         writer.setEncryption(password.getBytes(), password.getBytes(), PdfWriter.ALLOW_PRINTING,
                 PdfWriter.ENCRYPTION_AES_128);
 
-        // Define a custom page event to add headers and signature
-        HeaderAndSignatureEvent4 event = new HeaderAndSignatureEvent4(headers);
+        // Define a custom page event to add headers
+        HeaderEvent4 event = new HeaderEvent4(headers);
         writer.setPageEvent(event);
 
         document.open();
@@ -51,23 +55,39 @@ public class Generate4 {
         // Create a table with the number of columns matching the headers
         PdfPTable table = new PdfPTable(headers.size());
 
-        // Add headers to the table
+        // Create a font with your desired font family and size
+        Font font = FontFactory.getFont(FontFactory.HELVETICA, 12); // Example: Helvetica, font size 12
+
+        // Add headers to the table with the specified font size
         for (String header : headers) {
-            PdfPCell headerCell = new PdfPCell(new Phrase(header));
+            PdfPCell headerCell = new PdfPCell(new Phrase(header, font)); // Apply the font to the Phrase
             headerCell.setHorizontalAlignment(Element.ALIGN_CENTER);
             headerCell.setBackgroundColor(BaseColor.YELLOW);
             table.addCell(headerCell);
         }
 
-        // Add data to the table
+        int lineCount = 0;
+
+        // Add data to the table with the specified font size
         for (String[] row : data) {
             for (String cell : row) {
-                table.addCell(cell);
+                PdfPCell cellWithFont = new PdfPCell(new Phrase(cell, font)); // Apply the font to the Phrase
+                table.addCell(cellWithFont);
+            }
+            lineCount++;
+            // Start a new page if the line count reaches the limit
+            if (lineCount >= LINES_PER_PAGE) {
+                document.add(table);
+                document.newPage();
+                table.deleteBodyRows(); // Clear the table for the next page
+                lineCount = 0; // Reset line count
             }
         }
 
-        // Add the table to the document
-        document.add(table);
+        // Add the remaining table to the document if it contains any data
+        if (lineCount > 0) {
+            document.add(table);
+        }
 
         document.close();
         fileOutputStream.close();
@@ -94,53 +114,44 @@ public class Generate4 {
     }
 }
 
-class HeaderAndSignatureEvent4 extends PdfPageEventHelper {
+class HeaderEvent4 extends PdfPageEventHelper {
 
     private List<String> headers;
     private boolean isFirstPage = true;
 
-    public HeaderAndSignatureEvent4(List<String> headers) {
+    public HeaderEvent4(List<String> headers) {
         this.headers = headers;
     }
 
     @Override
     public void onStartPage(PdfWriter writer, Document document) {
-        if (!isFirstPage) {
-            PdfPTable headerTable = new PdfPTable(headers.size());
-            for (String header : headers) {
-                PdfPCell headerCell = new PdfPCell(new Phrase(header));
-                headerCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                headerCell.setBackgroundColor(BaseColor.YELLOW);
-                headerTable.addCell(headerCell);
-            }
+        if (isFirstPage) {
+            // Add the heading "City Union Bank" to the first page
             try {
-                document.add(headerTable);
+                PdfPTable headingTable = new PdfPTable(1);
+                headingTable.setWidthPercentage(100);
+                PdfPCell headingCell = new PdfPCell(new Phrase("City Union Bank", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 18)));
+                headingCell.setBorder(Rectangle.NO_BORDER);
+                headingCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                headingTable.addCell(headingCell);
+                document.add(headingTable);
             } catch (DocumentException e) {
                 e.printStackTrace();
             }
+            isFirstPage = false; // Update flag to indicate the first page is processed
         }
-        isFirstPage = false;
-    }
-
-    @Override
-    public void onEndPage(PdfWriter writer, Document document) {
-        // Load the signature image
-        String signaturePath = "src/main/resources/Signature/UBI.png"; // Provide the path to your signature image
-        Image signature;
+        
+        // Add the table headers to each page
+        PdfPTable headerTable = new PdfPTable(headers.size());
+        for (String header : headers) {
+            PdfPCell headerCell = new PdfPCell(new Phrase(header));
+            headerCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            headerCell.setBackgroundColor(BaseColor.YELLOW);
+            headerTable.addCell(headerCell);
+        }
         try {
-            signature = Image.getInstance(signaturePath);
-
-            // Resize the image to fit within the bounds of the page
-            signature.scaleToFit(100, 50); // Adjust to your desired size
-
-            // Position the image at the bottom right corner of the page
-            signature.setAbsolutePosition(document.getPageSize().getWidth() - 110, // Offset from the right edge
-                    10 // Offset from the bottom edge
-            );
-
-            // Add the signature image to the document
-            document.add(signature);
-        } catch (IOException | DocumentException e) {
+            document.add(headerTable);
+        } catch (DocumentException e) {
             e.printStackTrace();
         }
     }

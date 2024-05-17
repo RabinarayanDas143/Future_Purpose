@@ -1,6 +1,9 @@
  Collection HIERARCHY
  ===================================
  
+ Collection FrameWork ---- 1. Collection interface
+                           2. Map interface
+ 
                                         Iterator (I)
                                             |
                                         Collection(I) 1.2v
@@ -19,7 +22,13 @@
   3) Queue (I) 1.5v
         * PriorityQueue (C) 1.2v
         * Deque (I)
-        
+           
+                                          Map
+                                           |
+                                           |
+                  --------------------------------------------------------
+                 1. HashMap (C)             3. TreeMap (C) Implement NavigableMap (I) implement SortedMap (I)
+                 2. LinkedHashMap (C)       4. HashTable (C)
         
 ==> Difference between List & Set 
  =====================================================
@@ -155,4 +164,62 @@
  4. Stack can be implemented on the basis of Array, ArrayList, LinkedList or Vector .
  5. Stack is an index based data structure.
  6. Methods are : Push(), Pop(), Peek(), Search(), empty().
-                                               
+ 
+ 
+ 
+ ==> What is HashSet
+ ==================================================================
+ 
+  1. It is an implemented class of Set interface , which is present in java.util package.
+  2. HashSet underline data structure is HashTable.
+  3. In HashSet internally working as HashMap.
+  4. HashSet was introduced in JDK 1.2 version.
+  5. HashSet are not index based data structure, They store the element according to the HasCode.
+  6. HashSet does not store duplicate element.
+  7. HashSet does not store multiple null value.
+  8. HashSet can store heterogeneous data type value.
+  9. HashSet does not follow the insertion order.
+  10. HashSet does not follow the sorting order.
+  11. HashSet are non-Synhronized data structure.
+  
+  
+ ==> What is Linked HashSet
+ ========================================================================
+ 
+  1. It is an implemented class of Set interface , which is present in java.util package.
+  2. Linked HashSet underline data structure is HashTable and LinkedList.
+  3. Linked HashSet was introduced in JDK 1.2 version.
+  4. Linked HashSet does not store duplicate element. 
+  5. Linked HashSet does not store multiple null value.  
+  6. Linked HashSet follow the insertion order. (Imp)
+  7. Linked HashSet are non-Synhronized data structure.
+  
+  
+==> What is TreeSet
+==========================================================================
+
+ 1. TreeSet is the direct implement class of NavigavleSet but indirectly implemented SortedSet & Set interface.
+ 2. TreeSet was introduced in JDK 1.2 version.
+ 3. TreeSet underline data structure is Balanced Tree data structure.
+ 4. It is not an index based data structure.
+ 5. It does not follow the insertion order.
+ 6. It follow the Sorting/Natural order.
+ 7. It store the homogeneous element .
+ 8. It can not store the duplicate element.
+ 9. It is non-synchronized data structure.
+ 10. It does not store the null value , but before JDK 1.6 we can store only one null value and it set in first position
+     but from JDK 1.6 it does not allow the null value.
+     
+     
+===> Map Interface
+==============================================================================
+
+ 1. Map is an interface which is present in java.util package.
+ 2. Map does not inherit collection interface.  
+ 3. Map was introduced in JDK 1.2 version.
+ 4. Map store the data in key value pair.
+ 5. In Map Keys should be unique but value can be duplicate.
+ 6. In Map, we can store maximum one null value, but in value we can store any number of null value.
+ 7. Map does not follow the sorting and insertion order.
+ 
+                                          
