@@ -106,7 +106,7 @@ public class Generate6 {
         String password = "Rabi"; // Set your desired password here
 
         try {
-            Generate4 generate = new Generate4();
+            Generate6 generate = new Generate6();
             generate.generatePdfWithTable("", headers, data, password);
         } catch (IOException | DocumentException e) {
             e.printStackTrace();

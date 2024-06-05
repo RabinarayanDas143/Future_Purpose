@@ -48,11 +48,13 @@
 			<artifactId>itextpdf</artifactId>
 			<version>5.5.13.3</version>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk15on</artifactId>
-			<version>1.68</version> <!-- Or the latest version -->
-		</dependency>
+			<version>1.68</version>
+		</dependency>--> 
+
+		 
 
 
 	</dependencies>
