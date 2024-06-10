@@ -1,0 +1,52 @@
+1. Difference between save and persist method
+============================================================
+ ->  The return type of Session.save() method is java.io.seriaziable , it return some value as seriaziable object.
+   while the return type of Session.persist() method is void.
+   
+ -> Session.save() method is used inside or outside the transction boundries, but Session.persist() method is
+    used only inside the transction boundries.
+    
+    
+2. Difference between save and saveOrUpdate method
+================================================================
+ -> save() method is used for  insert the record, but saveOrUpdate method is perform for both insert and update , this 
+    method is first check the data is present or not then it perform update operation.
+    
+ -> save() method return some value as as seriaziable object but saveOrUpdate method does not return anything.
+ 
+3. Difference between get and load method
+=================================================================
+ -> Session.load() always return a proxy (fake) object with out hitting the database. if no row found it thows an ObjectNotFoundException.
+    but Session.get() always hit the database and give the real object, if no data found it return null.
+ -> load() is better because it support lazy loading.
+ -> since load() method throws exception when data is not found ,we should use it only when know data is present or not.
+ -> we use get() method when we sure the data is present in data base.
+ 
+ 
+4. First level cache
+================================================================
+ -> First level cache which help the users to get fast running the web application. when we hit the query it first check the cache if the data 
+    is present for this query then it give the result either it hit the data base, it working for only one SessionFactory object.
+ -> First level cache is enabled by default and you can not disable it.
+ -> First level cache is associated with only one session object and other session object can't see it.	
+ -> The session cache can be clear using clear() method.
+ 
+5. Second Level cache
+=================================================================
+ -> second level cache is same like first level cache but difference is the first level cache is associated with only one session object but 
+    second level cache is associate with every session object .
+ -> it does not enable by default, we have to enable it.
+ 
+ 6. Difference between JPA and Hibernate
+ ================================================================
+     JPA
+  -----------
+  -> ORM = Object Relational Mapping tool is help to map the java object to database table
+  -> The java Persistence API provide some guideline for reading and managing data from your java object to data base table.
+  -> JPA implements ORM 
+  -> Traditionally there have been multiple ORM like : Hibernate ,TopLink , OpenJpa
+  
+    Hibenate
+ ---------------
+  -> Hibernate is an object relational mapping tool, that implements JPA.
+  -> In short JPA is the interface while Hibernate is implement JPA

@@ -1,6 +1,6 @@
 package com.example.coreJava;
 
-public class SingletonDesignPatternClone implements Cloneable{
+public class SingletonDesignPatternClone {
 	 private static SingletonDesignPatternClone singletonDesignPatternClone;
 	 
 	public Object clone() throws CloneNotSupportedException{
@@ -8,7 +8,7 @@ public class SingletonDesignPatternClone implements Cloneable{
 		return singletonDesignPatternClone;
 		
 	}
-	public static void main(String[] args) throws CloneNotSupportedException {
+	public static void main(String[] args) throws CloneNotSupportedException   {
 		singletonDesignPatternClone =new SingletonDesignPatternClone();
 		System.out.println(singletonDesignPatternClone.hashCode());
 		

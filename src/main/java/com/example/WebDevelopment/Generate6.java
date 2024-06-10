@@ -22,18 +22,25 @@ import com.itextpdf.text.pdf.PdfPageEventHelper;
 
 public class Generate6 {
 
+	
+	//public static final String CATALINA_HOME="catalina.home";
+	//public static final String Download_path=System.getProperty(CATALINA_HOME);
     private static final int LINES_PER_PAGE = 30;
 
-    public static void generatePdfWithTable(String filePath, List<String> headers, List<String[]> data, String password)
+    public static void generatePdfWithTable(String filePath, List<String> headers, List<String[]> data)
             throws IOException, DocumentException {
         // Create a PDF document
         Document document = new Document();
         File outputFile;
+        
+        
 
         if (filePath == null || filePath.isEmpty()) {
             String userHome = System.getProperty("user.home");
             String downloadsFolder = userHome + File.separator + "Downloads";
             outputFile = new File(downloadsFolder + File.separator + "default_output.pdf");
+        	//String downloadFolder = Download_path+File.separator+"pdf_folder";
+        	//outputFile = new File(downloadFolder + File.separator + "default_output.pdf");
         } else {
             outputFile = new File(filePath);
         }
@@ -42,10 +49,7 @@ public class Generate6 {
 
         PdfWriter writer = PdfWriter.getInstance(document, fileOutputStream);
         
-        // Add password protection
-        writer.setEncryption(password.getBytes(), password.getBytes(), PdfWriter.ALLOW_PRINTING,
-                PdfWriter.ENCRYPTION_AES_128);
-
+         
         // Define a custom page event to add headers
         HeaderEvent4 event = new HeaderEvent4(headers);
         writer.setPageEvent(event);
@@ -103,11 +107,11 @@ public class Generate6 {
             data.add(new String[] { "Name" + i, "Age" + i, "City" + i,"City----1" + i,"City------2" + i,"City-------3" + i,"City------4" + i,"City------5" + i,"City------6" + i,"City------7" + i });
         }
 
-        String password = "Rabi"; // Set your desired password here
+        
 
         try {
             Generate6 generate = new Generate6();
-            generate.generatePdfWithTable("", headers, data, password);
+            generate.generatePdfWithTable("", headers, data);
         } catch (IOException | DocumentException e) {
             e.printStackTrace();
         }

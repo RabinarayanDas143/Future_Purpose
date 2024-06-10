@@ -1,0 +1,170 @@
+ 1> Difference between final,finally,finalize
+   ===========================================================
+   
+   A-> final
+   ---------------
+   ->final is a modifier applicable for class,method,variable . 
+   
+   B-> finally
+   ---------------
+   -> finally is a block always associated with try catch to maintain cleanup code.
+      try{
+        // risky code
+      }catch(X e){
+        // Handling code
+      }
+      finally{
+       // clean up code
+      }
+      
+   C-> finalize()
+   -------------------
+   -> finalize() is a method which is always invoked by GC (Garbage collector) just before destroying an object to 
+      perform cleanup activities.
+      
+      
+ 2> Difference between String and StringBuffer
+ ================================================================
+ 
+           String                                                                              StringBuffer
+   --------------------------------------------------                          ---------------------------------------------------
+   A. Once we create a String object we can't perform any changes          A. Once we create a StringBuffer object we can perform any type of 
+      in the existing object. if we trying perform any changes with            changes in existing object
+      those changes a new object will be created.                          B. StringBuffer is mutable, we can change it after creation.
+   B. String is immutable once it created it not change.
+   
+ 3> Difference between == operator and .equals() method
+ =====================================================================
+  -> we use == operator for reference/address comparison, where as .equals() method content comparison.
+  -> .equals() method is present in object class.
+  -> String class,all wraper class and all collection classes .equals() method overridden for content comparison.
+  
+  
+  4> What are the various modifiers available in java -12
+  ====================================================================
+  -> public, protected, Default, private, final, abstract, static, synchronized, Native, strictfp, transient, volatile
+  
+  class A{     |                         class A {              |
+               |                           static interface B { | for that we have to declare static 
+     class B{  | It's Ok No problem               }             | for inner interface
+               |                          }                     |
+     }         |                                                |
+  }            |
+  
+  
+  interface A {                   |                                            interface A {                   |
+                                  |                                                                            |
+    public static interface B {   |for that we have to declare                     public static class B {     |for that we have to declare 
+                                  |public static for inner interface                                           |public static for inner class
+    }                             |                                                     }                      |
+                                  |                                            }                               |
+  }                               |                                                                            |
+  
+  
+  
+  5> Difference between StringBuffer and StringBuilde
+  ========================================================================
+                   StringBuffer                                            StringBuilder
+      --------------------------------------------             -------------------------------------------------
+      -> StringBuffer is synchronized.                       -> StringBuilder is not synchronized.
+      -> It is thread safe.                                  -> It is not thread safe.
+      -> Perfomance is slow.                                 -> Perfomance is fast.
+      -> Introduced in 1.0v .                                -> Introduced in 1.5v .
+      
+      
+  6> Interface Vs  Abstract  Vs Concrete class
+  ==========================================================================
+  -> If we have only requirement but not any implementation at that time we should go for interface.
+  -> If we have partially implementation at that time we can go for Abstract class.
+  -> If we have complete implementation and ready to provide service at that time we can go for Concrete clas.
+      
+      
+  7> Access specifiers Vs Access modifiers
+  =============================================================================
+  -> In old language like C, C++ public, private, protected, default are consider as Access specifiers but 
+     in java there is no Access specifiers all are by dafault considered as modifiers only.
+  -> public, protected, default, private, final, static, abstract, synchronized, native, strictfp, transient, volatile.
+  
+  
+  8> Difference between interface and abstract class  
+  ==============================================================================
+                      interface                                                            Abstract
+      -------------------------------------------------------                 -------------------------------------------------
+  ->if we know only the requirement but dont't know the implementation      -> if we know the partial implementation then we can go for abstract class.
+    then we can go for interface.
+  ->Inside interface every method is always public and abstract , so that   -> Every method present in Abstract class need not be public and abstract.
+    interface consider as 100% pure abstract class.
+  ->We can't declare interface method with the following modifiers          -> There is no restriction on abstract class method .
+    private, protected, final,static, synchronized, native,strictfp .
+  ->Every variable present in interface is always public, static, final.    -> There is no restriction on abstract class variable . 
+  -> We can't declare interface variable with the following modifiers       -> There is no restriction on abstract class variable modifiers.
+     private, protected, transient, volatile.
+  ->when we declare variable, its compulsory to initialize value otherwise  -> for abstract class variable it is not required to initialize value at declaration 
+    we get compile time error.                                                  time.
+  ->Inside interface we can't declare instance and static blocks, otherwise -> Inside abstract class we can declare instance and static blocks.
+    we will get compile time error.
+  ->Inside interface we can't declare constructor because every variable of  -> Inside abstract we can declare constructor.
+    interface is final and it is initialize at declaration time.
+    
+    
+  9> Explain about System.out.println()
+  =================================================================================
+     class System {
+     
+         static PrintStream out;
+     }
+    System.out.println("Hello");
+   
+  -> System is a class present in java.lang package.
+  -> 'out' is a static variable present in System class of type PrintStream.
+  -> Println() is a method present in PrintStream class.
+  
+ 
+ 10> Explain about public static void main(String[] args)
+ =====================================================================================
+ -> Whether class contain main() method or not and whether main() method is declared according to requirement or not these things won't check by 
+    compiler . At run time, jvm is responsible to check these things.
+ -> At runtime if jvm is unable to find main() method then we will get runtime exception saying NoSuchmethodError:main .
+ 
+   public          -> To call by JVM from any where .
+   static          -> without existing object also JVM has to call this method and main method no way to related any method.
+   void            -> main() won't return anything to JVM .
+   main            -> THis name which is configured inside JVM .
+   (String[] args) -> command line argument.
+   
+   
+ 11> Difference between MethodOverloading Vs MethodOverriding
+ =========================================================================================
+                  MethodOverloading                                                    MethodOverriding
+      -------------------------------------------------------              -----------------------------------------------------------
+   -> Two method are same name but different argument and it        -> Two method are same name same argument but perform in different class 
+      in same class called MethodOverloading.                            is called MethodOverriding.
+   -> Return type is may be same or may be different .              -> Return type is must be same.
+   -> private, static, final method can be overloaded.              -> private, static, final method can't be override.
+   -> for exception throws there is no restriction.                 -> for exception throws if parent class throws checked exception then child class 
+                                                                       throw same checked exception or its parent exception.
+  -> It is also called as compile time polymorphism or              -> It is also called as run time polymorphism or dynamic polymorphism or late binding.
+     static polymorphism or early binding.
+     
+     
+ 12> Various possible combination of try catch finally
+ ========================================================================================
+  -> whenever we are writing try block compulsory we should write catch block or finally .
+  -> Whenever we are writing catch block compulsory we should write try block.
+  -> Whenever we are writing finally block compulsory we should write try block.
+  -> In try catch finally, order is important.
+  -> try with multiple catch blocks is valid but the order is important, compulsory we should take from child to parent.
+     by mistake if we are trying to take from parent to child then we will get compile time error.
+  -> if we are defining two catch blocks for the same exception we will get compile time error.
+  -> we can define try-catch-finally with in the try, with in the catch, with in the finally blocks. Hence nesting of 
+     try-catch-finally is valid.
+  -> for try-catch-finally curly braces are mandatory.
+ 
+  
+  
+  
+  
+  
+  
+ 
+      
