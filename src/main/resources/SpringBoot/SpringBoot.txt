@@ -43,7 +43,41 @@ method is execute just after constructor created .
    -> Once the application context is initialized, the run() method starts the applications 
       embedded web server.
       
- 7>
+ 7> Top SpringBoot annotation
+ ===========================================================================
+  -> @SpringBootApplication : It is the combination of three annotation, @Configuration, @EnableAutoConfiguration and @ComponentScan.
+     it is typically placed on the main class of the application.
+  -> @Component : It is used to mark a class as a spring bean that will be managed by the spring container.
+  -> @Autowired : This annotation is used to automatically inject dependencies in to a Spring-managed bean.
+  -> @Service : This annotation is used to indicate that a class represents a service component in the application. 
+                It is typically used to annotate classes that contain business logic.
+  -> @Controller : When we have map any URL to our class method at that time we are are using this class as a controller.
+  -> @RestController : It is a specialized version of the @Controller annotation that includes the @ResponseBody annotation by default.
+  -> @RequestMapping : Used to map specific URL to method . Used on class as well as method level.
+  -> @Repository : mark a class as DAO. mostly used on class that has database persistent logic.
+  
+ 8> What is SpringBoot Starters 
+ ==========================================================================
+  -> Starters are a collection of pre-configured dependencies that make it easier to develop particular kind of application.
+  -> These starters includes all dependencies, version control, and configuration needed to make certain features of a SpringBoot application functional.
+  
+ 9> What are the dependencies of SpringBoot ?
+ ============================================================================
+  -> Spring-boot-starter-parent
+  -> Spring-boot-starter-plugin
+  -> Spring-boot-starter-test
+  -> Spring-boot-starter-security
+  -> Spring-boot-starter-actuator
+  -> Spring-boot-starter-web
+  
+ 10> What is SpringBoot CLI and what are its benefits ?
+ ===========================================================================
+  -> Command line tool to create, run and manage Spring Boot applications.
+  
+ 11> What is thymeleaf ?
+ =============================================================================
+  -> It is a java based server side templating engine used in java web application to render dynamic web page.
+  
  
  
  
