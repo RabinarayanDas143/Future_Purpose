@@ -142,9 +142,9 @@
    -> Return type is may be same or may be different .              -> Return type is must be same.
    -> private, static, final method can be overloaded.              -> private, static, final method can't be override.
    -> for exception throws there is no restriction.                 -> for exception throws if parent class throws checked exception then child class 
-                                                                       throw same checked exception or its parent exception.
+                                                                       throw same checked exception or its child exception.
   -> It is also called as compile time polymorphism or              -> It is also called as run time polymorphism or dynamic polymorphism or late binding.
-     static polymorphism or early binding.
+     static polymorphism or early binding.                          -> If parent class throws unchecked exception then child class throws only unchecked Exception.
      
      
  12> Various possible combination of try catch finally
@@ -159,6 +159,55 @@
   -> we can define try-catch-finally with in the try, with in the catch, with in the finally blocks. Hence nesting of 
      try-catch-finally is valid.
   -> for try-catch-finally curly braces are mandatory.
+  
+ 13> Difference between Exception and Error
+ ==========================================================================================
+  -> Exception is unwanted or unexpected event i.e occour during the execution of program. It is occour in compile time.
+  -> Error is a serious problem, that should not try to catch our application. It is occour in run time.
+  -> Throwable class acts as root for java exception hierarchy.
+  -> Most of the time errors are not caused by our program these are due to lack of system resources.
+  -> errors are not recoverable.
+  
+  
+  14> Difference between Checked exception and Unchecked Exception
+  =========================================================================================
+   -> The exception which are checked by compiler at compile time is called checked exception
+      Ex : FileNotFoundException
+   -> The exception which are not checked by compiler at compile time is called unchecked exception.
+      Ex : ArithmaticExcfeption, NullPointerException.
+   -> Whether exception is checked or unchecked, compulsory it will occur only at run time. There is no chance
+      of occuring any exception at compile time.
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+      
+   
  
   
   

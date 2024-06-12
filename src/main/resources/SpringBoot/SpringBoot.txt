@@ -6,3 +6,59 @@ method is execute just after constructor created .
 
 2. Alternate use of @PreDestroy is DisposableBean interface , this interface give Destroy() , this method is execute 
    before object destroyed.
+   
+ 3> What is SpringBoot
+ ==========================================================================
+  -> SpringBoot is a java framework that makes it easier to create and run java application.
+  -> It simplifies the configuration and setup process, allowing developers to focus more on writing code 
+     for their application.
+  -> SpringBoot, is a module of spring framework, facilitates Rapid Application Development (RAD) capabilities.
+  -> SpringBoot solve many developers problem :
+       a. Configuration
+       b. Dependency management
+       c. Embedded Server
+       
+ 4> Why SpringBoot over Spring ?
+ ===========================================================================
+  -> It's easy to use - Remove boilerplate code.
+  -> Production Ready application - Metrix, Health Check, production ready application.
+  -> Rapid development - auto-configuration enable developers to quick develop apps.
+  -> provide dependency management.
+  -> Auto-configuration.
+  -> Embedded server.
+  
+ 5> Working of SpringBoot
+ ============================================================================
+  -> SpringBoot starts by scanning the starter dependencies in pom.xml .
+     Then download and auto-configure the module as you include in pom.xml .
+  -> For example we have to create web application then we have to put spring-boot-starter-web dependency in pom.xml .
+     when we start the project spring boot downloads all the dependency required for web and configure the thing 
+     like spring mvc.
+     
+ 6> How Spring Boot starts ?
+ ===========================================================================
+   -> Starts by calling main() method of you main class.
+   -> The run() method of SpringApplication is called. This method starts the spring application by 
+      creating an application context and initializing it.
+   -> Once the application context is initialized, the run() method starts the applications 
+      embedded web server.
+      
+ 7>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,62 @@
+ 1> What is React
+ ===============================================
+  -> React is javascript Library.
+  -> The main focus is building UI as fast as possible.
+  -> So this is used to single page application, means complete website in single page.
+  
+ 2> Why React is fast
+ =========================================
+   -> React use virtual Dom.
+       a. React Dom -> It is update complete List.
+       b. Virtual Dom -> update only Required list. 
+       
+ 3> Why learn React
+ ==================================================
+  -> It is maintained by facebook, so it will long term player in the market.
+  -> High demand due to fast speed.
+  -> Large community for your support.
+  -> we can use mobile app development with React-Native.
+  
+ 4> History & Version
+ ==================================================
+  -> Maintained by facebook.
+  -> First release on 29 may 2013.
+  -> The current version is 18.0.0
+  -> Apps with React is : NetFlix, Whatsapp web, Instagram.
+  
+ 5> What is npm 
+ =====================================================
+  -> npm stands in node package manager. 
+  -> We can use alternate of npm is yarn.
+  
+  
+ -> In package.json file we can get the current version of react. also this file contains all commands and 
+    all package which we are imported, all this present in package.json file.
+    
+ -> In package-lock.json file, it control the package.json file means it contains all the history of our package also
+    it control the version of this package. 
+ -> In package-lock.json file, it control of our node module.
+ 
+ 6> Which one is most important file in React project
+ ===================================================================
+  -> Most important file is package.json file.
+ 
+ 7> Why we are not push the node_module file in git
+ ==================================================================
+  -> Because node_module size is big it contains all the file, if we are push in git it take lots of time for that.
+     if anathor developer want this file then he can use command 'npm install' , this command take the dependency 
+     from package.json file and install it automatically.
+     
+ 8> How to add new npm package
+ ===================================================================
+   -> Which package we have to install for that we have to copy the package and run the command npm 'Your package name' 
+      it install all the libraries in node_module according this.
+   -> If we want to change some package version or remove any package just we have to modify it in package.json file and 
+      run the command npm install , it automatically change the corresponding libraries version and if any libraries 
+      are not required then it delete those libraries.
+  
+  
+  
+  
+  
+  
