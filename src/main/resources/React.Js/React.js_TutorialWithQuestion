@@ -54,6 +54,24 @@
    -> If we want to change some package version or remove any package just we have to modify it in package.json file and 
       run the command npm install , it automatically change the corresponding libraries version and if any libraries 
       are not required then it delete those libraries.
+      
+ 9> functional Component
+ ===================================================================
+  -> A piece of code that can be reuse such as function, but more powerful than function .
+  -> Component type : 
+                     - Functional Component
+                     - Class Component
+                     - HOC (High order Component)
+                     - Pure Component
+                     - Controlled Component
+                     - Uncontrolled Component
+  -> We can create a component inside anathor component. 
+  
+ 10> JSX with React
+ =====================================================================
+  -> JavaScript xml .
+  -> JSX give the power we can write HTML code inside js .
+ 
   
   
   
