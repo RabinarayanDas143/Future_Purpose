@@ -78,6 +78,102 @@ method is execute just after constructor created .
  =============================================================================
   -> It is a java based server side templating engine used in java web application to render dynamic web page.
   
+ 12> What is IOC container ?
+ =============================================================================
+  -> Inverting the control of creating object using new keyword to container or framework.
+  
+ 13> Explain the Spring Bean life cycle
+ ==============================================================================
+  -> life cycle means 
+     ------------------------------
+     - How object is born
+     - How it behaves 
+     - How it dies
+     
+  -> Spring bean life cycle is maintained by IOC container
+    -------------------------------------------------------------
+     - Container get started 
+     - Container creates the object of bean as per request.
+     - Dependencies is created.
+     - Dependencies is injected.
+     - Destroyed when container closed.
+     
+     Container start ---> Bean create ---> Dependency injected ---> Bean used ----> Bean Destroy when Container close.
+     
+  -> @PostConstruct -- when we want execute instance some code after creation of bean at that time we have to use @PostConstruct.
+  -> @PreDestroy -- when we want to execute some code before bean destroy at that time we have to use @PreDestroy.
+  -> for implementing life cycle we have to use 
+       -- Using Annotation
+       -- Using XML
+       
+       
+  -> What is bean Factory
+  ================================================================
+   -> This is a root interface of Spring container.
+   -> It is the actual container that instantiates, configures and manages a number of bean.
+   -> BeanFactory - it is available in org.springFramework.beans.factory package.
+   
+   
+ -> What is the difference between BeanFactory and ApplicationContext in Spring 
+ =======================================================================================
+  ->  BeanFactory represents spring container. It represents all the features of IOC container. 
+  -> ApplicationContext is the sub interface of BeanFactory, it represents all the features of BeanFactory also 
+     it provides some extra features.
+     
+     
+ -> Difference between the Constructor and setter injection in Spring
+ ========================================================================================
+  -> In Constructor injection is important to remember the type and order of constructor and parameter.
+  -> Constructor injection is for mandatory Dependencies and setter is optional.
+  
+  
+ -> Difference between @Autowired and @inject annotation in Spring
+ ==========================================================================================
+  -> The @inject annotation also serves the same purpose as @Autowird.
+  -> The main difference between them is that @inject is Standard annotation for dependency injection and 
+     @Autowired is spring specific.
+     
+     
+ -> Difference between @Bean and @Component annotation in Spring
+ =============================================================================================
+   -> @Component is prefer for component scanning and automatic wiring .
+   -> @Bean annotation return an object that spring should register as bean in application context. 
+      The body of the methods bears the logic responsible for creating the instance.
+      
+      
+ -> What is autowiring in Spring ?
+ ===========================================================================================
+  -> Injecting the beans automatically . We don't need to write explicit injection logic.
+  
+  
+ -> What are the different bean scope in spring ?
+ ====================================================================================
+   -> Singleton - The bean instance will be only once and same instance will be returned by the IOC container. 
+                  It is the default scope.
+   -> Prototype - The bean instance will be created each time when requested.
+   -> Request - The bean instance will be created per HTTP request.
+   -> Session - The bean instance will be created per HTTP session.
+   -> GlobalSession - The bean instance will be created per HTTP Global session. It can be used in portlet context only.
+   
+   
+ -> How SpringBoot application start 
+ ============================================================================================
+  -> When Application Started then IOC container started then it construct the bean with the help of 
+     annotatin or XML configuration . After bean creation it inject the Dependency in to constructed Bean ,
+     then if we want to execute a method after bean creation then we have annotated this method @PostConstruct.
+     After that we have to use bean . Before destroying the bean if want to execute any method then we have to 
+     annotated this method @PreDestroy, after complete all the work bean is Destroyed.
+     
+                               
+     Application Start ----> IOC Container start ----> Construct Bean ----> Inject Dependency into Constructed Bean
+                             (Configuration loaded)                                     |
+                                                                                        |
+                                                                                        |
+                                                                                        |
+                                                                                        |   
+                                                                                        |
+                    Bean Destroyed <---- @PreDestroy <------ Use the Bean <----- @PostConstruct                                                                              
+   
  
  
  

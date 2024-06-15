@@ -72,7 +72,19 @@
   -> JavaScript xml .
   -> JSX give the power we can write HTML code inside js .
  
-  
+ 11> State in Functional Component
+ =======================================================================
+  -> State is basically a object which is contain some data.	
+  -> if we are using var/let for store the value, when we are update var/let at that time the variable is not update 
+     in every places.
+  -> But if we are use state at that time when we are update some value in variable it reflected in every places ,
+     means it rerender the component, when we are use state, if any changes come in state it automatically rerender the 
+     component for that update value showing in every place.
+     
+ IQ -> state is public or private ?
+       - state is public .
+       
+ IQ -> can we use useSatate in class component ?
   
   
   
