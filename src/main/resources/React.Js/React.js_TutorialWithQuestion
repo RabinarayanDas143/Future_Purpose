@@ -85,6 +85,17 @@
        - state is public .
        
  IQ -> can we use useSatate in class component ?
+      
+      - No, because useState is a hooks and it is not applicable for class component.
+ 
+ 
+  12> Props with Functional Component
+  ======================================================================
+  -> Props is like argument, when we are create a component and pass some argument at that time with the help of props 
+     we can pass the argument.
+     
+ IQ -> Can we change the value of Props in receiver component ?
+        - No, We can't change the props value in receiver component , it only change in sender component.
   
   
   

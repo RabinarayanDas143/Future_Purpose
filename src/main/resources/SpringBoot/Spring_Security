@@ -1,0 +1,116 @@
+ 
+ Spring Security --- Spring Security is a framework which provides various security features
+                     like: authentication, authorization to create secure Java Enterprise Applications.
+ 
+ 
+ 1> Importance of Spring security
+ ==========================================================
+  - Privacy protection
+  - Trust
+  - Integrity
+  - Compliance
+  
+  2> Role of Spring Security within the Spring Ecosystem
+  ======================================================================
+   - Spring framework
+   - Spring boot 
+   - Spring Data
+   - Spring Security
+         -- Authentication
+         -- Authorization
+         
+         
+  3> Authentication and Authorization
+  =======================================================================
+   -> Authentication - Authentication is proving who you are.
+   -> Authorization - Authorization is about what you're allowed to do after you've proven who you are.
+   
+  4> Key Security principles
+  =======================================================================
+   -> Least privilege.
+       - Users have assign minimum number of access to perform the assign task.
+   -> Secure by Design
+      - Means the architecture of security before creating the application.
+   -> Fail-Safe Default
+      - System should be design in secure with out using external configuration.
+   -> Secure Communication 
+      - Means whatever data you sending or retrive it should encrypt and decrypt format.
+   > Input validation
+     - Input data which have use like API, it should validate from external attack like SQLInjection etc.
+      
+                      Filter Chain
+                    |=====================|
+                    |                     |                   |================|
+      Request       |                     |                   | Your           |
+    ------------->  |                     |----------------->>|    Application |
+                    |                     |                   |  Controller    |
+    <-------------  |                     |                   |================|
+      Response      |=====================|                                                                                matches()
+                              |                                                                                          |=================|
+                              |                                                                                          |                 |
+                              |                                                                            |------------>| PasswordEncoder |
+                              |                                                                            |             |=================|
+                              |                                                                            |
+                              |                                           |==========================|     |
+                              |                       |-------------------| Authentication Provider  |-----|
+                              |                       |                   |	                         |     |
+                              |                       |                   ===========================      |           loadByUsername()
+                   =========================          |                                                    |             |===================|
+                   |                       |          |                                                    |------------>| UserDetailsService|
+     ------------- | Authentication Filter |          |                                                                  |                   |
+     |             |                       |          |                                                                  |====================
+     |             =========================          |                                                                          |
+     |                |              |                |  authenticate()                                                          |
+  Security            |              |                |                                                                          |  findByUsername()
+      Context         |              |                |                                                                          |
+                      |              |                |                                                                          |
+                   ==========================         |                                                             **********************************
+                   |                        |         |                                                            $                                 $
+                   |Authentication Manager  |----------                                                            #         DATABASE                #
+                   |                        |                                                                      $                                 $
+                   ==========================                                                                      #**********************************
+   
+   -> When request come to the application first it come to the filter chain , there is one Filter is Authentication Filter.
+   -> Authentication Filter creates the object of authentication.
+   -> Authentication Manager takes this object and ask to Authentication Provider to verify this object.
+   -> Authentication Provider use UserDetailsService and PasswordEncoder to authenticate with DateBase.
+   -> Once it matches your details then it provide the access to the application.
+   -> There is many number of Authentication Provider like : DaoAuthenticationProvider , LdapAuthentication Provider, jdbcAuthentication Provider
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
