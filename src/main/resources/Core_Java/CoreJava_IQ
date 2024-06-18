@@ -177,6 +177,94 @@
       Ex : ArithmaticExcfeption, NullPointerException.
    -> Whether exception is checked or unchecked, compulsory it will occur only at run time. There is no chance
       of occuring any exception at compile time.
+      
+      
+  15> Explain the FailFast iterator and FailSafe iterator with example
+  =========================================================================================
+               FailFast iterator                                               FailSafe iterator
+    --------------------------------------------------              -----------------------------------------------------
+    -> It is immediately stop the iteration if any changes         -> It don't stop the iteration if any changes occured.
+       occured.
+    -> Doesn't allow modification of a collection while iterating  -> Allow modification of a collection while iterating over it.
+       it. if we try to modify, they will throw
+       concurrentModifiction Exception.
+    -> They use original collection to traverse over the element   -> They use copy of the collection to traverse over the element
+       of the collection.                                             of the collection.
+    -> Ex : ArrayList, HashMap                                      -> Ex: CopyOnWriteArrayList, ConcurrentHashMap
+       
+  
+  16> What is the difference between Factory pattern and abstract Factory pattern
+  =========================================================================================
+                 Factory pattern                                                         abstract Factory pattern
+    ------------------------------------------------------------               ----------------------------------------------------------------
+    -> In Factory pattern we are creating object, but it create object         -> abstract Factory pattern is a pattern of pattern.
+       at that time when a specific condition is satisfied.                    -> it is use to create same type of object ,that are dependent in each other.
+    -> It is use when we want to create object in conditional basis.
+  
+  
+  17> What is the marker interface 
+  ======================================================================================
+    -> Marker interface is the interface it doesn't have any method declaration .
+    -> It provide some specific permission to the object for perform some specific task.
+    
+    
+  18> When Finally block doesn't get executed
+  ==================================================================================
+    -> when we write System.exit(0); inside try block at that time finally block doesn't execute.
+    
+  
+  19> How does garbage collection work in java
+  ========================================================================================
+   -> Garbage means unreferenced objects.
+   -> Garbage collection is a process of destroy the unused objects.
+   -> It is perform automatically, it called by JVM.
+   -> Garbage collector of JVM collect only those object that are created by new keyword.
+      So if you have created any object without using new, you can use finalize() method to perform cleanup processing.
+  
+  20> Difference between ClassNotFound VS NoClassDefError
+  ==============================================================================
+                 ClassNotFound Exception                                                   NoClassDefFoundError
+    ---------------------------------------------------------            ---------------------------------------------------- 
+    ->  When we provide class name dynamically in program and it              ->When we hardcode a class name in our program and when it's .class
+        didn't find it's .class file in run time at that time we                file didn't find in run time at that time we get
+        get ClassNotFound Exception.                                             NoClassDefFoundError Exception.
+    -> It is Checked Exception.                                               -> It is a unchecked Exception. 
+         
+  
+  21> How to break Singleton
+  ===========================================================================
+   -> For break the Singleton Design pattern we can use Reflection API , using clone method or use Serialization and Deserialization 
+   
+   
+  22> How does subString() method work inside String class
+  ======================================================================================
+  
+  
+  23> What is a classloader
+  =======================================================================================
+  
+  
+  24> what is the difference for creating object of String using new keyword and using String literal
+  ===========================================================================================================================
+  
+  
+  25> What is the differenc between Executor.submit() and Executor.execute()
+  ==========================================================================================================================
+  
+  26> What do you understand by java Memory model
+  ==================================================================================================
+  
+  27> How to make a class immutable ? Why it is needed ?
+  ==========================================================================================
+  
+  28> Can you use HashMap in multi-threaded envarioment ? What can be the problem ?
+  =================================================================================================
+  
+  29> Can you write critical section code for the Singleton?
+  ==============================================================================================
+  
+  30> What is Singleton? is it better to make the whole method synchronized or only the critical section synchronized ?
+  =============================================================================================================================
    
    
    
