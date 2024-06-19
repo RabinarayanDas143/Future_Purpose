@@ -96,6 +96,25 @@
      
  IQ -> Can we change the value of Props in receiver component ?
         - No, We can't change the props value in receiver component , it only change in sender component.
+        
+ 13> Life Cycle method in React
+ ===============================================================================
+  -> Mounting --> ComponentDidMount
+  -> Updating --> ComponentDidUpdate
+  -> UnMounting --> ComponentWillUnmount
+  
+  -> When life cycle method is Run
+     - When Component is load
+     - When Component is update with state and props
+     - When Component is removed.
+     
+ IQ -> if i remove a component then load it once again, then what happen can it's life cycle start from new or it use old life cycle
+      A -> it's life cycle start from new .
+ 
+  -> We can't use life cycle method directly in functional component for that we have to use HOOKs.
+  -> Why we are using constructor in class component ?
+     A-> BCZ, when we load the class component first it ready the  constructor , when we want to do something before ready our
+         HTML code , for that we have to use constructor in class component.
   
   
   

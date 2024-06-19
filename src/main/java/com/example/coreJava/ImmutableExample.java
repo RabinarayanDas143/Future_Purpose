@@ -49,6 +49,7 @@ public class ImmutableExample {
 	public static void main(String[] args) {
 		List<String> friends =Arrays.asList("Ram","Shyam","Kolia");
 		ImmutableEmployee obj =new ImmutableEmployee(1, "Rabi", friends);
+		System.out.println(obj);
 		obj = new ImmutableEmployee(2,"ankit",friends);
 		System.out.println(obj);
 		//friends.add("Amol");

@@ -238,34 +238,66 @@
    
   22> How does subString() method work inside String class
   ======================================================================================
-  
+   -> The substring() function is implemented in the String class in Java.
+   -> It copy the required character and create a new String object.
   
   23> What is a classloader
   =======================================================================================
+   -> Classloader is a subsystem of JVM, it load the .class file at project run time.
+   -> We have 3 type of classloader
+        - BootStrap ClassLoader - it load the rt.jar
+        - Extension ClassLoader - it load the ext.jar
+        - Application ClassLoader - it load application class file
   
   
   24> what is the difference for creating object of String using new keyword and using String literal
   ===========================================================================================================================
-  
+   -> When we are creating String object using new keyword, every time it create a new String object in heap memory and also
+      it create a String literal in String constant pool. 
+   -> When we create a String object using String literal it create a String object in String Constant Pool and 
+      when we create anathor object and store same value, it refer to the same location, it doesn't create new object.
   
   25> What is the differenc between Executor.submit() and Executor.execute()
   ==========================================================================================================================
-  
+    -> Executor.execute() it execute the task which are assign to Runnable interface.
+    -> Executor.execute() it doesn't return anything .
+    -> Executor.submit() it execute the task which are assign to callable interface.
+    -> Executor.submit() it return some value to the user and its return type is Future.
+    -> Future is a interface.
+    
+    
   26> What do you understand by java Memory model
   ==================================================================================================
   
   27> How to make a class immutable ? Why it is needed ?
   ==========================================================================================
+   -> Declare the class as final so it can’t be extended.
+   -> Make all of the fields private so that direct access is not allowed.
+   -> Don’t provide setter methods for variables.
+   -> Make all mutable fields final so that a field’s value can be assigned only once.
+   -> Initialize all fields using a constructor.
+   -> It needed at that time when we want to do not change our object value once it declare.
+   
   
   28> Can you use HashMap in multi-threaded envarioment ? What can be the problem ?
   =================================================================================================
+   -> No, We can't use HashMap in multi-threaded envarioment, bcz HashMap is not synchronized and is not thread-safe. 
+   -> if we are using it and perform some concurrent modification it throws an error : ConcurrentModification Exception.
+   
   
   29> Can you write critical section code for the Singleton?
   ==============================================================================================
+   -> Yes, we can write critical section code for the Singleton.
+   -> Ex: When we establish a database connection and call the connection object multiple time
+          it give the same object, it doesn't create new connection object.
   
   30> What is Singleton? is it better to make the whole method synchronized or only the critical section synchronized ?
   =============================================================================================================================
-   
+   -> Singleton means it create only one object of a class.
+   -> In java when we use Singleton concept it create only one object of a class, if i call multiple times
+      of that class object it give same object.
+   -> if you make the method synchronized then a thread lock this method , it can't allow other thread to access this method.
+   -> So, it is better to put only citical code in synchronized block.
    
    
    
