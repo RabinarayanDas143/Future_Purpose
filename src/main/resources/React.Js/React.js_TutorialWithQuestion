@@ -115,6 +115,51 @@
   -> Why we are using constructor in class component ?
      A-> BCZ, when we load the class component first it ready the  constructor , when we want to do something before ready our
          HTML code , for that we have to use constructor in class component.
+         
+  14> ComponentDidMount() & ComponentDidUpdate()
+  ==============================================================
+   -> It call when your HTML and Css code is ready after that it call.
+   -> Basically it is use when we are calling API at that time we are use.
+   
+   IQ -> which one first call render() or ComponentDidMount()
+      A-> first call render() after that it call ComponentDidMount().
+      
+   -> When our HTML code is ready after that ComponentDidMount() is execute. ComponentDidUpdate() is run when 
+      any state or props is update.
+   -> ComponentDidMount() is not effect for state and props.
+   -> if any update perform in state or props after that ComponentDidUpdate() is call.
+   
+   IQ -> Can we perform setState inside render() ?
+      A-> No, bcz any update of state and props render() call again, if we use setState inside render()
+          it going to infinite loop.
+          
+          
+  15> shouldComponentUpdate()
+  =======================================================================================
+    -> it call on the conditional basis.
+    -> it stop the specific rendering in a specific condition.
+    -> 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+          
+ 
+  
   
   
   

@@ -300,6 +300,27 @@
    -> So, it is better to put only citical code in synchronized block.
    
    
+  31> How do you avoid deadlock in java ?
+  =================================================================================
+  -> Avoid Unnecessary Locks: We should use locks only for those members on which it is required.
+     Unnecessary use of locks leads to a deadlock situation.
+  -> Avoid Nested Locks: Another way to avoid deadlock is to avoid giving a lock to multiple threads
+     if we have already provided a lock to one thread. Since we must avoid allocating a lock to multiple threads.
+  
+  
+  32> How can you avoid serialization in the child class if the base class is implementing the serialization interface ?
+  ==============================================================================================================================
+   -> You can override the writeObject() and readObject() methods in the subclass and throw NotSerializableException.
+      This approach allows you to control the serialization process explicitly.
+      
+      
+  33> What is the ConcurrentHashMap in java and how do you implement it ?
+  ===============================================================================================
+   -> ConcurrentHashMap is a Map implementation class that allow us to modify the Map while iteration. 
+   -> The ConcurrentHashMap operations are thread-safe. ConcurrentHashMap doesn't allow null for keys and values.
+  
+   
+   
    
    
    
