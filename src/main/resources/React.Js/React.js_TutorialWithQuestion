@@ -138,7 +138,48 @@
   =======================================================================================
     -> it call on the conditional basis.
     -> it stop the specific rendering in a specific condition.
-    -> 
+  
+  16> ComponentWillUnmount()
+  ====================================================================
+   -> When Component is removed from DOM at that time  ComponentWillUnmount() is call.
+   -> It is call just before component removed.
+   -> Basically it is used for cleanup activities.
+   
+   
+  IQ -> ComponentDidUpdate() and shouldComponentUpdate() which one first call ?
+  =============================================================================================
+   A-> shouldComponentUpdate() is call first , when a certain condition is satisfied at that time shouldComponentUpdate() is call .
+       
+  IQ -> If our parent component is functional component and our child component is class component , then can ComponentWillUnmount() is call ?
+  =================================================================================================================================================
+   A-> Yes it is call
+   
+   
+ 17> Hooks in React.js
+ ==============================================================================================
+ -> Life cycle method is used in class component but when we use life cycle method in functional component
+    at that time we use HOOKS.
+ -> Hooks always start with 'use' word.
+ 
+ 
+ 18> What is useEffect in React.js
+ ============================================================================================
+  -> The life cycle method in class Component like ComponentDidMount(),ComponentDidUpdate(),ShouldComponentUpdate(),ComponentWillUnmount() 
+     same like in functional component Hooks use as a life cycle method. 
+  -> useEffect is a Hooks, it is use as a life cycle in functional component.
+  -> useEffect Hook is a combination of ComponentDidMount(),ComponentDidUpdate(),ShouldComponentUpdate(),ComponentWillUnmount().
+  
+  IQ-> Can we use Hooks in class component ?
+  =========================================================================================
+  -> No, We can't use Hooks in class component.
+  
+  IQ-> Can we use any function inside useEffect() ?
+  ==========================================================================================
+   A -> Yes.
+  
+  IQ-> Can we use useEffect() inside any function() ? 
+  ===========================================================================================
+   
   
   
   

@@ -76,7 +76,52 @@
    -> Authentication Provider use UserDetailsService and PasswordEncoder to authenticate with DateBase.
    -> Once it matches your details then it provide the access to the application.
    -> There is many number of Authentication Provider like : DaoAuthenticationProvider , LdapAuthentication Provider, jdbcAuthentication Provider
+    
+    
+ 5> What is Hashing
+ =============================================================================
+  -> Hashing is the process is that it convert the normal string to encrypted format, it is called Hashing.
+  -> Hashing is a algorithm that is used bcrypt involve using salting.
+  
+      String password = "Rabi@123";      String str = "hkdfjka"; (Random string)
+      
+                        password  +  str
+                                 |
+                                 |
+                                 | bcrypt algorithm is used for Hashing
+                                 |
+                                 |
+                        $hksdb2223^%^$dlsh/auh&(^andk#@%#  ( Hashing value )
+                        
+  -> For password encoding we have to use PasswordEncoder class and internally it implements BCryptPasswordEncoder.
+     it returns the object of BCryptPasswordEncoder();
+     
+     
+ 6> With out JWT authentication (JSON Web Token)
+ ======================================================================================
+   -> No advance feature like expiration time.
+      Ex: if you authorize some one for your application there is no time limit available so those person but
+          these feature is available in JWT .
+   -> Should we go for custom token system.   
+   -> for implementing JWT we need some files.
+         - JwtUtils
+         - AuthTokenFilter
+         - AuthEntryPointJwt
+         - SecurityConfig.
          
+     - JwtUtils : - It contains utility method for generating, parsing, and validating JWT.
+                  - It include generating a token from a username, validating a JWT and extracting the username from a token.
+     - AuthTokenFilter : - Filters incoming request to check for a valid JWT in the header, setting the authentication context
+                           if the token is valid.
+                       - Extract JWT from request header, validates it and configure the spring security context with                            
+                           user details if the token is valid.   
+     - AuthEntryPointJwt : - provides custom handling for unauthorized request, typically when authentication is required
+                             but not supplied or valid. 
+                           - When an unauthorized request is detected, it logs the error and returns a JSON response with 
+                             an error message, status code, and the path attempted.
+    - SecurityConfig : - Configure Spring Security filters and rules for the application.
+                       - Sets up the security filter chain, permitting or denying access based on paths and roles.
+                         it also configures session management to stateless, which is crucial for JWT usage.
          
          
          
