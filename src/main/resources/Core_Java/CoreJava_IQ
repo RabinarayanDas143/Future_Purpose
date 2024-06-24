@@ -319,6 +319,46 @@
    -> ConcurrentHashMap is a Map implementation class that allow us to modify the Map while iteration. 
    -> The ConcurrentHashMap operations are thread-safe. ConcurrentHashMap doesn't allow null for keys and values.
   
+  
+  34> What is Java 
+  =====================================================================================
+   -> Java is a object oriented programming language that is developed by james Gosling at Sun Microsystem in 1995.
+   -> It is simple to use , secure, multithreded and platform independent.
+  
+  35> What are the main features of Java
+  ==============================================================================
+   -> The main features of java is 
+      - Simple and Easy to Learn. Java is easy to learn and simple to use as a programming language. ...
+      - Object-Oriented Programming. ...
+      - Platform Independence. ...
+      - Automatic Memory Management. ...
+      - Security. ...
+      - Multithreading. ...
+      - High Performance.
+      
+      
+  36> What is JVM
+  ==================================================================================
+   -> JVM stands in Java virtual mechine, it is used for automatic memory management, convert the bytecode to mechine code.
+   -> The JVM acts as an interpreter between the Java programming language and the underlying hardware. 
+   -> It provides a runtime environment for Java applications to run on different platforms and operating systems.
+   
+   
+  37> What is JRE and JDK
+  =====================================================================================
+    JRE :
+   -> JRE stands in Java Runtime Environment , it provide a runtime environment to run java application.
+   -> It contains set of libraries + other files that JVM uses at runtime. 
+    
+    JDK:
+   -> JDK stands in JAVA Development Kit.
+   -> It provides a development environment to developed java application, It contains JRE + development tools.
+   
+   
+   38> What are the Java access specifiers
+   =======================================================================================
+   -> In java there is no access specifiers all are java modifiers.
+   -> in Java, Access modifiers help to restrict the scope of a class, constructor, variable, method, or data member.
    
    
    
