@@ -179,9 +179,14 @@
   
   IQ-> Can we use useEffect() inside any function() ? 
   ===========================================================================================
-   
+   A-> No, useEffect() cannot be used directly inside any regular function.
+      useEffect() is a React Hook and is designed to be used only in React functional components or
+      other custom hooks that are defined as functions and called within React components.
   
-  
+  IQ-> In React for looping an element what are using loop Or map() ?
+  ==================================================================================================
+   -> In React for looping we have to use map() instead of loop. 
+   -> BCZ inside return statement loop is not supported so that we have to use map().
   
   
   

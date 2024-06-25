@@ -124,13 +124,28 @@
                          it also configures session management to stateless, which is crucial for JWT usage.
          
          
+        |  1. User tries to Login ---->                   |
+        |                                                 |
+        |                                                 | 2. Token Generation
+        |                                                 |
+        |                                                 |
+        |   <------------ 3. Token is issued to user      |
+        |                                                 |
+ USER   |                                                 | SERVER
+        |                                                 |
+        | 4. Token sent in API Request ------------->     |
+        |                                                 |
+        |                                                 |
+        |                                                 |5. Token Validated
+        |                                                 |
+        |  <---------- 6. Request authorized if valid,    |
+        |                    else error                   |
          
          
          
          
          
-         
-         
+                                                                           
          
          
          
