@@ -188,7 +188,11 @@
    -> In React for looping we have to use map() instead of loop. 
    -> BCZ inside return statement loop is not supported so that we have to use map().
   
-  
+  IQ> What is React Fragment ?
+  ========================================================================================
+  -> React Fragment is a pattern it handle multiple component or multiple element.
+  -> When we use multiple element we are wrap the multiple element in a <div> tag, instead of
+     this we can use Fragment. <> </>
   
   
   

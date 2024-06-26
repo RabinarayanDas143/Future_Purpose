@@ -107,46 +107,46 @@ method is execute just after constructor created .
        -- Using XML
        
        
-  -> What is bean Factory
+  14> What is bean Factory
   ================================================================
    -> This is a root interface of Spring container.
    -> It is the actual container that instantiates, configures and manages a number of bean.
    -> BeanFactory - it is available in org.springFramework.beans.factory package.
    
    
- -> What is the difference between BeanFactory and ApplicationContext in Spring 
+ 14> What is the difference between BeanFactory and ApplicationContext in Spring 
  =======================================================================================
   ->  BeanFactory represents spring container. It represents all the features of IOC container. 
   -> ApplicationContext is the sub interface of BeanFactory, it represents all the features of BeanFactory also 
      it provides some extra features.
      
      
- -> Difference between the Constructor and setter injection in Spring
+ 15> Difference between the Constructor and setter injection in Spring
  ========================================================================================
   -> In Constructor injection is important to remember the type and order of constructor and parameter.
   -> Constructor injection is for mandatory Dependencies and setter is optional.
   
   
- -> Difference between @Autowired and @inject annotation in Spring
+ 16> Difference between @Autowired and @inject annotation in Spring
  ==========================================================================================
   -> The @inject annotation also serves the same purpose as @Autowird.
   -> The main difference between them is that @inject is Standard annotation for dependency injection and 
      @Autowired is spring specific.
      
      
- -> Difference between @Bean and @Component annotation in Spring
+ 17> Difference between @Bean and @Component annotation in Spring
  =============================================================================================
    -> @Component is prefer for component scanning and automatic wiring .
    -> @Bean annotation return an object that spring should register as bean in application context. 
       The body of the methods bears the logic responsible for creating the instance.
       
       
- -> What is autowiring in Spring ?
+ 18> What is autowiring in Spring ?
  ===========================================================================================
   -> Injecting the beans automatically . We don't need to write explicit injection logic.
   
   
- -> What are the different bean scope in spring ?
+ 18> What are the different bean scope in spring ?
  ====================================================================================
    -> Singleton - The bean instance will be only once and same instance will be returned by the IOC container. 
                   It is the default scope.
@@ -156,7 +156,7 @@ method is execute just after constructor created .
    -> GlobalSession - The bean instance will be created per HTTP Global session. It can be used in portlet context only.
    
    
- -> How SpringBoot application start 
+ 19> How SpringBoot application start 
  ============================================================================================
   -> When Application Started then IOC container started then it construct the bean with the help of 
      annotatin or XML configuration . After bean creation it inject the Dependency in to constructed Bean ,
@@ -172,7 +172,78 @@ method is execute just after constructor created .
                                                                                         |
                                                                                         |   
                                                                                         |
-                    Bean Destroyed <---- @PreDestroy <------ Use the Bean <----- @PostConstruct                                                                              
+                    Bean Destroyed <---- @PreDestroy <------ Use the Bean <----- @PostConstruct  
+                    
+                    
+  20> Can you explain the caching mechanism available in Spring boot ?
+  ==========================================================================================
+  -> Caching is like a memory box where we can store things we use frequently.
+  -> It make our application faster and more efficient.
+  -> There is a Spring cache Abstraction in Spring Boot and it is like a smart memory layer for our application.
+  
+  
+  21> How Would you implement caching in a Spring Boot Application.
+  ========================================================================================
+  -> To implement caching in our application, first add a caching dependency, like spring-boot-starter-cache .
+  -> Then enable caching in the application by adding @EnableCaching annotation to the main class.
+  -> for doing cacheable operation for those method we want to store in cache, using @Cacheable annotation on this method.
+  
+  
+  22> Your Spring Boot application is face perfomance issues under high load. What are the steps you would to take identify 
+      and address the perfomance ?
+  ==============================================================================================================================
+  -> For identifying the pefomance issues using monitoring tool like Spring Boot Actuator or Splunk.
+  -> Analyze the application logs and spots any pattern or error, especially under high load.
+  -> After finding the issues , optimize the database, implementing caching or use scaling option.
+  
+  
+  23> How do you segregate your environment specific properties in Spring Boot
+  =================================================================================================
+  -> Spring profiles provides a way to segregate your application configuration, so that it ease to use
+     in different environment with out changing any configuration.
+     
+     Example : When to configure database , we have to use different database connection like UAT environment, Production environment.
+               When deploy our application at that time we have to change the connection every time, but when we are using 
+               profiler at that time we don't have to change the database connection every time , it automatically 
+               change the database connection in every environment. 
+  ->  Spring Boot --- By Default --- provides just one property file .(application.properties)
+  -> We have to create more property file and add the "profile" name as the suffix and configure Spring Boot to pick the 
+     appropriate properties based on the profile. for Ex:
+                  application-dev.properties
+                  application-test.properties
+                  application-prod.properties
+  -> The application.properies will remain as a master properties file.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+                                                                               
    
  
  
