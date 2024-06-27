@@ -215,6 +215,46 @@ method is execute just after constructor created .
   -> The application.properies will remain as a master properties file.
   
   
+  24> Spring Bean and it's life cycle
+  ==================================================================================================
+  -> In a simple term, Bean is a java object which is managed by Spring container. (also known as IOC container)
+  -> IOC container contains all the beans which get created and also manage them.
+       
+                                              How to create a Bean ?
+                                                        |
+                                                        |
+                        ============================================================================
+                       |                                                                            |
+                       |                                                                            |
+                    @Component                                                                   @Bean 
+                      annotation                                                                   annotation
+                      
+  -> @Component annotation : 
+          - When we use @Component annotation, then IOC will try to automatically create the bean of class using new keyword and
+            contain it in IOC container also manage it's life cycle.
+          - @Controller, @Service, @Repository etc are internally use @Component.
+  -> When we are create parameterize constructor and use @Component at that time Spring IOC doesn't create the bean of this class at that time 
+     we have to use @Bean.
+  
+  
+  25> How Spring Boot find these Beans ?
+  ========================================================================================
+  -> Using @ComponentScan annotation, it will scan the specified package and sub-package for classes annotated with @Component, @Service etc.
+  -> From user defining bean via @Bean annotation in @Configuration class.
+  
+  
+  26> At what time, Beans get Created
+  =============================================================================
+  
+                                                  At what time, these Beans get created
+                 =======================================================================================================
+               Eagerness                                                                                        Lazy
+        ----------------------------------------------                           ------------------------------------------------------------------
+       -> Some beans get created when application start.                        -> Some Beans get created Lazily, means when they actually needed.
+       -> Ex: Beans with Singleton scope are Eagerly initialized.               -> Ex: Beans with scope like Prototype, Request, Http, session.
+                                                                                       Or Which beans are annotated with @Lazy.
+       
+  
   
   
   

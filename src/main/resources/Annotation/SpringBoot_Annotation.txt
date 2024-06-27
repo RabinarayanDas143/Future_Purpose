@@ -64,16 +64,45 @@
    
 14. @Configuraion
 ================================
-   @Configuraion 
-   
+   @Configuraion is used, when we want to create custom bean as per our logic , for that we have to use a class annotated this
+   class @Configuraion and create a method, inside this method we return class object and annotated this method @Bean.
    
 15. @Value 
 =================================
-   @Value annotation is used to inject value from external configuration properties in to spring bean .
+   @Value annotation is used to inject value from external configuration properties / application.properties file in to spring bean .
    
 16. @Qualifier
 =================================
     @Qualifier annotation is used to specify which beans we have to use , when multiple beans of the same type exist .
+    
+    Ex: public interface order(){
+            public void oderMethod()
+           }
+           
+        @Component
+        @Qualifier ("onlineOrder")   
+        public class OnlineOder implements order {
+             public void oderMethod(){
+             
+             }
+        }
+        
+        @Component
+        @Qualifier ("offlineOrder")  
+        public class OfflineOrder implements order {
+             public void oderMethod(){
+             
+             }
+        }
+        
+        public class User {
+        
+        @Autowired
+        @Qualifier("offlineOrder")
+        Order order;
+          
+          order.oderMethod(); // it call the OfflineOrder class method
+        }
     
 17. @Profile
 ==================================
@@ -88,7 +117,38 @@
 ====================================
    @Entity indicates that they are JPA entities . Use @Table to specify table name , if our class name is different from our table name.
    
-
+20. @Primary
+=========================================
+  @Primary is use when our interface implements in two classes, and when we autowired this interface and call the method 
+  it confuse for which class method to call , at that time we have to use @Primary for one class so that always it call 
+  the method from this class.
+  
+  EX:  public interface order(){
+            public void oderMethod()
+           }
+           
+        @Component
+        @Primary  
+        public class OnlineOrder implements order {
+             public void oderMethod(){
+             
+             }
+        }
+        
+        @Component
+        public class OfflineOrder implements order {
+             public void oderMethod(){
+             
+             }
+        }
+        
+        public class User {
+        
+        @Autowired
+        Order order;
+          
+          order.oderMethod(); // it call the OnlineOrder class method
+        }
    
     
      

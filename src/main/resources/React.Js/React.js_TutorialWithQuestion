@@ -193,6 +193,78 @@
   -> React Fragment is a pattern it handle multiple component or multiple element.
   -> When we use multiple element we are wrap the multiple element in a <div> tag, instead of
      this we can use Fragment. <> </>
+     
+     
+  19> Lifting state up 
+  ========================================================================
+   -> Sending data from child to parent is called Lifting state up.
+   
+   
+  20> Pure Component
+  ================================================================================
+  -> It is a feature of React.js , it is use only inside class component.
+  -> For functional component there is anathor feature is called useMemo.
+  -> Pure component is used for stop the rerendering the component, Means when a component 
+     rerender again and again at that time it check the state value of before and after , if 
+     it is not change then it stop the rerendering.
+     
+     
+  21> useMemo Hook
+  ======================================================================
+  -> It is same like Pure component, but it is use only functional component.
+  
+  
+  22> Ref in React.js
+  =====================================================================
+  -> Ref directly manipulate the DOM.
+  -> In React official website says to always use Ref rarely, bcz it doing slow to the application.
+  -> It is use to directly change the filed color, get the value from form filed, doing focus in form etc.
+  
+  23> useRef in React.js
+  ==================================================================
+  -> It is basically Hook, it is use only in functional component.
+  -> For handling Dom in functional component we can use useRef.
+  
+  24> forwardRef in React.js
+  ===================================================================
+  -> It is the advance version of Ref.
+  
+  25> Dependency injection in Spring Boot
+  ===================================================================
+  -> Dependency injection is a fundamental design pattern and technique used to achieve loose coupling
+     between components in an application.
+  -> @Autowired, first look for a bean of the required type. if bean found, Spring will inject it.
+  -> There are 3 way of injection 
+       - Field injection
+       - setter injection
+       - Constructor injection
+       
+ 26> What is circular Dependency in Spring Boot 
+ ===========================================================================
+  -> When there are two classes Class A and Class B , in Class A autowired Class b same as Class B autowired Class A,
+     at that time when application start it shows APLLICATION FAILED TO START : The dependencies of some of the bean 
+     in the application context form a cycle .
+     
+  Solution 1 : We should refactor the code and remove this cycle dependency.
+  
+  Solution 2 : Using @Lazy on @Autowired annotation. 
+               Class A autowired in Class B and it annotated with @Lazy and @ Autowired and Class B autowired in Class A.
+               When application start it first create the bean of Class B and when it required bean of Class A , at that 
+               time it create the bean of Class A. it is possible using @Lazy.	
+   
+ 27> Controlled Component
+ ==========================================================================
+ -> In React, When we manage the input field through state, is called Controlled Component.
+ 
+ 28> Uncontrolled Component
+ ==========================================================================
+ -> In React, When we manage the input filed through javaScript or Ref but not through state, is called Uncontrolled Component.
+ 
+ 
+ 29> HOC (High Order Component)
+ ===================================================================
+  -> A Component which is take anathor component as an props and return a component.
+  
   
   
   
