@@ -266,6 +266,15 @@
   -> A Component which is take anathor component as an props and return a component.
   
   
+ 30> React Router
+ ====================================================================
+  -> In React, Router is use for navigate the page from one page to anathor page with out reloading 
+     the application.
+  -> But if we using link for this thing then it reload the application again and again.
+  
+ 31> SearchParam
+ ============================================================
+ -> It is use when we get the parameter value from query parameter at that time we have to use SearchParam Hook.
   
   
   

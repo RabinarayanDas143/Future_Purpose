@@ -154,7 +154,17 @@ method is execute just after constructor created .
    -> Request - The bean instance will be created per HTTP request.
    -> Session - The bean instance will be created per HTTP session.
    -> GlobalSession - The bean instance will be created per HTTP Global session. It can be used in portlet context only.
-   
+   -> for using scope for any class follow the below example :
+         @Component
+         @Scope("singleton") // you can change here which type you want
+         public class MyController {
+	         @Autowired
+	         User user;
+
+	        public MyController() {
+		    System.out.println("MyController method is call");
+	     }	  
+     }
    
  19> How SpringBoot application start 
  ============================================================================================

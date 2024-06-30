@@ -150,7 +150,12 @@
           order.oderMethod(); // it call the OnlineOrder class method
         }
    
-    
+  
+ 21> @ConditionalOnProperty
+ ====================================================================================
+ -> Bean is created conditionally (Means Bean can be created or not).
+ -> In this annotation we have to pass some parameter 
+       @ConditionalOnProperty(prefix="",value="",havingValue="",matchifMissing=false)
      
       
      
