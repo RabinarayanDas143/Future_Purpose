@@ -276,6 +276,15 @@
  ============================================================
  -> It is use when we get the parameter value from query parameter at that time we have to use SearchParam Hook.
   
+ 32> useNavigate Hook
+ ===============================================================================
+ -> It is use, when we navigate a page in button click at that time it is use.
+    Ex: let navigate = useNavigate;
+        <button onClick={()=>navigate("/about")}>Go to About Page</button>
+        
+ IQ -> When we perform some navigation in any event or any button click then how to do?
+ =================================================================================================
+  -> At that time we have to use useNavigate() Hook.
   
   
   

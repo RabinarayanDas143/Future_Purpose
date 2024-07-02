@@ -1,0 +1,111 @@
+ 1> What is the role of React in software development ?
+ ==========================================================================
+ -> React is a js library , it is use to simplefy the UI creation of complex application.
+ 
+ 2> What is an open source js library ?
+ ==========================================================================
+ -> React is an open source js library .
+ -> It is used for building UI .
+ -> It simplifies the creation of Single Page Application (SPA) by using reusable component.
+ 
+ 3> What is SPA ?
+ =================================================================================
+ -> A Single Page Application is a web application that have only one page.
+ -> Whenever user do some action in web site , then in response content is dynamically update
+    without refresh or reload the new page.
+    
+ 4> What are the advantages of React ?
+ ====================================================================================
+ -> Simple to build Single Page Application (by using component).
+ -> React is cross platform and open source.
+ -> It is light weight and very first  (Virtual DOM).
+ -> Large community and EcoSystem.
+ -> Easy to testing. 	
+ 
+ 5> What are disadvantages of React ?
+ ======================================================================================
+ -> React is not good choice for very small application.
+ 
+ 6> What is the Difference between React & Angular
+ ===================================================================================
+                       React                                                  Angular
+     --------------------------------------------------          ------------------------------------------------------------------------
+   -> React & Angular both are use to create single page UI Application using component.
+   -> React is a JS library.                                  -> Angular is a complete framework.
+   -> React is a virtual DOM, which make it faster.           -> Angular used a real DOM.
+   -> React is smaller in size and lightweight and            -> Angular is a bigger because it is a complete framework.
+     therefore faster sometime.
+   -> React depends on external library for many complex      -> Since Angular is a complete framework, there it provide built-in support.
+      feature.
+   -> React is simple to learn and more popular than Angular. -> Angular is slightly difficult to learn as it is typeScript, OOPS concept.
+   
+ 7> What is DOM ?
+ ========================================================================================
+  -> The DOM (Document Object Model) represents the web pages as a tree like structure which allow javaScrit to dynamically access and
+     manipulate the content and content of web page.
+     
+ 8> What is the Difference between DOM and virtual DOM ?
+ =======================================================================================
+  -> React uses a virtual DOM to efficiently update the UI without rerender the entire page, which helps to improve and make the
+     application more responsive.
+     
+ 9> What are React Component ?
+ ========================================================================================
+ -> In React, a Component is a reuse building block that use for creating User interface.
+ 
+ 10> What is npm ? what are the role of node module ?
+ =======================================================================================
+ -> NPM is used to manage the dependencies for your React project.
+ -> NPM is used to create node module that contains all the dependencies of the project.
+ 
+ 11> What is the Role of src folder ?
+ =====================================================================================
+  -> src folder is used to store all the source code of application .
+  
+ 12> What is the Role of index.html page in React ?
+ ======================================================================================
+  -> index.html is the entry point of your react application.
+  
+ 13> What is the role of App.js file in React ?
+ ===============================================================================
+  -> App.js is the top level/root level component in react application and it is responsible for rendering all 
+     of other component.
+     
+ 14> What is the role of export default ?
+ ===============================================================================
+  -> It is used for import this component in other component.
+  
+ 15> What is JSX ?
+ ==============================================================================
+  -> JSX (JavaScript XML) is a syntax extension used by React to write HTML like a code.
+  -> It give the power to write HTML and Js code saimultaneously.
+  
+ 16> What are the advantages of JSX ?
+ ================================================================================
+  -> Improve code readability and writability.
+  -> Error checking in advance .
+  -> Support javaScript expression.
+  -> Improve performance.
+  -> Code resuability.    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
