@@ -86,10 +86,58 @@
   -> Error checking in advance .
   -> Support javaScript expression.
   -> Improve performance.
-  -> Code resuability.    
+  -> Code resuability.   
+  
+ 17> What is Transpiler ?
+ =====================================================================================
+  -> A transpiler is a tool that convert source code from one programming  language to anathor.
+  
+ 18> What is the role of Fragment in React ?
+ =======================================================================================
+  -> In React, a fragment is a way to group a list of children without adding extra nodes to the DOM.
+  
+ 19> What is props in React ?
+ ======================================================================================
+  -> props is a way to pass data from parent component to child component.
+  
+ 20> What is spread operator ?
+ ============================================================================================
+  -> spread operator (...) is used to expand or spread an array of object.
+  
+ 21> What are the type of conditional rendering in JSX ?
+ =========================================================================================
+  -> There are 4 type of conditional rendering
+      - if/else statement
+      - Ternary operator
+      - && operator
+      - Switch case statement
+      
+      
+===========================================================================================================================
+                                   TOP 100 React Js Interview Question
+===========================================================================================================================
+
+ 1> What is React ? What is the role of each in software development? V.IMP
+ ==================================================================================
+  -> React is a open source JavaScript library .
+  -> It is used to create User Interface.
+  -> It helps to create Single Page Application by using reusable component.
  
+ 2> What are the key features of React ? V.IMP
+ ===================================================================================
+  -> 7 key features
+      - virtual DOM
+      - Component Based Architecture 
+      - Reusability Component
+      - JSX
+      - Declarative Syntax
+      - Community and EcoSystem
+      - React Hook
  
- 
+ 3> What is DOM ? What is the diff. betweeen HTML and DOM ?
+ =======================================================================================
+  -> DOM (DOcument Object Model) represent the web page like a tree structure, which allows javaScript 
+     to dynamically access and manipulate the content of web page.
  
  
  
