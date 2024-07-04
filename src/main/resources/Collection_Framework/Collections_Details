@@ -222,4 +222,58 @@
  6. In Map, we can store maximum one null value, but in value we can store any number of null value.
  7. Map does not follow the sorting and insertion order.
  
+ 
+===> HashMap class
+====================================================================================================
+
+ 1. HashMap is an implemented class of map interface.
+ 2. It also implemented clonable and serilizable interface.
+ 3. It present in java.util package.
+ 4. It is introduced in jdk 1.2v .
+ 5. HashMap underline data structure is HashTable
+ 6. HashMap store the value in key value pair.
+ 7. Each key value pair is known as Entry.
+ 8. In HashMap key should be unique but value can be duplicate.
+ 9. HashMap can store heterogeneous data type.
+ 10. HashMap does not follow the sorting or insertion order.
+ 11. HashMap is not synchronized.
+ 
+
+====> TreeMap class
+===========================================================================================
+ 1. It is an implemented class of Navigable Map and sorted Map.
+ 2. It was introduced in jdk 1.2 v .
+ 3. TreeMap underline data structure red black tree.
+ 4. We store the data in key value pair, in which key should be unique but value can be duplicate.
+ 5. TreeMap does not follow the insertion order, but follow the sorting order with respect to keys.
+ 6. It can store homogeneous & heterogeneous element.
+ 7. TreeMap can not store null value.
+ 8. TreeMap is non synchronized.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                           
