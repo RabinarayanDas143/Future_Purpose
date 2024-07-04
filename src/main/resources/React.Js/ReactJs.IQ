@@ -138,21 +138,84 @@
  =======================================================================================
   -> DOM (DOcument Object Model) represent the web page like a tree structure, which allows javaScript 
      to dynamically access and manipulate the content of web page.
+     
+ 4> What is virtual DOM ? Difference between DOM and Virtual DOM ? V.IMP
+ =========================================================================================
+  -> React uses virtual DOM to efficiently update the UI without re-rendering the entire page, which help to improve the 
+     performance of the application.
+     
+                   DOM                                                       Virtual DOM
+     ----------------------------------------------------         -------------------------------------------------------------
+    -> DOM is a actual representation of web page.               -> Virtual DOM is a light weight copy of the DOM .
+    -> Re-render the entire page when updates occur .            -> Re-render only changed parts efficiently.
+    -> can be slower, for frequent changes.                      -> Optimized for faster re-rendering.
+    -> suitable for static websites and simple application.      -> Better for dynamic websites and complex single page application.
  
+ 5> What are React Components ? What are the main element of it ? V.IMP
+ ===========================================================================================
+  -> In React, a Component is a reusable building block for creating user interface.
+  -> It is same like function but it is powerful from function.
+  
+ 6> What is SPA (Single Page Application)
+ ===========================================================================================
+  -> A Single Page Application (SPA) is a web application that have only one single page.
+  -> When we changes something in web page at that time only content will be updated without refreshing or reload the new page.
  
+ 7> What are the 5 advantages of React ?
+ ===========================================================================================
+  -> It provides SPA.
+  -> It provides Virtual DOM.
+  -> It is open source .
+  -> Large community and ecosystem.
+  -> Testing is easy.
+  
+ 8> What is the Role of JSX in React ? V.IMP
+ =============================================================================================
+  -> JSX stands for javaScript XML.
+  -> JSX used by React to write HTML like code, it helps to write saimultaneously HTML code with JS code.
+  -> JSX is converted to JavaScritp code via tool like Babel, bcz browser understand javaScript not JSX.
+  
+ 9> What is the Difference between Declarative & Imperative syntax ?
+ ==========================================================================================
+  -> Declarative syntax focus on describing the desired     -> Imperative syntax involves step by step process to achieve a
+     result without specifying the step by step process.       particular goal.
+  -> JSX in React is used to write declarative syntax.      -> JS has an imperative syntax.
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ 10> What is Arrow function expression in JSX ?
+ =======================================================================================
+  -> Arrow function is a function there is no name of that function.
+  -> It is a concise way to defining function.
+  
+ 11> How React App load and display the components in browser ? V.IMP
+ =======================================================================================
+  -> First Request come in                index.html
+                                    (Single Page which load index.js by React libraries)
+                                              |
+                                              |
+                                              |
+                                            index.js
+                                     (Replace root element of index.html file by App component)
+                                              |
+                                              |
+                                              |
+                                            App.js
+                                     ( Root component which is the container of all child component)
+                                              |
+                                              |
+                                              |
+                                          ChildComponent.js
+                                     ( Custom child component placed over app component)
+                                     
+                                     
+  12> How React provides Reusability and Composition ?
+  ======================================================================================================
+  -> React provides Reusability and Composition through its component based architecture.
+  -> Reusability : Once you create a component, you can re-use it in different parts of your application.
+  -> Composition : Composition is creating new and big component by combining existing small components. 
+                   its advantages is , change to small component will not impact to other components.
+                                               
+                                              
+                                              
  
  
  
