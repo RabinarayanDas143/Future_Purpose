@@ -46,6 +46,17 @@ public class FindAverageSalaryEmp {
 		// Find the second highest salary of Employee
 		// Optional<Employee> employee = getSecondHighestSalary(list);
 		// System.out.println(employee);
+
+		// How many employee are there in a department
+		Map<String, Long> map = getEmployeeInEachDepartment(list);
+		System.out.println(map);
+	}
+
+	private static Map<String, Long> getEmployeeInEachDepartment(List<Employee> list) {
+		String str ="CS";
+		Map<String, Long> map = list.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
+		return map;
 	}
 
 	// Find the second highest salary of Employee

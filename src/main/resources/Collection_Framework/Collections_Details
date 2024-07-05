@@ -249,6 +249,20 @@
  6. It can store homogeneous & heterogeneous element.
  7. TreeMap can not store null value.
  8. TreeMap is non synchronized.
+ 
+ ==> HashTable class
+ ===============================================================================
+ 1. HashTable is the direct implemented class of Map interface.
+ 2. It is present in java.util class.
+ 3. It is a legacy class and introduced in jdk 1.0v
+ 4. HashTable underline data structure is HashTable.
+ 5. It contains data in key-value pair and each key-value pair is known as entry.
+ 6. In HashTable, key should always be unique but value can be duplicate.
+ 7. HashTable can store heterogeneous elements or different type of element at key position.
+ 8. We can not store null value in HashTable.
+ 9. HashTable does not follow the insertion order and sorting order.
+ 10. HashTable are synchronized data-structure.
+ 11. Initial size of HashTable is 11.
 
 
 
