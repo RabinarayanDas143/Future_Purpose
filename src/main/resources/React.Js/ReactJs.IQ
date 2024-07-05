@@ -213,6 +213,65 @@
   -> Reusability : Once you create a component, you can re-use it in different parts of your application.
   -> Composition : Composition is creating new and big component by combining existing small components. 
                    its advantages is , change to small component will not impact to other components.
+                   
+ 13> What are state, stateless, stateful and state management terms ?
+ ========================================================================================================
+  -> "state" refers to the current data of the component.
+  -> stateful or state management means, when a user perform some action on UI , then react appplication should able to update
+     or re-render that data or state on the UI.
+  -> stateless means when a user perform some action on UI , then react application is not update or re-render that data on UI.
+  
+ 14> What are Props in JSX ? V.IMP
+ ================================================================================================
+  -> props(properties) are a way to pass data from parent component to a child component.
+  
+ 15> What is NPM ? What is the role of node_module folder? V.IMP
+ ===============================================================================================
+  -> NPM (Node Package Manager) is used to load the the node module folder, that contains the dependencies for your project,
+     including the React libraries itself.
+     
+ 16> What is the role of public folder in React ?
+ ===============================================================================================
+  -> Public folder contains static assets that are served directly to the user, such as images, fonts and the index.html file.
+  
+ 17> What is the role of src folder in React ?
+ =================================================================================================
+  -> src folder is used to store all the source code of the application which is responsible for the dynamic changes in your 
+     web application.
+     
+ 18> What is the role of index.html page in React?
+ ============================================================================================
+  -> index.html file is the main HTML file(SPA) in React application.
+  -> Here the div with id="root" will be replaced by the component inside index.js file.
+  
+ 19> What is the role of index.js file and ReactDOM in React ? V.IMP
+ =============================================================================================
+  -> ReactDOM is a javaScript library that renders components to the DOM or browser.
+  -> The index.js file is the javaScript file that replaces the root element of the index.html file with the newly render component.
+  
+ 20> What is the role of App.js file in React ? V.IMP
+ ==================================================================================
+  -> App.js file contain the root component of React Application.
+  -> App component is like a container for other components.
+  -> App.js is defines a structure, layout and routing in the application.
+  
+ 21> Can we have function with out a return statements ?
+ ==================================================================================
+  -> Yes, a function without return statement is possible .
+  -> In that case, your component will not render anything in UI.
+  -> The common use case for logging purpose. 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
                                                
                                               
                                               
