@@ -261,11 +261,60 @@
   -> In that case, your component will not render anything in UI.
   -> The common use case for logging purpose. 
   
+ 22> What is the role of export default inside every component ?
+ ===============================================================================
+  -> Export statement is used to make a component available for import using "import" statement in other file.
   
+ 23> What is Babel
+ ==================================================================================
+  -> Babel in React is used to convert JSX syntax to javScript which browser can understand .
   
+ 24> What is the role of Fragments in JSX ? V.IMP
+ =============================================================================
+ -> In React, a Fragment is a way to group multiple children's elements.
+ -> Using a Fragment prevent the addition of unnecessary nodes to the DOM.
+ 
+ 25> How to you iterate over a list in JSX ? What is the map() method ?
+ =====================================================================================
+  -> map() is used to iterate over an array and modify it element using callback function.
   
+ 26> What is Transpiler ? What is the difference between Compiler & Transpiler ?
+ ===============================================================================================
+  -> A Transpiler is a Tool that convert source code form one high level programming language (JSX) to another high-level
+     programming language (JavaScript).
+      EX : Babel
+  -> A compiler is a tool that convert high-level programming language (JAVA) to lower level language (Machine code or Byte code)
   
+ 27> What are type of React Component ? What are functional components ? V.IMP
+ ========================================================================================================
+  -> There are two type of Components 
+      - Class Component
+      - Functional Component
+  -> Functional Component are declared as a javaScript function.
+  -> They are stateless component, butu with the help of hooks, they can manage state also.
   
+ 28> What is Prop Drilling in React > V.IMP
+ =================================================================================================
+  -> Prop Drilling is the process of passing down props through multiple layers components.
+     (Passing data from child component to child components).
+      
+      Parent Component -----> Child Component -------> Grand Child Component
+                      (Data)                  (Data)                      (Data)
+                      
+ 29> Why to avoiding Prop Drilling ? in How many way can avoid prop Drilling ? V.IMP
+ =======================================================================================================
+  -> Why to avoid prop drilling
+     - Maintenance : prop drilling can make code harder to maintain as changes in data flow, require update accross multiple components.
+     - Complexity : It increase code complexity and reduce code readability.
+     - Debugging : Debugging becomes challenging when prop need to be traced through numerous Components.
+  -> 5 Way to avoid Prop Drilling 
+      - Using Context API
+      - Using Redux
+      - Using Component Composition
+      - Using CallBack Function
+      - Using Custom Hooks.
+      
+      1.27.42	
   
   
   
