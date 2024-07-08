@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalDouble;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import com.example.Model.Employee;
@@ -48,12 +49,53 @@ public class FindAverageSalaryEmp {
 		// System.out.println(employee);
 
 		// How many employee are there in a department
-		Map<String, Long> map = getEmployeeInEachDepartment(list);
-		System.out.println(map);
+		// Map<String, Long> map = getEmployeeInEachDepartment(list);
+		// System.out.println(map);
+
+		// How many Male and Female employee are in there
+		// Map<String, Long> map = getMaleAndFemaleEmployeeCount(list);
+		// System.out.println(map);
+
+		// How many Females are in Mobile Department
+		// String depatment = "MOBILE", gender = "F";
+		// Map<String, Long> map = getFemaleEmployeeInSpecificDepartment(list,
+		// depatment, gender);
+		// System.out.println(map);
+
+		// Increment the salary of employee in the IT Department by 10 percent
+		String dept = "IT";
+		List<Employee> employe = incrementSalaryByDeptIn10Percent(list, dept);
+		employe.forEach(System.out::println);
 	}
 
+	// Increment the salary of employee in the IT Department by 10 percent
+	private static List<Employee> incrementSalaryByDeptIn10Percent(List<Employee> list, String dept) {
+
+		list.stream().filter(e -> e.getDepartment() == dept).forEach((e) -> e.setSalary(e.getSalary() * 1.10));
+		List<Employee> emp = list.stream().filter(e -> e.getDepartment() == dept).collect(Collectors.toList());
+		return emp;
+	}
+
+	// How many Females are in Mobile Department
+	private static Map<String, Long> getFemaleEmployeeInSpecificDepartment(List<Employee> list, String depatment,
+			String gender) {
+		Predicate p = (e) -> ((Employee) e).getDepartment() == "MOBILE";
+		Predicate p1 = (e) -> ((Employee) e).getDepartment() == "CS";
+		Predicate p2 = (e) -> ((Employee) e).getGender() == gender;
+		Map<String, Long> map = (Map<String, Long>) list.stream().filter(p.or(p1).and(p2))
+				.collect(Collectors.groupingBy((e) -> ((Employee) e).getGender(), Collectors.counting()));
+		return map;
+	}
+
+	private static Map<String, Long> getMaleAndFemaleEmployeeCount(List<Employee> list) {
+		Map<String, Long> maleFemaleCount = list.stream()
+				.collect(Collectors.groupingBy((e) -> e.getGender(), Collectors.counting()));
+		return maleFemaleCount;
+	}
+
+	// How many employee are there in a department
 	private static Map<String, Long> getEmployeeInEachDepartment(List<Employee> list) {
-		String str ="CS";
+		String str = "CS";
 		Map<String, Long> map = list.stream()
 				.collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
 		return map;
