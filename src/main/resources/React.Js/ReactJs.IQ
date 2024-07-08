@@ -314,7 +314,128 @@
       - Using CallBack Function
       - Using Custom Hooks.
       
-      1.27.42	
+ 30> What is class component in React ? V.IMP
+ =======================================================================================
+  -> Class component are defined using javaScript classes.
+  -> They are stateful components by using the life cycle method.
+  -> The render method in class component are responsible for returning JSX.
+  
+ 31> How to pass data between class component in React ?
+ ===================================================================================
+  -> this.props can be used in child component to access properties/ data passes from parent component.
+  
+ 32> What is the role of this keyword in class component ?
+ ===================================================================================
+  -> this keyword is used to refer to the instance of the class.
+  
+ 33> What are the Diff. between functional Component and Class Component
+ ======================================================================================
+                        Functional Component                                   Class Component
+     ------------------------------------------------------              ------------------------------------------------------
+  -> Syntax : Define as a JS function.                                -> Define as a JS Class.
+  -> State : Originally stateless but can now maintain                -> Can manage local state with this.state
+             state using Hook .
+  -> LifeCycle method : No                                            -> Yes
+  -> Readability : More readable & concise.                           -> Verbose (complex)
+  -> this keyword : No                                                -> Yes
+  -> Do not have render() method .                                    -> Have render method.
+  
+ 34> What is Routing and Router in React ? V.imp
+ ========================================================================================
+  -> Routing : Routing allows you to create a Single Page Application with navigation, without the need for a full page refresh.
+  -> Router : React Router is a library for handling routing and enables navigation and rendering of different component based on the URL.
+  
+ 35> What is the roles of Routes and Route component in React Routing ? V.imp
+ ==============================================================================================
+  -> The Routes component is used as the root container for declaring your collection of routes.
+  -> The Router component is used to define a Route and specify the component that should render when the route matches.
+  
+ 36> What are Route Parameters in React Routing >
+ ===============================================================================================
+  -> Route Parameter in React Router are a way to pass dynamic value to the component as part of the URL path.
+  
+ 37> What is the Role of exact prop in React Routing ?
+ ==================================================================================
+  -> exact prop is used with the Route component to match exactly to the provided path.
+  
+ 38> What are React Hooks ? What are the top React Hooks? V.IMP
+ =======================================================================================
+  -> React Hooks are inbuilt function provided by React that allow functional component to use state and lifeCycle features.
+  -> Before Hooks, Class Components lifeCycle method were used to maintain the state in React.
+  -> To use React Hook first we have to import it from React library.
+  -> Top React Hooks are : useState, useEffect, useContext, useReducer, useCallBack, useMemo, useRef, useLayoutEffects.
+  
+ 39> What is the Role of useState() hook and how it work? V.IMP
+ =========================================================================================
+  -> The useState hook enables functional component to manage state.
+  -> Working : useState() function accept the initial state value as the parameter and return an array with two element.
+  -> The first element is the current state value .
+  -> The Second element is the function that is used to update the the state.
+  
+ 40> What is the Role of useEffect(). How it work and what is its use ? V.IMP
+ ==============================================================================================
+  -> The useEffect() hook in React is used to perform side effect in functional component.
+  -> Example : data fetching from API
+  -> useEffect() is called after the component render. 
+  -> useEffect() function will be accept two parameter : Effect Function, Dependency Array.
+  
+  useEffect(() => {
+        if (id) {
+            EmployeeService.getEmployeeById(id)  // Effect Function
+                .then((response) => {
+                    setName(response.data.name);
+                    setEmail(response.data.email);
+                    setContact(response.data.contact);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+    }, [id]); //Dependency Array
+  
+ 41> What is the meaning of the empty array [] in the useEffect() ?
+ =====================================================================================
+  -> An empty array [] indicates that the effect function should only run once.
+  
+   Example: useEffect(() => {
+               const getAllEmployee = () => {
+               EmployeeService.getAllEmployee().then((response) => {
+               setEmployee(response.data);
+                   }).catch(error => {
+                      console.log(error);
+                     })
+                  }
+           }, [])
+           
+           
+      1.59.48
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
