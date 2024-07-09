@@ -408,7 +408,63 @@
            }, [])
            
            
-      1.59.48
+ 42> What is the role of useContext() hook ? V.IMP
+ =================================================================================
+  -> useContext in React provides a way to pass data from parent component to child component without using props.
+  
+ 43> What is createContext() method? What are Provider and Consumer properties ?
+ ==============================================================================================
+  -> createContext() function return an object with provider and consumer properties.
+  -> The provider properties is responsible for providing the context value to all its child component.
+  -> useContetxt() method or consumer property can be used to consume the context value in child components.
+  
+ 44> When to use useContext() hook instead of prop in real application ?
+ ==============================================================================================
+  -> Use useContext() instead of props when you want to avoid prop drilling and access context values directly.
+    Ex: - Theme switching (dark/Light)
+        - Localization (Language selection)
+        - Centralize Configuration setting
+        - User preference 
+        - Notification System.
+        
+ 45> What are component life Cycle method ? V.IMP
+ ========================================================================================
+  -> Component life Cycle methods are special methods that get called various stages of component's life.
+  
+                                                 Component Life Cycle
+            ---------------------------------------------------------------------------------------------------------   
+         Mounting Phase                                Updating Phase                                    Unmounting Phase
+     ---------------------------------          ----------------------------------                  -------------------------------
+          - constructor()                       - shouldComponentUpdate()                          - componentWillUnmount()
+          - render()                            - render()
+          - componentDidMount()                 - componentDidUpdate()
+          
+ 46> What are constructor in class components ? When to use them ?
+ ==========================================================================================
+  -> constructor is a special method that is called when an instance of class is created .
+  -> Constructor is used to initializing the Component's state or performing any setup that is needed before the component is render.
+  
+ 47> What is the role of super keyword() in constructor ?
+ =============================================================================================
+  -> super keyword is used in constructor of a class component to call the constructor of parent class.
+  
+ 48> What is the role of render() method in Component life cycle ?
+ =============================================================================================
+  -> Render() method return the react elements that will rendered the DOM.
+  
+ 49> How the State can be maintained in a class component ? V.IMP
+ =============================================================================================
+  -> Two step process to maintain the state :
+     - this.setState() method is used to update the state.
+     - this.state property is used to render the update state in DOM.
+     
+ 50> What is the role of ComponentDidMount() method in Component life Cycle ?
+ =============================================================================================
+  -> ComponentDidMount() life cycle method in React is the part of mounting phrase and it is called after a component 
+     has been rendered to the DOM.
+  -> Mostly used fo side Effect : For API Calling .
+  
+  2.20.31
   
   
   
