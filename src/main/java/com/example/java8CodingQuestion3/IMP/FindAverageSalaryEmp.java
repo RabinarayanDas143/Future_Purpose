@@ -1,30 +1,37 @@
 package com.example.java8CodingQuestion3.IMP;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalDouble;
+import java.util.concurrent.Callable;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import com.example.Model.Employee;
+import com.example.coreJava.Deserialization;
 
 public class FindAverageSalaryEmp {
 
 	public static void main(String[] args) {
 		List<Employee> list = new ArrayList<>();
 		list.add(new Employee(1, "Rabi", 20000.00, "IT", "M", LocalDate.of(2020, 1, 15)));
-		list.add(new Employee(2, "kolia", 15000.00, "CS", "M", LocalDate.of(2019, 6, 20)));
+		list.add(new Employee(2, "kolia", 15000.00, "CS", "M", LocalDate.of(2019, 6, 21)));
 		list.add(new Employee(3, "Priyanka", 40000.00, "NETWORK", "F", LocalDate.of(2020, 3, 10)));
 		list.add(new Employee(4, "Sandesh", 100000.00, "MOBILE", "M", LocalDate.of(2020, 1, 15)));
 		list.add(new Employee(5, "Laxmi", 50000.00, "DATABASE", "M", LocalDate.of(2020, 3, 10)));
 		list.add(new Employee(6, "Himansu", 60000.00, "IT", "M", LocalDate.of(2019, 6, 20)));
 		list.add(new Employee(7, "Amol", 40000.00, "NETWORK", "M", LocalDate.of(2020, 1, 15)));
 		list.add(new Employee(8, "Radha", 65000.00, "MOBILE", "F", LocalDate.of(2020, 3, 10)));
-		list.add(new Employee(9, "Annat", 45000.00, "MOBILE", "M", LocalDate.of(2019, 6, 20)));
+		list.add(new Employee(9, "Annat", 45000.00, "MOBILE", "M", LocalDate.of(2019, 6, 22)));
 		list.add(new Employee(10, "Rupali", 70000.00, "CS", "F", LocalDate.of(2020, 1, 15)));
 
 		// OptionalDouble averageSalary = getAverageSalary(list); // This Method use for
@@ -63,9 +70,61 @@ public class FindAverageSalaryEmp {
 		// System.out.println(map);
 
 		// Increment the salary of employee in the IT Department by 10 percent
-		String dept = "IT";
-		List<Employee> employe = incrementSalaryByDeptIn10Percent(list, dept);
-		employe.forEach(System.out::println);
+		// String dept = "IT";
+		// List<Employee> employe = incrementSalaryByDeptIn10Percent(list, dept);
+		// employe.forEach(System.out::println);
+
+		// Find the n th highest salary of employee
+		// int Nth = 1;
+		// Employee employee = getNthhighestSalary(list, Nth);
+		// System.out.println(employee);
+
+		// Find the oldest employee who joining first in company
+		// Employee employee = getOldestEmployee(list);
+		// System.out.println(employee);
+
+		// compress a String using the Stream API
+		// String compressString = getCompressString("aaaabbc");
+		// System.out.println(compressString);
+
+		// Find the minimum and maximum salary of employee
+		// Map<String, Employee> maxMin = getMaxMinSalaryEmployee(list);
+		// System.out.println(maxMin);
+		
+
+	}
+
+	private static Map<String, Employee> getMaxMinSalaryEmployee(List<Employee> list) {
+		Employee maxEmp = list.stream().max(Comparator.comparingDouble(e -> e.getSalary())).get();
+		Employee minEmp = list.stream().min(Comparator.comparingDouble(e -> e.getSalary())).get();
+		Map<String, Employee> map = new HashMap<>();
+		map.put("Max", maxEmp);
+		map.put("Min", minEmp);
+		return map;
+	}
+
+	// compress a String using the Stream API
+	private static String getCompressString(String string) {
+		String str = string.chars().mapToObj(c -> (char) c)
+				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+				.entrySet().stream().map(e -> "" + e.getKey() + e.getValue()).collect(Collectors.joining());
+		return str;
+	}
+
+	// Find the oldest employee who joining first in company
+	private static Employee getOldestEmployee(List<Employee> list) {
+		Employee emp = list.stream().sorted((a, b) -> a.getJoiningDate().compareTo(b.getJoiningDate())).findFirst()
+				.get();
+		return emp;
+	}
+
+	// Find the n th highest salary of employee
+	private static Employee getNthhighestSalary(List<Employee> list, int nth) {
+		Employee emp = list.stream().sorted(Comparator.comparingDouble((e) -> ((Employee) e).getSalary()).reversed())
+				.skip(nth - 1).findFirst().get();
+		Employee empq = list.stream().sorted((a, b) -> b.getName().compareTo(a.getName())).skip(nth - 1).findFirst()
+				.get();
+		return emp;
 	}
 
 	// Increment the salary of employee in the IT Department by 10 percent

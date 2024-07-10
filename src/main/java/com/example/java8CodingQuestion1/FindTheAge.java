@@ -6,7 +6,7 @@ import java.time.Period;
 public class FindTheAge {
 	public static void main(String[] args) {
         LocalDate today = LocalDate.now();
-        LocalDate bday = LocalDate.of(1998, 05, 23);
+        LocalDate bday = LocalDate.of(1998, 02, 8);
         
         Period period = Period.between(today, bday);
         System.out.println(period);

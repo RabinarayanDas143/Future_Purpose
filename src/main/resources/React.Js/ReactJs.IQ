@@ -464,10 +464,58 @@
      has been rendered to the DOM.
   -> Mostly used fo side Effect : For API Calling .
   
-  2.20.31
+ 51> What are Controlled Component in React ? V.IMP
+ =====================================================================================
+  -> A Controlled Component is a Component whose form element are controlled by state of the application.
   
+ 52> Difference between Controlled Component and Uncontrolled Component
+ ===================================================================================
+                    Controlled Component                                      Uncontrolled Component
+   ----------------------------------------------------------          ----------------------------------------------------------
+   -> Values are controlled in React state.                            -> Values are not controlled by React state.
+   -> Event handlers update React state.                               -> No explicit state update; value can access directly from the React DOM.
+   -> Dont't depend on useRef().                                       -> Commonly uses useRef() to access form element values.
+   -> Re-render on state change.                                       -> Less re-rendering since values are not directly tied to react state.
+   -> A recommended and standard practice for form handling            -> Useful in certain scenarios but less commonly consider a best practice.
+      in React.
   
+ 53> What are the characteristics of Controlled Component ?
+ ===============================================================================
+  -> State Control : The value of the form element are stored in the component's state.
+  -> Event Handling : Changes to the form element trigger on event (e.g : onChange() , onClick())
+  -> State update : The event handler updates the component's state with the new value of the form element.
+  -> Re-rendering : The component re-renders with the updated state and the form element reflects the new value.
   
+ 54> How to handle forms in React ?
+ ==============================================================================
+  -> The preferred and recommended approach for handling forms in React by using Controlled Component.
+  
+ 55> How can you handle multiple input fields in a controlled component ?
+ =====================================================================================
+  => Maintain separate variable for every field and update them individually using the onChange event.
+  
+ 56> How do you handle form validation in a Controlled component ?
+ ======================================================================================
+  -> By using conditional rendering based on the state and validate input values before updating the state.
+  
+ 57> What is Code Splitting in React ? V.IMP
+ ==============================================================================
+  -> Code splitting is a technique to split the javaScript bundle in to smaller chunk which are loaded on demand.
+  
+       Bundle project                                                            Each chunk loaded on demand
+                |                                                             |                               ========
+        .CSS    | All come in one                                   .CSS      | ----------------------------  |      |
+        .js     |    request                                        .Js       | --------------------------->  | USER |
+        .png    |-------------------> User                          .png      | ----------------------------> |      |
+        .sass   |                                                   .sass     | --------------------------->  =========
+                |                                                             |
+            With out code splitting                                     With  Code Splitting implemented
+            
+ 58> What is the role of Lazy and suspense method in React ? V.IMP
+ =================================================================================
+  -> React.lazy is a function that allow you to load a component lazily.
+  -> It enables code splitting by allowing you to load a component dynamically, means when it needed only.
+  -> The Suspense component is used to display a fallback UI while the lazily loaded component is being fetched.
   
   
   
