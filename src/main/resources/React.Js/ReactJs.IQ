@@ -517,11 +517,61 @@
   -> It enables code splitting by allowing you to load a component dynamically, means when it needed only.
   -> The Suspense component is used to display a fallback UI while the lazily loaded component is being fetched.
   
+ 59> What are the pros and cons of code Splitting ?
+ =================================================================================
+  5 pros of code splitting :
   
+  -> Faster initial load time
+  -> Optimized Bandwidth usage
+  -> Improved caching
+  -> Parallel loading
+  -> Easier maintenance.
   
+  5 Cons of Code Splitting :
   
+  -> Complexity
+  -> Tooling Dependencies
+  -> Potential for Runtime Error 
+  -> Increased Number of Request
+  -> Learning curve
   
+ 60> What is a High-Order Component in React ? V.IMP
+ ==================================================================================
+  -> A High-Order Component is a component which take another component as an argument and add some extra features,
+     then return this component.
+     
+ 61> What is GraphhQL ?
+ ====================================================================================
+  -> GraphQl is a query language for API and a runtime for executing those query with your existing data.
+  -> GraphQL and React are often used together. React components can use GraphQL queries to fetch the data required for rendering.
   
+ 62> What are the 2 top ways to achieve state management ? When to use what in React ?
+ ===============================================================================================
+  -> 1. useState Hook :
+   ------------------------------
+     - When to use : Simple component-level state.
+     - Reason : Ideal of application having small components and isolated state because it is light weight and built into React only.
+     
+  -> 2. Context API :
+  ---------------------------------
+    - When to use : Prop drilling avoidance for sharing global data.
+    - Reason : These is good for sharing data multiple components, but the complexity level not much be very should high, like medium.
+    
+  -> 3. Redux : 
+  ---------------------------------
+    - When to use : Large scale application with complex state.
+    - Reason : Centralized store and action provide a predictable state management pattern, aiding in debugging and scalability.
+     
+  63> How can you implement Authentication in a React Application. ? V.IMP
+  ===============================================================================================
+  -> 1. POST : { UserName, Password }
+  -> 2. Authentication and create JWT Token 
+  -> 3. Return Response { JWT Token }
+  -> 4. Store JWT Token at local storage 
+  -> 5. Request Data { JWT Token : Header }
+  -> 6. Validate Token Signature
+  -> 7. Send Data
+  -> 8. Display Data on browser.
   
   
   
