@@ -574,6 +574,24 @@
   -> 8. Display Data on browser.
   
   
+ 64> What is the use of React Profiler ?
+ ==========================================================================================
+  -> React profiler is a set of tool in React that allows developers to profile (analyze) the performance of a React application.
+  
+ 65> What is difference between fetch and axios for API calls in React ?
+ ===========================================================================================
+  ->                  Fetch                                                         axios
+     ----------------------------------------------------           --------------------------------------------------------
+     -> fetch is a built-in-javaScript function, so it doesn't     -> Axios is a third party library, that simplifies the process of making 
+        require any additional libraries.                              HTTP request.
+     -> fetch returns promises, making it easy to work asynchronous   -> Axios allows you to use interceptors, which can be good for task like 
+        code using sync/await syntax.                                    request/response, logging, authentication, and error handling.
+     -> if you want to keep HTTP Request simple, fetch is good        -> if you want to intercept http request/response or improve error handling 
+        choice.                                                          ten axios has more features to do it.
+     
+        
+  
+  
   
   
   

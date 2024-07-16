@@ -80,7 +80,7 @@ method is execute just after constructor created .
   
  12> What is IOC container ?
  =============================================================================
-  -> Inverting the control of creating object using new keyword to container or framework.
+  -> Inversion of control of creating object using new keyword to container or framework.
   
  13> Explain the Spring Bean life cycle
  ==============================================================================
@@ -116,7 +116,7 @@ method is execute just after constructor created .
    
  14> What is the difference between BeanFactory and ApplicationContext in Spring 
  =======================================================================================
-  ->  BeanFactory represents spring container. It represents all the features of IOC container. 
+  -> BeanFactory represents spring container. It represents all the features of IOC container. 
   -> ApplicationContext is the sub interface of BeanFactory, it represents all the features of BeanFactory also 
      it provides some extra features.
      
