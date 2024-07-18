@@ -42,7 +42,7 @@
  7> What is DOM ?
  ========================================================================================
   -> The DOM (Document Object Model) represents the web pages as a tree like structure which allow javaScrit to dynamically access and
-     manipulate the content and content of web page.
+     manipulate the content of web page.
      
  8> What is the Difference between DOM and virtual DOM ?
  =======================================================================================

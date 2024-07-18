@@ -10,7 +10,8 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.stream.Collectors;
 
-class Employee1 {
+class Employee1 implements Cloneable{
+	 
 	private int id;
 	private String name;
 	private int age;
@@ -102,6 +103,8 @@ class Employee1 {
 	public void setYearOfJoining(int yearOfJoining) {
 		this.yearOfJoining = yearOfJoining;
 	}
+	
+
 }
 
 public class FIndAverageSalaryEmployee {
@@ -179,6 +182,8 @@ public class FIndAverageSalaryEmployee {
 //		System.out.println(lessThan30);
 //		List<Employee1> greaterThan30  = empList.stream().filter(e->e.getAge()>30).collect(Collectors.toList());
 //		System.out.println(greaterThan30);
+		
+		
 	}
 	
 	  
