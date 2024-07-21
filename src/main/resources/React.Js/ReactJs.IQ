@@ -291,7 +291,7 @@
       - Class Component
       - Functional Component
   -> Functional Component are declared as a javaScript function.
-  -> They are stateless component, butu with the help of hooks, they can manage state also.
+  -> They are stateless component, but with the help of hooks, they can manage state also.
   
  28> What is Prop Drilling in React > V.IMP
  =================================================================================================

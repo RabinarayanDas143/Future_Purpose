@@ -10,7 +10,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 public class FindTheAge {
 	public static void main(String[] args) {
         LocalDate today = LocalDate.now();
-        LocalDate bday = LocalDate.of(1992, 02, 8);
+        LocalDate bday = LocalDate.of(1987, 05, 8);
         
         Period period = Period.between(today, bday);
         System.out.println(period);

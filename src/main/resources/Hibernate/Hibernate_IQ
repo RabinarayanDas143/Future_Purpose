@@ -105,9 +105,61 @@
   -> Lazy loading in hibernate improves the performance. It loads the child objects on demand.
   -> Basically when when we need the data and hit the database at that time it load the data.
   
+ 17> Difference between persist and merge in hibernate ?
+ ================================================================================
+  -> persist(entity) should be used with totally new entities, to add them to DB (if entity already exists in DB there will be EntityExistsException throw).
+  -> Similar to save method, persist also INSERT records into the database, but return type of persist is void while return type of save is Serializable Object.
+  -> Hibernate merge can be used to update existing values.
+  -> Use MERGE to do INSERT and UPDATE operations on a table in a single statement.
   
+ 18> Difference between JDBC & HIBERNATE 
+ ================================================================================
+                     Jdbc                                                Hibernate
+  -------------------------------------------------         ----------------------------------------------------
+  -> In Jdbc to manually write code to map object to        -> In hibernate it automatically map the java object to data base table.
+     data base table.
+  -> In jdbc for inserting the data we have to write        -> In hibernate for insert the data in data base we dont have to write the query
+     the query.                                                it provides some method.
+  -> In jdbc code for exception handling we have to use     -> Whereas Hibernate manages the exceptions itself by marking them as unchecked.
+     try-catch block.
+  -> It is a database connectivity tool.                    -> It is a Java framework.
+  -> Lazy Loading is not supported.                         -> Lazy Loading is supported.
+  -> It has low performance than Hibernate.                 -> It has high performance.
   
+ 19> What are the core interfaces of Hibernate framework?
+ ====================================================================================
+  - Configuration interface
+  - Transaction interface
+  - Query and Criteria interfaces
+  - Session interface
+  - SessionFactory interface
   
+ 20> What is SessionFactory in Hibernate ?
+ ======================================================================================
+  -> A SessionFactory represents an "instance" of Hibernate.
+  -> It maintains the relation between entities with database tables.
+  
+ 21> what can you tell about hibernate configuration file ?
+ =======================================================================================
+  -> In configuration file we are specify the properties and mapping , that we have to use creating a SessionFactory .
+  
+ 22> How do you create an immutable class in hibernate ?
+ =======================================================================================
+  -> The @Immutable annotation is used to specify that the annotated entity, attribute or collection is immutable.
+  -> @Immutable placed on a collection makes the collection immutable, meaning additions and deletions to and from the collection are not allowed.
+     A HibernateException is thrown in this case.
+     
+ 23> Can you explain the concept behind hibernate inheritance Mapping ?
+ =========================================================================================
+ 
+ 24> Is hibernate prone to SQL injection attack ?
+ =========================================================================================
+ 
+ 25> Explain hibernate mapping file ?
+ ========================================================================================
+ 
+ 26> What are the most commonly used annotation available to support hibernate mapping.
+ ==========================================================================================
   
   
   
