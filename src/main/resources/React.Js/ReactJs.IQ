@@ -587,7 +587,7 @@
      -> fetch returns promises, making it easy to work asynchronous   -> Axios allows you to use interceptors, which can be good for task like 
         code using sync/await syntax.                                    request/response, logging, authentication, and error handling.
      -> if you want to keep HTTP Request simple, fetch is good        -> if you want to intercept http request/response or improve error handling 
-        choice.                                                          ten axios has more features to do it.
+        choice.                                                          then axios has more features to do it.
      
         
   

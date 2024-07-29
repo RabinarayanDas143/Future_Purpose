@@ -156,6 +156,14 @@
  -> Bean is created conditionally (Means Bean can be created or not).
  -> In this annotation we have to pass some parameter 
        @ConditionalOnProperty(prefix="",value="",havingValue="",matchifMissing=false)
-     
+       
+       
+ 22> @PropertySource & @PropertySources
+ ====================================================================================
+ -> Spring @PropertySource annotation is used to provide properties file to spring environment.
+ -> Spring @PropertySources annotation is used to provide multiple properties files to spring environment.
+ -> These annotation is used with @Configuration classes.
+ -> Spring @PropertySource annotation is repeatable, means you can have multiple property source on a configuration class.
+ -> We can use @value annotation and Environment class 	to read the property file.  
       
      

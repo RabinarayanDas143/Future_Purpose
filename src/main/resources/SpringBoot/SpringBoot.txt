@@ -265,8 +265,11 @@ method is execute just after constructor created .
                                                                                        Or Which beans are annotated with @Lazy.
        
   
-  
-  
+ 27> In Controller basically when we get value we it in JSON format , but how to get it in XML format
+ ===============================================================================================================
+  -> When you want to data in controller in XML format we use :
+        @GetMapping(value = "/employee", produces = MediaType.APPLICATION_XML_VALUE) // it is use for give return in response
+        @GetMapping(value = "/employee", consume = MediaType.APPLICATION_XML_VALUE) // it is use for take the from users.
   
   
   

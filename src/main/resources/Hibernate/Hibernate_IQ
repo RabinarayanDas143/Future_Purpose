@@ -151,12 +151,20 @@
      
  23> Can you explain the concept behind hibernate inheritance Mapping ?
  =========================================================================================
+ -> We can map the inheritance hierarchy classes with the table of the database. There are three inheritance mapping strategies defined in the hibernate:
+    - Table Per Hierarchy : In table per hierarchy mapping, single table is required to map the whole hierarchy, an extra column
+                            is added to identify the class. But nullable values are stored in the table .
+    - Table Per Concrete class : In case of table per concrete class, tables are created as per class. But duplicate column is added in subclass tables.
+    - Table Per Subclass : In this strategy, tables are created as per class but related by foreign key. So there are no duplicate columns.
  
  24> Is hibernate prone to SQL injection attack ?
  =========================================================================================
+ -> Hibernate does not grant immunity to SQL Injection.
+ -> Criminals may use it to gain unauthorized access to your sensitive data: customer information, personal data, trade secrets, intellectual property, and more.
  
  25> Explain hibernate mapping file ?
  ========================================================================================
+ -> The mapping file. Hibernate uses the mapping metadata to determine how to load and store objects of the persistent class.
  
  26> What are the most commonly used annotation available to support hibernate mapping.
  ==========================================================================================
