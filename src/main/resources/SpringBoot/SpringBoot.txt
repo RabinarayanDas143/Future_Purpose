@@ -271,19 +271,230 @@ method is execute just after constructor created .
         @GetMapping(value = "/employee", produces = MediaType.APPLICATION_XML_VALUE) // it is use for give return in response
         @GetMapping(value = "/employee", consume = MediaType.APPLICATION_XML_VALUE) // it is use for take the from users.
   
+ 30> Tell me 5 Spring Exceptions that you came accross .
+ ==================================================================================
+  -> BeanCreation Exception - NoSuchBeanDefination Exception.
+  -> NoUniqueBeanDefinationException
+  -> BeanCreationException - UnsatisfiedDependencyException : When two class dependent on each other, means two 
+                                        class autowired each other at that time this exception occour.
+                                        solution : we have to annotated one class instanance with @Lazy, so 
+                                                   one class bean is created on demand.
+ -> BeanInstantiationException - When we create a class , inside this class we create a constructor and inside constuctor 
+                                 we throw exception. When we run the application at that time Spring IOC is not able to create 
+                                 the Bean of that class.
+ -> ApplicationContextException - This exception occour when we miss the main class annotated with @SpringBootApplication.
   
+ 31> What is default data jpa provider in spring boot ?
+ ==============================================================================
+  -> The default data jpa provider in spring boot is Hibernate.
+  -> Spring-data-jpa for JpaRepository which is provided by Hibernate by default.
+  -> Spring-data-Redis for RedisTemplate
+  -> Spring-data-mongodb for mongodbRepository .
   
+ 32> CrudRepository / JpaRepository / PagingAndSortingRepository
+ ================================================================================
+  -> CrudRepository is provides the features of create, read, update, delete .
+  -> PagingAndSortingRepository is provides the features of pagination, sorting , and other features.
+  -> JpaRepository also extends PagingAndSortingRepository and CrudRepository , it provides some extra fetures like 
+                   saveAllAndFlush(), saveAndFlush(), flush(), deleteAllInBatch() etc.
+                   
+ 33> Spring Data source 
+ =======================================================================
+  -> Spring DataSource generally refers to the management of database connections within the Spring Framework.
+  -> This is particularly important for applications that interact with databases.
   
+ 34> if we implements JpaRepository or CrudRepository in our interface, then is it necessary to annotated our interface with @Repository
+ =================================================================================================================================================  
+  -> It is not necessary to annotated @Repository, because if we extends JpaRepository or CrudRepository then Spring boot 
+     automatically detected this interface is used to communicate with data base through @EnableAutoconfiguration .
+  -> So no need to use @Repository.
   
+ 35> @NoRepositoryBean use
+ =============================================================================
+  Example : 
+        // It is Common repository / Abstract repository for all child repository
+        
+             import org.springframework.data.repository.NoRepositoryBean;
+             import org.springframework.data.repository.CrudRepository;
+
+             @NoRepositoryBean
+             public interface BaseRepository<T, ID> extends CrudRepository<T, ID> {
+                // Common methods that all repositories will inherit
+                   void someSharedMethod();
+               }
+             
+       // One child repository is trying to access all of the existing method which is present in parent repository
+          
+          import org.springframework.stereotype.Repository;
+
+          @Repository
+          public interface UserRepository extends BaseRepository<User, Long> {
+                   // Additional methods specific to User repository
+                      User findByUsername(String username);
+                }
+   -> BaseRepository is a common repository interface marked with @NoRepositoryBean so that Spring does not create a bean for it.
+   -> UserRepository extends BaseRepository, inheriting its methods. Spring will create a bean for UserRepository but not for BaseRepository.
+   -> Code Reusability: Allows you to define common repository methods in a base interface that can be reused by multiple repositories.
+   -> Use @NoRepositoryBean when you have a base repository interface that is not meant to be instantiated on its own but only to be extended by other repository interfaces.
+   -> It is especially useful in large projects where you have multiple repositories with shared behavior.
+   
+   
+  36> What is a java config file ? tell me about its limitation .
+  ===============================================================================================
+      
+      @Configuration
+      @EnableTransctionManagement
+      public class ComplexAppConfig {
+
+      @Bean
+      public DataSource dataSource() {
+        return new DriverManagerDataSource(
+                "jdbc:mysql://localhost:3306/productnew",
+                "root",
+                "password"
+             );
+     }
+
+     @Bean
+     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
+     }
+     
+     @Bean 
+     public TransctionManager transctionManager (DataSource dataSource) {
+        return new DataSourceTransctionManager(dataSource);
+     }
+     
+     @Bean
+     public MyRepository myRepository(JdbcTemplate jdbcTemplate) {
+        return new MyRepositoryImpl(jdbcTemplate);
+     }
+     
+     @Bean
+     public MyService myService(MyRepository myRepository) {
+        return new MyServiceImpl(myRepository);
+     }
+     
+      @Bean
+      public MyController myController(MyService myService) {
+        return new MyController(myService);
+      }
+     
+  }
   
+ -> In our xml class we are use many bean tag (<Bean><Bean/>) for define our bean, but using @Bean it is not needed.
+ -> We can use @Conditional with @Bean , so we use some condition for bean cretion time.
+ -> We can use any xml configuration in the config file.
   
+   In Limitation 
+ -> Spring Beans/ Spring Config class can't be final .
+ 
+ 
+ 37> @Component Vs @Bean. What is the difference between creating a bean with the above annotations ?
+ ========================================================================================================================
+  -> Both are maintain the life cycle of spring bean.
+  -> Baiscally @Controller, @Service, @Repostiory are internally use @Component, when we create bean using through
+     our bean is create unconditionally but we use create bean through @Bean we can use come condition using @Conditional annotation
+     and we control our bean.
+  -> @ConditionalOnMissingBean(...) , if that class is present the create the bean, if that is missing the create the bean.
   
+ 38> What is BeanFactoryPostProcessor ?
+ =================================================================================================
+          
   
+ 39> What do you mean by TransctionPropagation 
+ ======================================================================================
+  -> Basically in TransctionManagement when we doing some transaction from our application to our database,
+     if any runtime exception are occoured at that time it rollback automatically, but transaction will not 
+     rollback if it is a normal exception which is not runtime.
+  -> for enable the Transaction management we have to annotated @Transctional as class level as well as method level.
+  -> TransctionPropagation means we have to carry forward the Active Transaction or reuse the active transaction.
+  -> Default propagation level is REQUIED
   
+       // service layer method
+          
+          @Transaction(propagation = Propagation.REQUIED) // Transaction start here
+          public void saveProduct(){
+             dao.saveProduct(new Product(101,"phone"));
+          }
+          
+      // Dao Layer
+          
+         @Transaction(propagation = Propagation.REQUIED_NEW) // Although the method which called this method
+         public void saveProduct(Product product){              has an active transaction, still this method 
+             // save product                                    will be executed under a new separate transaction.
+          }
   
+   1. REQUIRED
+      -> Default propagation type.
+      -> If there is an existing transaction, the method will join it.
+      -> If there is no existing transaction, a new transaction will be created.
   
-  
-  
+      @Transactional(propagation = Propagation.REQUIRED)
+      public void someMethod() {
+           // method logic
+      }
+      
+   2. REQUIRES_NEW
+      -> Always creates a new transaction.
+      -> If there is an existing transaction, it will be suspended during the execution of the method.
+      
+      @Transactional(propagation = Propagation.REQUIRES_NEW)
+      public void someMethod() {
+            // method logic
+      }
+      
+   3. SUPPORTS
+      -> If there is an existing transaction, the method will join it.
+      -> If there is no existing transaction, the method will execute without a transaction.
+      
+      @Transactional(propagation = Propagation.SUPPORTS)
+      public void someMethod() {
+             // method logic
+       }
+       
+  4. NOT_SUPPORTED
+     -> The method will always execute without a transaction.
+     -> If there is an existing transaction, it will be suspended during the method execution.
+     
+     @Transactional(propagation = Propagation.NOT_SUPPORTED)
+     public void someMethod() {
+          // method logic
+      }
+      
+  5. NEVER
+     -> The method will always execute without a transaction.
+     -> If there is an existing transaction, an exception will be thrown
+     
+     @Transactional(propagation = Propagation.NEVER)
+     public void someMethod() {
+            // method logic
+      }
+      
+  6. MANDATORY
+     -> The method must be executed within an existing transaction.
+     -> If there is no existing transaction, an exception will be thrown
+    
+     @Transactional(propagation = Propagation.MANDATORY)
+     public void someMethod() {
+          // method logic
+     }
+     
+  7. NESTED
+     -> If there is an existing transaction, the method will execute within a nested transaction.
+     -> If there is no existing transaction, it will behave like REQUIRED.
+     -> A nested transaction can be rolled back independently of the outer transaction.
+     
+     @Transactional(propagation = Propagation.NESTED)
+     public void someMethod() {
+           // method logic
+     }
+     
+      
+     
+     
+      
+      
   
   
   

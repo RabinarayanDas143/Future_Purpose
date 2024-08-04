@@ -589,9 +589,88 @@
      -> if you want to keep HTTP Request simple, fetch is good        -> if you want to intercept http request/response or improve error handling 
         choice.                                                          then axios has more features to do it.
      
-        
+ 66> Important Hooks :
+ ====================================================================
+  -> useState - It is use to manage the state in functional component.
+  -> useEffect - It is used for side effect in functional component . (API calling)
+  -> useContext - Accesses the context in multiple components.
+  -> useReducer - The useReducer hook is a powerful feature in React that provides an alternative to useState for managing state in a functional
+                   component, especially when dealing with complex state logic or multiple sub-values.
+  -> useMemo - 
+  -> useCallBack
+  -> useRef
   
+ 67> Higher Order Component (HOC)
+ ====================================================================
+  -> What is HOC ?
+  -> Why we use it ?
+  -> When we have to use it ?
+  -> How we use it ?   
   
+ 68> Life cycle method of Class Component ?
+ ====================================================================
+ 
+ 69> State Management (All about Data )
+ ==================================================================
+  -> State/Props
+  -> Props Drilling
+  -> Context 
+  
+ 70> Redux
+ ================================================================
+  -> What is Redux ?
+  -> Why we use it ?
+  -> When we use it ?
+  -> How we use it?
+  
+ 71> Custom Hooks 
+ ===================================================================
+ -> When we use it ?
+ -> Code
+ 
+ 72> Lazy Loading ? V.IMP
+ ================================================================
+  -> Code splitting
+  -> Chunking
+  -> Suspense 
+ 
+ 73> Virtual DOM ?
+ ===============================================================
+  ->Reconciliation Algorithm: Efficiently updates the UI based on state changes.
+  -> React Fiber: A reimplementation of React's core algorithm.
+  -> Renders: The process of updating the virtual DOM.
+  -> Diff algorithm: Compares the previous and current state to determine changes.
+  -> How does render work?: Updating the UI based on virtual DOM changes.
+  
+ 74> SSR Vs CSR 
+ =====================================================================
+ 
+ 75> Routing (RBAC - Role Based Access Control)
+ ======================================================================
+ -> React Router
+ -> Protected Routes
+ -> Query Params
+ -> Dynamic Routing
+ 
+ 76> React Testing
+ ======================================================================
+  
+ 77> Async Tasks
+ =====================================================================
+  -> API calls
+  -> Events
+  -> Promises
+  
+ 78> Reusability / Modularity / Testability 
+ ========================================================================
+ 
+ 79> Perfomance
+ ========================================================================
+ -> Lazy Loading
+ -> Assest (Images)
+ -> Js - Css
+ -> Write Optimized Code
+ -> Bundles
   
   
   
