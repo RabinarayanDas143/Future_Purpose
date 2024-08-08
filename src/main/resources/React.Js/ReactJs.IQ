@@ -596,25 +596,257 @@
   -> useContext - Accesses the context in multiple components.
   -> useReducer - The useReducer hook is a powerful feature in React that provides an alternative to useState for managing state in a functional
                    component, especially when dealing with complex state logic or multiple sub-values.
-  -> useMemo - 
-  -> useCallBack
-  -> useRef
+  -> useMemo - UseMemo is use when we dealing with multiple state and we call a specific method for a state, then when we use anathor state
+               at that time this other method is call , to avoid this type issue we call use useMemo and inside this we call our specific method and
+               pass state as a dependency for that method .
+               Exapmle : function App() {
+                                let [count, setCount] = useState(0);
+                                let [item, setItem] = useState(10);
+                                let mutipleCount = useMemo(function mutipleCount() {
+                                  console.log("mutipleCount call");
+                                   return count * 5;
+                                   }, [count])
+                                return (
+                                    <div className='App'>
+                                    <h1>UseMemo Hook in React</h1>
+                                    <h2>Count : {count}</h2>
+                                    <h2>item : {item}</h2>
+                                    <h2>{mutipleCount}</h2>
+                                    <button onClick={() => setCount(count + 1)}>Update Count</button>
+                                    <button onClick={() => setItem(item + 1)}>Update item</button>
+                                    </div>
+                                 )
+                              }
+               
+  -> useCallBack : useCallBack and useMemo Hooks are same . The main difference is that useMemo returns a memorized value and useCallBack returns a 
+                   memorized function.
+                 - Basically useMemo is dealing with a state but useCallBack is dealing with a function.
+                 Example : function App() {
+                             let[add,setaddd] = useState(0);
+                             let learning = useCallback(()=>{
+
+                            },[])
+                                  return (
+                                     <div className='App'>
+                                     <h1>useCallBack Hook in React</h1>
+                                     <h2>{add}</h2> 
+                                     <Children learning={learning}/>
+                                     <button onClick={()=>setaddd(add+1)}>Update</button>
+                                     </div>
+                                  )
+                               }
+                               
+                             function Children({learning}){
+                               console.log("hiiii");
+                                      return(
+                                             <div>
+                                             <h1>hiii</h1>
+                                             </div>
+                                           )
+                                        }
+                                   export default Children
+                 
+  -> useRef : It is used to manipulate DOM directly in Htlm . Focus, color, value etc handel with useRef.
+            Esample : function App() {
+                        let inputRef = useRef(null);
+                        function handelInput(){
+                              //console.log("function calll");
+                             //inputRef.current.value=1000;
+                             //inputRef.current.focus();
+                             inputRef.current.style.color='red'
+                           }
+                          return (
+                           <div className='App'>
+                           <h1>useRef Hook in React</h1>
+                           <input type='text' ref={inputRef}/>
+                           <button onClick={handelInput}>HandelInputBox</button>
+                           </div>
+                         )
+                      }
   
  67> Higher Order Component (HOC)
  ====================================================================
   -> What is HOC ?
-  -> Why we use it ?
-  -> When we have to use it ?
-  -> How we use it ?   
+      -: It is stands in High Order Component. Basically it is used, it takes a component as an argument and changes something in this 
+         component then return this revised component as an output.
+  -> Why we use it ? -: It is used to takes a component as an props then changes something in this props and return this revised component.
+  -> When we have to use it ? -: When we have use same component multiple times and use some changes in every component at that time it is use.
+  -> How we use it ? -: 
+  
+                     function App() {
+                               return (
+                                <div className='App'>
+                                <h1>HOC in React</h1>
+                                <HOCRed cmp={Counter}/>
+                                <HOCBlue cmp={Counter}/>
+                                </div>
+                              )
+                           }
+                    function HOCRed(props){
+                        return <h2 style={{backgroundColor:'red',width:100}}><props.cmp/></h2>
+                      }
+                    function HOCBlue(props){
+                         return <h2 style={{backgroundColor:'blue',width:100}}><props.cmp/></h2>
+                     }
+                  function Counter(){
+                       let[count,setCount] = useState(0);
+                                  return(
+                                          <div>
+                                          <h3>{count}</h3>
+                                          <button onClick={()=>setCount(count+1)}>Update</button>
+                                           </div>
+                                        )
+                                     }
+
+                   export default App;
   
  68> Life cycle method of Class Component ?
  ====================================================================
- 
+   -> Class components in React have several lifecycle methods that allow you to hook into different stages of a component's lifecycle. These methods can be divided into four main phases:
+
+        Initialization
+        Mounting
+        Updating
+        Unmounting
+        
+        - constructor(props)
+             Called when the component is instantiated.
+             Used to initialize state and bind event handlers.
+        
+        - componentDidMount()
+                Called immediately after the component is inserted into the DOM.
+                Used to perform side effects such as fetching data or initializing subscriptions.
+        
+        - shouldComponentUpdate(nextProps, nextState)
+                Called before re-rendering when new props or state are received.
+                Used to let React know if the component's output is not affected by the current change in state or props.
+                Returns a boolean (true or false).
+                
+        - componentDidUpdate(prevProps, prevState, snapshot)
+                  Called immediately after updating occurs.
+                  Used to operate on the DOM when the component has been updated.
+                  
+        - componentWillUnmount()
+                 Called immediately before a component is destroyed.
+                 Used to clean up subscriptions, cancel network requests, or remove event listeners.
+                 
+        
  69> State Management (All about Data )
  ==================================================================
-  -> State/Props
+  -> State/Props 
+     -: state is a built-in object that stores data.
+     -: It can rerender instantly when any changes occour in DOM.
+     -: Props is used as an argument .
+     -: Passed data from parent to child components.
+     -: Used for passing data and functions between components.
+     
   -> Props Drilling
-  -> Context 
+     -: It is the concept is that when we pass data from parent component to several child component through props.
+     -: It is not good for use because if any issue occour in any component it is impact in other component.
+     Example : 
+                import React from 'react';
+                import GrandParent from './GrandParent';
+
+               function App() {
+                          return (
+                           <div>
+                           <GrandParent />
+                           </div>
+                          );
+                       }
+                 export default App;
+                 
+                 
+                import React from 'react';
+                import Parent from './Parent';
+
+                function GrandParent() {
+                 const message = "Hello from GrandParent";
+
+                  return (
+                          <div>
+                          <h1>GrandParent Component</h1>
+                          <Parent message={message} />
+                          </div>
+                        );
+                      }
+                   export default GrandParent;
+                   
+                   
+                 import React from 'react';
+                 import Child from './Child';
+
+                 function Parent({ message }) {
+                         return (
+                                 <div>
+                                 <h1>Parent Component</h1>
+                                 <Child message={message} />
+                                 </div>
+                                );
+                             }
+                      export default Parent;
+                      
+                      
+                  import React from 'react';
+
+                  function Child({ message }) {
+                             return (
+                                  <div>
+                                  <h1>Child Component</h1>
+                                  <p>{message}</p>
+                                 </div>
+                                );
+                             }
+                     export default Child;
+                  
+                 
+               
+                
+  -> Context API : The Context API allows you to create a context that can be accessed by any component in the component tree without 
+                   explicitly passing props down at every level.
+                 : To avoid prop drilling issues we can use Context API
+                 : For that we have to use create, provider, consumer
+                 
+                 
+                   import { createContext } from 'react';
+                   import './App.css'; 
+                   import { Child3 } from './Child3';
+                   let data = createContext();
+                   function App() { 
+                          let name ="Rabi";
+                                return (
+                                 <div className='App'>
+                                 <data.Provider value={name}>
+                                  <Child3/>
+                                 </data.Provider>
+                                 </div>
+                              )
+                           }
+ 
+                   export default App;
+                   export {data}
+                   
+                   
+                   
+                   import { useContext } from "react"
+                   import { data } from "./App"
+                   export function Child3(){
+                          let name = useContext(data);
+                                     return(
+                                           <div>
+                                           <data.Consumer>
+                                                {
+                                                  ()=>{
+                                                       return (
+                                                          <h1>My Name is :{name}</h1>
+                                                       )
+                                                    }
+                                                }
+                                          </data.Consumer>
+                                          </div>
+                                       )
+                                   }
+                 
   
  70> Redux
  ================================================================
@@ -626,7 +858,37 @@
  71> Custom Hooks 
  ===================================================================
  -> When we use it ?
+    -: A Custom Hook is a javaScript function whose name start with "use".
+    -: We can use other hooks in custom hook as well.
+    -: To remove the duplicate logic in components and we can extract that logic to custom Hook.
  -> Code
+     -: 
+          import useCounter from './useCounter';
+            function App() { 
+              let [count,Increment,Decrement] = useCounter();
+                      return (
+                       <div className='App'>
+                       <div>{count}</div>
+                       <button onClick={Increment}>Increment</button>
+                       <button onClick={Decrement}>Decrement</button>
+                       </div>
+                      )
+                    }
+              export default App;
+              
+              
+          import React, { useState } from 'react'
+
+          export default function useCounter() {
+             let [count,setCount]= useState(0)
+             function Increment(){
+                  setCount(count+1);
+                }
+             function Decrement(){
+                  setCount(count-1);
+                }
+            return [count,Increment,Decrement]
+          }
  
  72> Lazy Loading ? V.IMP
  ================================================================
