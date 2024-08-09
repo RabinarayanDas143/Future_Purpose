@@ -892,9 +892,38 @@
  
  72> Lazy Loading ? V.IMP
  ================================================================
-  -> Code splitting
+  -> Lazy loading is a design pattern to used to optimize the performance of application .
+  -> It load the components on demand.
+  -> Code splitting : code splitting means it separate the javaScript bundle to different parts.
   -> Chunking
   -> Suspense 
+       Example : 
+                   import { lazy, Suspense } from 'react';
+                   import './App.css'; 
+                   let Home = lazy(()=>import ('./Home'))
+                   function App() { 
+   
+                           return (
+                                 <div className= 'App'>
+                                 <h1>App Comonent</h1>
+                                 <Suspense fallback={<div>Please Wait....</div>}>
+                                    <Home/>
+                                 </Suspense>
+                                 </div>
+                                )
+                             }
+                       export default App;
+                       
+                       
+                   import React from 'react'
+
+                  export default function Home() {
+                        return (
+                              <div>
+                              <h1>Home Component</h1>
+                              </div>
+                              )
+                           }
  
  73> Virtual DOM ?
  ===============================================================
@@ -906,6 +935,9 @@
   
  74> SSR Vs CSR 
  =====================================================================
+  -> Server-Side Rendering (SSR) and Client-Side Rendering (CSR) are two different approaches to rendering content in web applications.
+  -> HTML,CSS are comes under SSR.
+  -> React.js are comes under CSR.
  
  75> Routing (RBAC - Role Based Access Control)
  ======================================================================
@@ -913,6 +945,9 @@
  -> Protected Routes
  -> Query Params
  -> Dynamic Routing
+ -> RBAC in React involves managing user roles and controlling access to various parts of the application based on those roles.
+ -> By using a higher-order component (HOC) or a custom hook, you can encapsulate role-checking logic and reuse it across your application,
+    ensuring that only authorized users can access specific components or routes.
  
  76> React Testing
  ======================================================================
