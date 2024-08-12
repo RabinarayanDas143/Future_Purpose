@@ -209,10 +209,10 @@ public class FIndAverageSalaryEmployee {
 
 		// Find all employees who lives in ‘Blore’ city, sort them by their name and
 		// print the names of employees.
-//		List<String> nameList = empList.stream().filter(e -> e.getCity().equalsIgnoreCase("Blore"))
-//				.sorted((a, b) -> a.getName().compareTo(b.getName())).map(e -> e.getName())
-//				.collect(Collectors.toList());
-//		System.out.println(nameList);
+		List<String> nameList = empList.stream().filter(e -> e.getCity().equalsIgnoreCase("Blore"))
+				.sorted((a, b) -> a.getName().compareTo(b.getName())).map(e -> e.getName())
+				.collect(Collectors.toList());
+		System.out.println(nameList);
 
 		// No of employees in the organisation
 //		long count = empList.stream().count();

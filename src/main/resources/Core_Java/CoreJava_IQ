@@ -407,7 +407,12 @@
   -> You cannot have a blank final variable in an interface, as there is no mechanism to delay initialization.
   -> Blank final variables are possible in classes but not in interfaces.
                                    
-           
+ 43> What is Wrapper class
+ ============================================================
+  -> Wrapper class is a encapsulation of primitive data type .
+  -> It is use only in collection .
+  -> It converts primitive data type to corresponding java object.
+  -> It provides the autoboxing and unboxing features.        
            
    
    
