@@ -360,11 +360,55 @@
    -> In java there is no access specifiers all are java modifiers.
    -> in Java, Access modifiers help to restrict the scope of a class, constructor, variable, method, or data member.
    
+  39> what is primitive and non primitive data type
+  ============================================================================================
+   Primitive Data Types:
+  --------------------------------  
+   -> Primitive data types are the most basic data types in Java. They are predefined by the language and named by a keyword.
+   -> These data types hold their values directly in memory.
+   -> Primitive data types are immutable, meaning their values cannot be changed after they are assigned.
    
+   Non-Primitive (Reference) Data Types:
+   -------------------------------------------
+   -> Non-primitive data types (also known as reference data types) are more complex than primitive data types.
+   -> They do not store the value directly in memory; instead, they store a reference (or address) to an object in memory. 
    
-   
-   
-   
+  40> what is type casting
+  ===============================================================================
+  -> Type casting in Java refers to the process of converting from one data type to another.
+  -> There are two main types of type casting in Java: implicit (automatic) type casting and explicit (manual) type casting. 
+  
+  1. Implicit (Automatic) Type Casting:
+     -> Implicit type casting occurs when the conversion happens automatically by the Java compiler.
+     -> This usually happens when converting a smaller data type to a larger data type, which is also known as widening.
+     -> Since this type of casting is safe and doesn’t result in data loss, Java does it automatically.
+           int num = 100;
+           long bigNum = num;  // Implicit casting from int to long
+           
+  2. Explicit (Manual) Type Casting:
+     -> Explicit type casting is done manually by the programmer.
+     -> It involves converting a larger data type to a smaller data type, also known as narrowing.
+     -> Since narrowing conversions can lead to data loss or overflow, they require explicit instruction from the programmer using a cast operator.
+           double num = 100.99;
+           int intNum = (int) num;  // Explicit casting from double to int
+                                   // intNum will be 100, fractional part is lost
+                                   
+ 41> can you declare final variable without declare it
+ ===========================================================================
+   -> You can declare a final variable without initializing it immediately, creating a blank final variable.
+   -> However, you must ensure it is initialized before it is used, typically in a constructor for instance variables or a static block for static variables.
+      If you fail to do this, the code will not compile.
+      
+      
+ 42> In interface don't have constructor bcz every variable are final it must intialize when it declare 
+     then how You can declare a final variable without initializing it immediately, creating a blank final variable.
+ ==================================================================================================================================
+  -> In interfaces, all variables are public static final and must be initialized at the point of declaration.
+  -> You cannot have a blank final variable in an interface, as there is no mechanism to delay initialization.
+  -> Blank final variables are possible in classes but not in interfaces.
+                                   
+           
+           
    
    
    

@@ -951,23 +951,53 @@
  
  76> React Testing
  ======================================================================
+  -> React testing involves verifying that your React components behave as expected.
+  -> There are several tools and approaches available for testing React applications.
+      Types of Testing in React
+      --------------------------------
+      - Unit Testing
+      - Integration Testing
+      - End-to-End (E2E) Testing
   
  77> Async Tasks
  =====================================================================
-  -> API calls
-  -> Events
-  -> Promises
+ -> In React, asynchronous tasks refer to operations that take some time to complete, such as fetching data from an API, reading from a file,
+    or performing computations that do not finish immediately. 
+    Common Asynchronous Tasks in React:
+    --------------------------------------
+     -> API calls
+     -> Events
+     -> Promises
   
  78> Reusability / Modularity / Testability 
  ========================================================================
+   1. Reusability
+   -----------------------
+     -> Reusability in React refers to the creating components or logic that can be reused in different parts of an application.
+   
+   2. Modularity
+   -----------------------
+     -> Modularity involves breaking down an application into smaller components or modules.  
+     -> This practice leads to better-organized code, makes development more manageable, and allows individual components to be developed,
+        tested, and maintained independently.
+        
+   3. Testability
+   ------------------------
+    -> Testability refers to how easily you can write tests for your components and application logic.
+    -> High testability means that components are isolated, have clear input/output, and do not have hidden side effects.
  
  79> Perfomance
  ========================================================================
- -> Lazy Loading
- -> Assest (Images)
- -> Js - Css
- -> Write Optimized Code
- -> Bundles
+ -> Lazy Loading : Lazy loading is a performance optimization technique in React that defers the loading of certain components or resources until they are needed.
+ -> Assest (Images) : In React, assets refer to static files that are part of your application, such as images, fonts, icons, videos, audio files,
+                      stylesheets, and any other static resources.
+ -> Js - Css : In React, JavaScript and CSS can be used together in various ways to style components and manage the look and feel of your application.
+ -> Write Optimized Code : Optimizing React code involves improving both performance and maintainability.
+        1. Functional components and Hooks offer simplicity and efficiency.
+        2. Memoization helps prevent unnecessary re-renders.
+        3. Lazy loading and code splitting reduce initial load times.
+ -> Bundles : In React, "bundles" refer to the packages of code that are generated during the build process.
+              These bundles are essentially JavaScript files that contain the React application and all its dependencies. 
   
   
   
