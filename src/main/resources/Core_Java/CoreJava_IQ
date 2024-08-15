@@ -412,7 +412,30 @@
   -> Wrapper class is a encapsulation of primitive data type .
   -> It is use only in collection .
   -> It converts primitive data type to corresponding java object.
-  -> It provides the autoboxing and unboxing features.        
+  -> It provides the autoboxing and unboxing features.  
+  
+ 45> What is short circuiting operation in java8 ?
+ =================================================================
+  -> Short circuiting operation is that it immidiately terminate the looping operation OR generate operation when
+     the given limit it is reach.
+     
+      Ex : Stream.iterate(1, i->i+1).limit(10) // here limit() is the short circuiting operation
+      
+ 46> What is State full in java8 ?
+ =========================================================
+  -> State full means it first gather the input then perform the operation after that it produce the output.
+  -> In statefull methods it internally use some temp memory orelse something to store the value.
+       Ex : Stream.iterate(1, i->i+1).limit(10).sorted(); // sorted() is statefull
+  -> But in Stateless it take a input and perform some operation then it immideately produce the output
+       Ex : Stream.iterate(1, i->i+1).limit(10).filter(i->i%2==0) // filter() is stateless
+       
+ 47> What is the working of takWhile()
+ =========================================================
+  -> takeWhile() method is same working as a filter method but difference is that filter() method is
+     working as a stateless short citcuting but takeWhile() is working as a statefull short circuting.
+      Ex of takeWhile() : stream().takeWhile(n -> n < 5)  // Take elements while they are less than 5
+                                      .collect(Collectors.toList());
+     
            
    
    

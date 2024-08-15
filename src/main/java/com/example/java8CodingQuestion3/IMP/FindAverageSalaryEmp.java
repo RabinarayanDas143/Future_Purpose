@@ -15,6 +15,7 @@ import java.util.concurrent.Callable;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.example.Model.Employee;
 import com.example.coreJava.Deserialization;
@@ -90,8 +91,19 @@ public class FindAverageSalaryEmp {
 		// Find the minimum and maximum salary of employee
 		// Map<String, Employee> maxMin = getMaxMinSalaryEmployee(list);
 		// System.out.println(maxMin);
-		
 
+		// print only those Employee whose salary is grater than 20k,
+		// print only employee name also print only two employee
+
+		List<String> employeeName = getOnlyTwoEmpName(list);
+		System.out.println(employeeName);
+	}
+
+	private static List<String> getOnlyTwoEmpName(List<Employee> list) {
+		List<String> name = list.stream().filter(e -> e.getSalary() > 20000).map(e -> e.getName()).limit(2)
+				.collect(Collectors.toList());
+		//Stream.iterate(1, n->n+1).limit(10).forEach(System.out::println);
+		return name;
 	}
 
 	private static Map<String, Employee> getMaxMinSalaryEmployee(List<Employee> list) {

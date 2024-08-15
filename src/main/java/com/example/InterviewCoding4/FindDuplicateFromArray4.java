@@ -7,7 +7,7 @@ public class FindDuplicateFromArray4 {
 	public static void main(String[] args) {
 		int[] array = { 5, 1, 2, 3, 7, 4, 5, 9, 8, 7, 10, 2, 2 };
 		List<Integer> list = getDuplicate(array);
-		// System.out.println(list);
+		 System.out.println(list);
 		List<Integer> list1 = getFilterArray(array);
 		System.out.println(list1);
 	}
