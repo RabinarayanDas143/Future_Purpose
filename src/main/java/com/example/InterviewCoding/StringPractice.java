@@ -31,14 +31,14 @@ public class StringPractice {
 //
 //		System.out.println(str1.hashCode() == str2.hashCode());
 
-//		String s1="java";
-//		String s2 = new String("java");
-//		String s5 = new String("java");
-//		String s3=s2.intern();
-//		
-//		System.out.println(s1==s2);
-//		System.out.println(s1==s3);
-//		System.out.println(s2==s5);
+		String s1="java";
+		String s2 = new String("java");
+		String s5 = new String("java");
+		String s3=s2.intern();
+		
+		System.out.println(s1==s2);
+		System.out.println(s1==s3);
+		System.out.println(s2==s5);
 
 //		String s1 = "ONE";
 //		s1.concat("TWO");

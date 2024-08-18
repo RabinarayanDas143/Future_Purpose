@@ -152,6 +152,7 @@
   6. ArrayList does not provide for data consistency.                 6. Vector provide for data data consistency.
   7. ArrayList capacity = ( oldCapacity * 3 )/2 + 1 ;                 7. Vector capacity = oldCapacity * 2 ; 
   8. ArrayList does not provide any method to find its capacity.      8. Vector class provide a method to find capacity , i.e -> int capacity();
+  9. Initial Capacity: The default initial capacity of an ArrayList is 10.    9.Initial Capacity: The default initial capacity of a Vector is also 10.
   
   
   
@@ -219,7 +220,7 @@
  3. Map was introduced in JDK 1.2 version.
  4. Map store the data in key value pair.
  5. In Map Keys should be unique but value can be duplicate.
- 6. In Map, we can store maximum one null value, but in value we can store any number of null value.
+ 6. In Map, we can store maximum one null key, but in value we can store any number of null value.
  7. Map does not follow the sorting and insertion order.
  
  
@@ -231,7 +232,7 @@
  3. It present in java.util package.
  4. It is introduced in jdk 1.2v .
  5. HashMap underline data structure is HashTable
- 6. HashMap store the value in key value pair.
+ 6. HashMap store the data in key value pair.
  7. Each key value pair is known as Entry.
  8. In HashMap key should be unique but value can be duplicate.
  9. HashMap can store heterogeneous data type.
@@ -246,7 +247,7 @@
  3. TreeMap underline data structure red black tree.
  4. We store the data in key value pair, in which key should be unique but value can be duplicate.
  5. TreeMap does not follow the insertion order, but follow the sorting order with respect to keys.
- 6. It can store homogeneous & heterogeneous element.
+ 6. It can store homogeneous data type for key & heterogeneous data type for value.
  7. TreeMap can not store null value.
  8. TreeMap is non synchronized.
  
@@ -258,7 +259,7 @@
  4. HashTable underline data structure is HashTable.
  5. It contains data in key-value pair and each key-value pair is known as entry.
  6. In HashTable, key should always be unique but value can be duplicate.
- 7. HashTable can store heterogeneous elements or different type of element at key position.
+ 7. HashTable is typically used with generics, enforcing homogeneous types for keys and values.
  8. We can not store null value in HashTable.
  9. HashTable does not follow the insertion order and sorting order.
  10. HashTable are synchronized data-structure.
