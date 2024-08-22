@@ -76,7 +76,7 @@
   ==========================================================================
   -> If we have only requirement but not any implementation at that time we should go for interface.
   -> If we have partially implementation at that time we can go for Abstract class.
-  -> If we have complete implementation and ready to provide service at that time we can go for Concrete clas.
+  -> If we have complete implementation and ready to provide service at that time we can go for Concrete class.
       
       
   7> Access specifiers Vs Access modifiers
@@ -162,7 +162,7 @@
   
  13> Difference between Exception and Error
  ==========================================================================================
-  -> Exception is unwanted or unexpected event i.e occour during the execution of program. It is occour in compile time.
+  -> Exception is unwanted or unexpected event i.e occour during the execution of program.
   -> Error is a serious problem, that should not try to catch our application. It is occour in run time.
   -> Throwable class acts as root for java exception hierarchy.
   -> Most of the time errors are not caused by our program these are due to lack of system resources.
@@ -172,7 +172,7 @@
   14> Difference between Checked exception and Unchecked Exception
   =========================================================================================
    -> The exception which are checked by compiler at compile time is called checked exception
-      Ex : FileNotFoundException
+      Ex : FileNotFoundException, IOException
    -> The exception which are not checked by compiler at compile time is called unchecked exception.
       Ex : ArithmaticExcfeption, NullPointerException.
    -> Whether exception is checked or unchecked, compulsory it will occur only at run time. There is no chance
@@ -229,6 +229,8 @@
         didn't find it's .class file in run time at that time we                file didn't find in run time at that time we get
         get ClassNotFound Exception.                                             NoClassDefFoundError Exception.
     -> It is Checked Exception.                                               -> It is a unchecked Exception. 
+    -> ClassNotFoundException is an exception that occurs when                -> NoClassDefFoundError is an error and occurs when a class was present during  
+       a class is dynamically loaded and not found.                               compilation but missing during runtime
          
   
   21> How to break Singleton

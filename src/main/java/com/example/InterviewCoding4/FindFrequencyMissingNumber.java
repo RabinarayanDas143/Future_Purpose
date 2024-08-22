@@ -12,10 +12,10 @@ public class FindFrequencyMissingNumber {
 	public static void main(String[] args) {
 		int[] array = { 1, 3, 5, 9, 10, 3, 5, 1, 3, 3, 10 };
 		Map<Integer, Integer> frequency = getFrequency(array);
-		System.out.println(frequency);
+		System.out.println("Frequency is : "+frequency);
 
 		List<Integer> missingNumber = getMissingNumber(array);
-		System.out.println(missingNumber);
+		System.out.println("Missing numbers is : "+missingNumber);
 	}
 
 	private static List<Integer> getMissingNumber(int[] array) {

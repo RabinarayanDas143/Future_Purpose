@@ -394,7 +394,7 @@ method is execute just after constructor created .
  ========================================================================================================================
   -> Both are maintain the life cycle of spring bean.
   -> Baiscally @Controller, @Service, @Repostiory are internally use @Component, when we create bean using through
-     our bean is create unconditionally but we use create bean through @Bean we can use come condition using @Conditional annotation
+     our bean is create unconditionally but we use create bean through @Bean we can use some condition using @Conditional annotation
      and we control our bean.
   -> @ConditionalOnMissingBean(...) , if that class is present the create the bean, if that is missing the create the bean.
   
