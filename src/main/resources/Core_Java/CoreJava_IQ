@@ -437,6 +437,24 @@
      working as a stateless short citcuting but takeWhile() is working as a statefull short circuting.
       Ex of takeWhile() : stream().takeWhile(n -> n < 5)  // Take elements while they are less than 5
                                       .collect(Collectors.toList());
+                                      
+ 48> What is static keyword ?
+ ============================================================
+  -> In Java, the static keyword is a modifier that can be applied to variables, methods, blocks, and nested classes. 
+  -> Static variables and methods belong to the class and not to individual instances.
+  -> Static methods cannot access non-static instance variables or methods directly.
+  -> Static blocks are executed once when the class is loaded.
+  -> Static nested classes can access the outer class's static members.
+  
+ 49> What is instance variable ?
+ ==============================================================
+  -> An instance variable in Java is a type of variable that is declared within a class but outside any method, constructor, or block. 
+  -> Each instance (object) of the class has its own copy of the instance variable, meaning the values of these variables can differ from one object to another.
+  
+ 50> can static method access instance variable 
+ =============================================================
+  -> No, a static method cannot directly access instance variables in Java.
+  -> A static method can only access instance variables indirectly, by creating an instance of the class. 
      
            
    

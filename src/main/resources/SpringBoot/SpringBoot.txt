@@ -490,6 +490,38 @@ method is execute just after constructor created .
            // method logic
      }
      
+ 40> In Spring boot if there is two properties file like application.properties and application.yml
+     when we fetch the data from this file which file spring give priority ?
+ ============================================================================================================
+    Ex: application.properties
+       ------------------------------
+         student.name = "Rabi";
+         
+       application.yaml
+       ------------------------------
+         student.name = "Das";
+      
+      @value("${student.name}")   
+      private String name;
+      
+      it fetch name from application.properties file "Rabi" . BCZ it spring give priority  to application.properties file.
+      
+      
+ 41> How DispatcherServlet in SpringBoot gets auto-configured ?
+ =========================================================================================
+   -> IN SpringBoot main class we are using annotation  @SpringBootApplication , these annotation is combination of 
+      @Configuration,@EnableAutoConfiguration, @ComponentScan .  The @EnableAutoconfiguration annotation is internally 
+      configure DispatcherServlet in her class path, so it automatically configure dispatcher servlet.
+      
+ 42> Difference between @Controlleradvise Vs @RestControllerAdvise
+ ========================================================================================
+  -> @RestControllerAdvise is a combination of @ControllerAdvise + @ResponseBody , it give response to the browser. 
+  -> It is also use in RESTful web service.
+  -> @ControllerAdvice is used to handle exceptions across the entire application in a global manner.
+  -> @ControllerAdvice is more suited for traditional MVC web applications.
+    
+         
+     
       
      
      

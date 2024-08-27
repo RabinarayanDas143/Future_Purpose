@@ -164,6 +164,24 @@
  -> Spring @PropertySources annotation is used to provide multiple properties files to spring environment.
  -> These annotation is used with @Configuration classes.
  -> Spring @PropertySource annotation is repeatable, means you can have multiple property source on a configuration class.
- -> We can use @value annotation and Environment class 	to read the property file.  
+ -> We can use @value annotation and Environment class 	to read the property file.
+ 
+ 23> @PathVariable
+ =====================================================================
+  -> @PathVariable is used to extract values from the URI (path) of the request.
+  -> It extract the data and bind in method parameter.
+  -> @PathVariable, when we extract the data at that time we have to maintain the sequence of the data.
+  
+     @GetMapping("/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable("id") Long userId) {}
+    
+ 24> @RequestParam
+ ==========================================================================
+  -> @RequestParam is used to extract the value from URL and assign in method parameter.
+  -> It is use when the data is come in like query. 
+  -> Example URI: /users?name=John
+   
+     @GetMapping
+    public ResponseEntity<List<User>> getUsersByName(@RequestParam("name") String userName) {} 
       
      
