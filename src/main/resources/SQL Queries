@@ -75,6 +75,55 @@ WHERE d.deptname = 'CS';
   
  10> SHOW DATABASE -- IT SHOW ALL THE DATA DABSE WHCIH ARE AVAILABLE
      SHOW TABLES -- IT SHOW ALL THE TABLE WHICH ARE AVAILBALE 
+     
+ 11> Keys
+ =====================================================================
+  * Primary key
+  --------------------------
+   -> It is a column in a table that uniquely identifies each row.
+   -> There is only one primary key in a table.
+   -> It should be unique and not null.
+   
+  * Foreign Key
+  -------------------------------
+   -> A Foreign key is a column in a table that refer to the primary key of anathor table.
+   -> There can be multiple foreign key.
+   -> Foreign key have duplicate and null value.
+   
+ 12> Constraints
+ ==================================================================
+  -> NOT NULL 
+  -> UNIQUE
+  -> PRIMARY KEY (NOT NULL + UNIQUE)
+  -> FOREIGN KEY
+  -> DEFAULT
+  -> CHECK - It can limit the values allowed in a column
+  
+  EX: CREATE TABLE CITY (
+        ID INT PRIMARY KEY,
+        CITY VARCHAR(50),
+        AGE INT,
+        CONSTRAINT CHECK (AGE<=18 AND CITY = "DELHI")
+   );
+   
+   OR 
+      EX: CREATE TABLE TB_NAME (
+            ID INT PRIMARY KEY,
+            AGE CHECK(AGE<=18)
+          );
+          
+          
+ 13> Where clause
+ =======================================================
+  To define some conditions.
+   EX: select * from tb_name where age = 18 and city = "Mumbai";
+   
+ 14> Operator
+ ========================================================
+  -> Arithmetic operator : +, -, *, /, %
+  -> Comparison operator : =, !=, >, >=, <, <=
+  -> Logical operator : AND, OR, NOT, IN, BETWEEN, ALL, LIKE, ANY
+  -> Bitwise operator : &, | .
     
     
     
