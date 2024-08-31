@@ -226,6 +226,12 @@ public class MultipleOperationUsingModelClass {
 		List<MultipleEmployee> map17 = empList.stream().sorted((a, b) -> a.getAge() - b.getAge())
 				.sorted((a, b) -> a.getName().compareTo(b.getName())).collect(Collectors.toList());
 		//map17.forEach(System.out::println);
+		Comparator<MultipleEmployee> name_compare = (a,b)->a.getName().compareTo(b.getName());
+		Comparator<MultipleEmployee> age_compare = (a,b)->a.getAge()-b.getAge();
+		List<MultipleEmployee> map18 = empList.stream().sorted(name_compare.thenComparing(age_compare)).collect(Collectors.toList());
+		//map18.forEach(System.out::println);
+				
+		
 	}
 
 }

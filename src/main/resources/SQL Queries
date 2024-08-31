@@ -124,8 +124,100 @@ WHERE d.deptname = 'CS';
   -> Comparison operator : =, !=, >, >=, <, <=
   -> Logical operator : AND, OR, NOT, IN, BETWEEN, ALL, LIKE, ANY
   -> Bitwise operator : &, | .
+  
+  EX:
+     AND
+    ----------------
+    SELECT * FROM STUDENT WHERE MARKS > 80 AND CITY = "MUMBAI";
+    
+    OR
+   --------------
+    SELECT * FROM STUDENT WHERE MARKS > 90 OR CITY = "MUMBAI";
+    
+    BETWEEN 
+   -------------
+    SELECT * FROM STUDENT WHERE MARKS BETWEEN 80 AND 90;
+    
+    IN
+   --------------
+    SELECT * FROM STUDENTS WHERE CITY IN ( "DELHI", "MUMBAI" );
+    
+   NOT IN
+  ---------------
+    SELECT * FROM STUDENTS WHERE CITY NOT IN ( "DELHI", "MUMBAI" );
+    
+   LIMIT
+  --------------
+   SELECT * FROM STUDENTS LIMIT 3;
+   
+   ASC (ASCENDING) AND DESC (DESCINDING)
+  ---------------------------------------------
+   SELECT * FROM STUDENTS ORDER BY CITY ASC;
+   SELECT * FROM STUDENTS ORDER BY CITY DESC;
+   
+   
+ 15> AGGREGATE FUNCTION
+ ==========================================================
+  Aggregate function perform a calculation on a set of values and return a single values.
+   * COUNT() 
+   * MAX()
+   * MIN()
+   * SUM()
+   * AVG()
+   
+   EX: SELECT MAX(MARKS) FROM STUDENT;
+   
+ 16 - IQ > FIND THE SECOOND HIGHEST SALARY FROM EMPLOYEE
+ =======================================================================
+   -> SELECT * FROM EMPLOYEE WHERE SALARY =(SELECT MAX(SALARY) FROM EMPLOYEE WHERE SALARY < (SELECT MAX(SALARY) FROM EMPLOYEE));
+   
+   if you want 3rd highest salary
+   ----------------------------------------
+    -> SELECT * FROM EMPLOYEE WHERE SALARY =(SELECT MAX(SALARY) FROM EMPLOYEE WHERE SALARY < (SELECT MAX(SALARY) FROM EMPLOYEE where SALARY <
+       (select max(SALARY) from EMPLOYEE))); 
+       
+   but if you short query for Kth highest salary
+   ---------------------------------------------------------
+    SELECT DISTINCT SALARY FROM EMPLOYEE ORDER BY SALARY DESC LIMIT 1 OFFSET 2;
     
     
+ 17> GROUP BY CLAUSE
+ =================================================================
+  -> Group rows that have same values into summary rows.
+  ->  It collect data from multiple records and groups the results by one or more columns.
+  -> Generally we use group by with some aggregation function.
+  
+  EX:  SELECT AGE, COUNT(EMP_NAME) FROM EMPLOYEE GROUP BY AGE;  
+  
+ 18> IQ- WRITE THE QUERY TO FIND THE AVAERAGE SALARY OF EACH CITY IN ASCENDING ORDER
+ ====================================================================================================
+  -> SELECT CITY, AVG(SALARY) FROM EMPLOYEE  GROUP BY CITY ORDER BY CITY ASC;
+  
+ 19> Having clause
+ ==================================================================
+  -> Similar to where clause i.e apply some condition on rows.
+  -> Used when we want to apply any condition after grouping.
+   
+   EX: SELECT  EMP_NAME,COUNT(EMP_NAME) FROM EMPLOYEE GROUP BY EMP_NAME HAVING MAX(SALARY) > 60000 ;
+   
+ 20> General order
+ ========================================================
+  SELECT columns(s)
+  FROM   table_name
+  WHERE  condition
+  BROUP BY column(s)
+  HAVING  condition
+  ORDER BY columns(s) ASC
+  
+ 21> Table related queries
+ =======================================================
+  Update (to update existing rows)
+  
+  UPDATE EMPLOYEE SET EMP_NAME = "RABINARAYAN" WHERE EMP_NAME="RABI";
+  
+  DELETE (to delete existing rows)
+   
+    DELETE FROM EMPLOYEE WHERE SALARY <20000;
     
     
     
