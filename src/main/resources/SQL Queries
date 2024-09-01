@@ -219,6 +219,144 @@ WHERE d.deptname = 'CS';
    
     DELETE FROM EMPLOYEE WHERE SALARY <20000;
     
+ 22> Cascading for Foreign key (FK)
+ ==============================================================
+  On Delete Cascade
+  -----------------------
+   When we create a FK using this option, it delete the referencing rows in the child table 
+   when the referenced row is deleted in the department table which has a primary key.
+   
+  On Update Cascade
+  ---------------------------
+   When we create a FK using UPDATE CASCADE THE referencing rows are updated in the child table 
+   when the referenced rows is updated in the parent table which has a primary key.
+   
+   EX: 
+    CREATE TABLE DEPARTMENT (
+      ID INT PRIMARY KEY,
+      DEPT_NAME VARCHAR(100),
+      DEPT_ID INT,
+      FOREIGN KEY (DEPT_ID) REFERENCES EMPLOYEE (EMP_ID) 
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+ );
+ 
+ 23> Table Related Queries
+ ============================================================
+  ALTER ( to change the schema)
+  
+  ADD column 
+  ---------------------
+   ALTER TABLE tb_name ADD COLUMN column_name data_type constraints
+   
+  DROP column
+  ----------------------
+   ALTER TABLE tb_name
+   DROP COLUMN column_name;
+   
+  RENAME Table
+  ------------------------
+   ALTER TABLE tb_name
+   RENAME TO new_table_name;
+   
+  CHANGE Column
+  ------------------------
+   ALTER TABLE tb_name
+   CHANGE COLUMN old_name new_name new_datatype new_constraint;
+   
+  MODIFY Column (Modify data type / constraint)
+  -----------------------------------------------------------
+   ALTER TABLE tb_name
+   MODIFY col_name new_datatype new_constraint;
+   
+   
+  ADD Column 
+  -------------------------------
+   ALTER TABLE tb_name ADD COLUMN column_name INT NOT NULL DEFAULT 19;
+   
+  MODIFY Column
+  --------------------------------
+   ALTER TABLE tb_name MODIFY column_name VARCHAR(2);
+   
+  CHANGE Column (rename)
+  ------------------------------------
+   ALTER TABLE tb_name CHANGE old_clname new_clname data_type;
+   
+  DROP Column 
+  -----------------------------------
+   ALTER TABLE tb_name DROP COLUMN cl_name;
+   
+  RENAME Table
+  -------------------------------------
+   ALTER TABLE tb_name RENAME TO new_tbname;
+   
+  TRUNCATE (to delete tables data)
+  ---------------------------------------
+   TRUNCATE TABEL tb_name;
+   
+ 24> Joins in SQL
+ =========================================================
+  Join is used to combine rows from two or more tables, based on a related column between them.
+  
+  Inner Join
+  ---------------------
+  -> Returns records that have matching values in both table.
+   syntax: SELECT columns from tableA INNER JOIN tableB ON tableA.col_name = tableB.col_name;
+   
+  Left Join
+  ---------------------
+   -> Returns all records from the left table and the matched records from the right table.
+   syntax: SELECT columns from tableA LEFT JOIN tableB ON tableA.col_name = tableB.col_name;
+   
+  Right JOIN
+  ----------------------
+   -> Returns all records from the right table, and the matched records from the left table.
+   syntax: SELECT columns from tableA RIGHT JOIN tableB ON tableA.col_name = tableB.col_name;
+   
+  Full join 
+  -----------------------
+   -> Returns all records when there is a match in either left or right table.
+   syntax: SELECT * FROM tableA A LEFT JOIN tableB B ON A.id=B.id
+           UNION
+           SELECT * FROM tableA A RIGHT JOIN tableB B ON A.id=B.id
+           
+  Self Join
+  -----------------------
+   -> It is a regular join but the table is joined with itself.
+    syntax: SELECT columns FROM table as A JOIN table as B ON A.col_name = B.col_name;
+    
+    
+ 25> Union 
+ ============================================================ 
+  It is used to combine the result set of two or more select statements.
+  Gives UNIQUE records.
+  
+  To use it : 
+    * every select should have same no. of columns
+    * columns must have similar data type
+    * columns in every select should be in same order.
+    
+    syntax: SELECT columns FROM tableA
+            UNION
+            SELECT columns FROM tableB
+            
+ 26> Union ALL
+ =================================================================
+  It is used to combine the result set of two or more select statements.
+  Gives all records.
+  
+  syntax: SELECT columns FROM tableA
+            UNION ALL
+            SELECT columns FROM tableB
+            
+ 27> SQL Sub Queries
+ ===================================================================
+  A Subquery or inner query or a Nested query is a query within another SQL query.
+  it invokes 2 select statements.
+  
+  syntax: select columns from tb_name where col_name operator (subquery);
+   
+    
     
     
     
