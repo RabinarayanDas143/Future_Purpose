@@ -519,6 +519,81 @@ method is execute just after constructor created .
   -> It is also use in RESTful web service.
   -> @ControllerAdvice is used to handle exceptions across the entire application in a global manner.
   -> @ControllerAdvice is more suited for traditional MVC web applications.
+  
+ 43> What is Spring Boot?
+ ==============================================================
+  -> Spring Boot is an open-source Java-based framework used to create stand-alone, production-ready Spring applications with minimal configuration.
+  -> It simplifies the setup and development of new Spring applications by providing default configurations and features
+      like embedded servers (Tomcat, Jetty, etc.), auto-configuration
+      
+ 45> What are the main features of Spring Boot?
+ =======================================================================
+  -> Auto-Configuration: Automatically configures Spring application based on the project’s dependencies.
+  -> Spring Boot Starters: A set of dependency descriptors to include necessary libraries.
+  -> Embedded Servers: Provides built-in servers like Tomcat or Jetty, so you don't need to deploy WAR files.
+  -> Spring Boot CLI: A command-line tool for quickly prototyping Spring applications.
+  -> Actuator: Provides production-ready features like monitoring and managing applications through endpoints.
+  -> Standalone Applications: Allows the creation of Java applications that can run with java -jar.
+  
+ 46> What is the difference between Spring and Spring Boot?
+ =====================================================================================
+  -> Spring: A comprehensive framework for building Java applications. It requires extensive configuration and is used for creating a wide range
+             of applications (web, microservices, batch, etc.).
+  -> Spring Boot: It is a enhanced version of Spring that simplifies application development by offering pre-configured setups and defaults,
+                 reducing the need for boilerplate code. It allows developers to start coding with minimal setup and is ideal for microservices.
+                 
+ 47> What is a Spring Boot Starter?
+ ================================================================= 
+  -> Spring Boot Starters is a predefined dependency that collection of required libraries for specific functionalities
+  -> spring-boot-starter-web: Includes dependencies for building web applications (e.g., Spring MVC, Tomcat).
+  -> spring-boot-starter-data-jpa: Includes dependencies for JPA and Spring Data.
+  -> spring-boot-starter-security: Includes dependencies for Spring Security.
+  
+ 48> What is @SpringBootApplication annotation?
+ ======================================================================
+  ->  @SpringBootApplication is a convenience annotation that combines three crucial annotations:
+    - @Configuration: Marks the class as a source of bean definitions
+    - @EnableAutoConfiguration: Enables Spring Boot's auto-configuration mechanism, which automatically configures beans based on the classpath settings.	
+    - @ComponentScan: Enables component scanning, so Spring can find and register beans within the package of the annotated class and its sub-packages.
+    
+ 49> How do you create a Spring Boot application?
+ =======================================================================
+  -> Using Spring Initializr: Go to the Spring Initializr website, select your project settings (dependencies, Java version, etc.), 
+      and generate the project. Import it into your IDE and start coding.
+  -> Using Spring Boot CLI: Install Spring Boot CLI and create a new project by running commands like spring init --dependencies=web myproject.
+  -> Manually: Create a new Maven or Gradle project, add Spring Boot dependencies, and annotate the main class with @SpringBootApplication.
+  
+ 50> What is Spring Boot Auto-Configuration?
+ ======================================================================
+  -> Spring Boot's auto-configuration feature automatically configures your Spring application based on the dependencies present in the classpath.
+     For example, if spring-boot-starter-web is in the classpath, it automatically configures Spring MVC, a dispatcher servlet, and
+     a default embedded server (Tomcat). This reduces the need for manual configuration, allowing you to focus on your application's business logic.
+     
+ 51> What is the role of the application.properties file in Spring Boot?
+ ======================================================================================
+  -> The application.properties (or application.yml) file is used to define application-level configurations in a Spring Boot project.
+  -> You can configure settings like:
+      - Server properties: server.port=8081
+      - Database configurations: spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+      - Logging levels: logging.level.org.springframework=DEBUG
+      - Custom properties: You can also define your own properties, e.g., myapp.custom.property=value.
+      
+ 52> What is Spring Boot Actuator?
+ ==================================================================================
+   -> Spring Boot Actuator provides a set of production-ready features to monitor and manage your application.
+   ->  It exposes various endpoints, such as:
+         - /actuator/health: Displays the health status of the application.
+         - /actuator/metrics: Provides metrics data like memory usage, CPU usage, and other application statistics
+         - /actuator/env: Displays environment properties. Actuator endpoints can be customized and secured, and it integrates
+                          well with monitoring tools like Prometheus and Grafana.
+                          
+ 53> What is an embedded server in Spring Boot?
+ ================================================================================== 
+   -> An embedded server is built into your application.
+   -> So it run as a stand alone java application, without deploying war file in any server.
+   -> Spring Boot supports embedded servers like Tomcat, Jetty, and Undertow.
+         
+  
     
          
      
