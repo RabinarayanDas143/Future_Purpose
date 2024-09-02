@@ -592,9 +592,69 @@ method is execute just after constructor created .
    -> An embedded server is built into your application.
    -> So it run as a stand alone java application, without deploying war file in any server.
    -> Spring Boot supports embedded servers like Tomcat, Jetty, and Undertow.
-         
-  
+   
+   
+ 54> What is Spring Boot DevTools?
+ =======================================================================
+ -> Spring Boot DevTools is a module that enhances the development experience by providing features like automatic restart,
+    live reload. It helps speed up the development process by reducing the need for manual application restarts after code changes.
     
+    
+ 55> How does Spring Boot handle security?
+ =========================================================================
+  -> Spring Boot provides security out-of-the-box through Spring Security. 
+  -> By adding spring-boot-starter-security to your project, you automatically enable basic authentication.
+  -> You can customize security configurations using @EnableWebSecurity and configure specific authentication
+     and authorization rules through the WebSecurityConfigurerAdapter.
+     
+ 56> What is the purpose of @RestController in Spring Boot?
+ =============================================================================
+  -> @RestController is a convenience annotation that combines @Controller and @ResponseBody.
+  -> It marks a class as a controller where every method returns a domain object instead of a view.
+  -> The response is automatically converted to JSON or XML, depending on the client request.
+  
+ 57> What is the difference between @Controller and @RestController?
+ =========================================================================================
+  -> @Controller: Used to define a controller class that handles web requests and typically returns a view (e.g., HTML).
+  -> @RestController: Used to define a controller class that handles RESTful web services. It returns data directly (like JSON)
+     instead of views, eliminating the need for @ResponseBody on each method.
+  
+ 58> What is a @Bean in Spring Boot?
+ ===========================================================================
+  -> @Bean is an annotation used to declare a bean within a Spring configuration class.
+  -> Beans are objects that are managed by the Spring container. Declaring a method with @Bean ensures that the method's 
+     return value is registered as a bean in the Spring application context.
+     
+ 59> How do you define a custom exception in Spring Boot?
+ ==============================================================================
+  -> Create a custom exception class, e.g., public class ResourceNotFoundException extends RuntimeException {}.
+  -> Optionally, create a global exception handler using @ControllerAdvice and handle custom exceptions using @ExceptionHandler.
+     
+ 60> How do you handle application configuration in Spring Boot? 
+ ================================================================================
+  ->  Configuration in Spring Boot is managed through properties files (application.properties or application.yml), environment variables,
+      and command-line arguments. You can also use profiles (e.g., application-dev.properties) for environment-specific configurations.
+  ->  Configuration properties can be injected into beans using @Value or @ConfigurationProperties.
+  
+ 61> What is @ConfigurationProperties in Spring Boot?
+ ==============================================================================
+  -> @ConfigurationProperties is used to bind external configurations from properties or YAML files to a Java object.
+  -> @ConfigurationProperties(prefix="app.datasource").
+  
+ 62> What is a Spring Boot Profile?
+ =================================================================================
+  -> Profiles in Spring Boot allow you to create different configurations for different environments, such as development, testing, and production. 
+  -> You can define environment-specific properties in separate files like application-dev.properties, application-test.properties, etc.
+  -> You can activate a profile by setting the spring.profiles.active = dev
+  
+ 63> How do you handle exceptions in Spring Boot?
+ ==============================================================================
+  -> Global Exception Handling: Use @ControllerAdvice and @ExceptionHandler annotations to create a global exception handler
+     that can catch and handle exceptions across the entire application. 
+  -> ResponseEntityExceptionHandler: Extend this class to create a centralized exception handling mechanism with specific HTTP status codes and response bodies.
+     
+  
+ 
          
      
       
