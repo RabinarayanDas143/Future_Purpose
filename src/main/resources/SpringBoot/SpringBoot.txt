@@ -652,6 +652,25 @@ method is execute just after constructor created .
   -> Global Exception Handling: Use @ControllerAdvice and @ExceptionHandler annotations to create a global exception handler
      that can catch and handle exceptions across the entire application. 
   -> ResponseEntityExceptionHandler: Extend this class to create a centralized exception handling mechanism with specific HTTP status codes and response bodies.
+  
+  
+ 64> ACID Property
+ ========================================================================
+  A (Atomicity) :
+  -----------------------------------
+   -> Ensure all operations with in a transaction are completed successfully. If any operation fails, the entire transaction will get rollback.
+   
+  C (Consistency)
+  -----------------------------
+   -> Ensure that DB state before and after the transaction should be consistent only.
+   
+  I (Isolation)
+  --------------------------------
+   -> Ensure that, even if multiple transaction are running in parallel, they don not interfere with each other.
+   
+  D (Durability)
+  -------------------------------
+   -> Ensure that committed transaction will never lost when system failure or crash.
      
   
  
