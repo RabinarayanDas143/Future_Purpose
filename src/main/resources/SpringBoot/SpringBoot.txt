@@ -671,10 +671,59 @@ method is execute just after constructor created .
   D (Durability)
   -------------------------------
    -> Ensure that committed transaction will never lost when system failure or crash.
+   
+   
+ 65> Custom Interceptors
+ ==============================================================================
+  -> For creating custom interceptors we have to create a class like MyCustomInterceptors and implements HandlerInterceptors 
+  -> These interface have 3 methods 
+     - PreHandle() - It execute before, request come to the controller.
+     - postHandler() - It execute after, request come to the controller.
+     - afterCompletion() - It execute after postHandler(), it working like finally block .
      
+ 66> How can you create a custom annotation in spring boot.
+ ==================================================================================
+  -> Using @interface you can create your own custom annotation.
   
- 
-         
+      EX: public @interface MyCustomAnnotation {
+      
+              public class User{
+                  
+                  @MyCustomAnnotation
+                  public void updateUser(){
+                      // logic
+                  }
+              }
+      
+      }  
+      
+      
+ 67> How can you define your custom annotation is for class level or method level
+ =============================================================================================
+  -> @Target annotation, tells where we can apply the the particulars annotation on method or class level.
+  
+        @Target(ElementType.METHOD)
+        public @interface MyCustomAnnotation {
+        
+        } 
+        
+        @Target({ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.FIELD})
+        public @interface MyCustomAnnotation {
+        
+        } 
+     
+  -> @Retention :
+  ----------------------------
+   - This annotation tells, how the particular annotation will be stored in java.
+     
+        RetetionPolicy.SOURCE:
+          Annotation will be discarded by compiler itself and its not been recorded in .class file
+          
+        RetentionPolicy.CLASS :
+          Annotation will be recorded in .class file but ignored by JVM during run time.
+  
+       RetentionPolicy.RUNTIME :
+          Annotation will be recorded in .class file and also available during run time.
      
       
      
