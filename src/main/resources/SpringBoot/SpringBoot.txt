@@ -666,7 +666,7 @@ method is execute just after constructor created .
    
   I (Isolation)
   --------------------------------
-   -> Ensure that, even if multiple transaction are running in parallel, they don not interfere with each other.
+   -> Ensure that, even if multiple transaction are running in parallel, they do not interfere with each other.
    
   D (Durability)
   -------------------------------
@@ -724,10 +724,37 @@ method is execute just after constructor created .
   
        RetentionPolicy.RUNTIME :
           Annotation will be recorded in .class file and also available during run time.
+          
+ 68> Filter Vs Interceptor
+ ==============================================================================
+  Filter :
+  -------------------------
+   -> It intercept the HTTP Request and Response, before they reach to the servlet.
+   
+  Interceptor :
+  -------------------------
+   -> Its specific to spring framework, and intercept HTTP Request and Response, before they reach to the controller and after servlet.
+   
+             |----------|
+    Request  |          |     (Filter chain)        (Servlet)
+   --------->| Tomcat   |-----> Filter --------> Dispatcher Servlet ----------> Interceptor -------> Controller
+   <---------|          |
+   Response  |----------|
      
-      
-     
-     
+  
+  What is servlet :
+  -----------------------
+  -> Servlet is nothing but a java class, Which accept the incoming request, process it and returns the response.
+  
+  Filter :
+  ------------------------
+   -> It is used when we want to intercept HTTP Request and Response and add logic of the underlying servlet.
+   -> We can have many filters and have ordering between them too.
+   
+  Interceptor :
+  ------------------------
+   -> It is used when we want to intercept HTTP Request and Response and logic specific to a particular servlet.
+   -> We can have many interceptors and have ordering between them too.
       
       
   

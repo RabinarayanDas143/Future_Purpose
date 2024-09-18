@@ -37,7 +37,7 @@
  =====================================================================
   -> we use == operator for reference/address comparison, where as .equals() method content comparison.
   -> .equals() method is present in object class.
-  -> String class,all wraper class and all collection classes .equals() method overridden for content comparison.
+  -> String class,all wrapper class and all collection classes .equals() method overridden for content comparison.
   
   
   4> What are the various modifiers available in java -12
@@ -116,8 +116,8 @@
     System.out.println("Hello");
    
   -> System is a class present in java.lang package.
-  -> 'out' is a static variable present in System class of type PrintStream.
-  -> Println() is a method present in PrintStream class.
+  -> 'out' is a static variable of in System class, which is type PrintStream class.
+  -> println() is a method present in PrintStream class.
   
  
  10> Explain about public static void main(String[] args)
@@ -138,7 +138,7 @@
                   MethodOverloading                                                    MethodOverriding
       -------------------------------------------------------              -----------------------------------------------------------
    -> Two method are same name but different argument and it        -> Two method are same name same argument but perform in different class 
-      in same class called MethodOverloading.                            is called MethodOverriding.
+      perform in same class called MethodOverloading.                   is called MethodOverriding.
    -> Return type is may be same or may be different .              -> Return type is must be same.
    -> private, static, final method can be overloaded.              -> private, static, final method can't be override.
    -> for exception throws there is no restriction.                 -> for exception throws if parent class throws checked exception then child class 
@@ -172,9 +172,9 @@
   14> Difference between Checked exception and Unchecked Exception
   =========================================================================================
    -> The exception which are checked by compiler at compile time is called checked exception
-      Ex : FileNotFoundException, IOException
+      Ex : FileNotFoundException, ClassNotFoundException, IOException, SQLException, ParseException.
    -> The exception which are not checked by compiler at compile time is called unchecked exception.
-      Ex : ArithmaticExcfeption, NullPointerException.
+      Ex : ArithmaticExcfeption, NullPointerException, ArrayIndexOutOfBoundsException, ClassCastException, IllegalArgumentException, NumberFormatException.
    -> Whether exception is checked or unchecked, compulsory it will occur only at run time. There is no chance
       of occuring any exception at compile time.
       
