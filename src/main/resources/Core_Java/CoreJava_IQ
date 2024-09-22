@@ -455,10 +455,189 @@
  =============================================================
   -> No, a static method cannot directly access instance variables in Java.
   -> A static method can only access instance variables indirectly, by creating an instance of the class. 
+  
+ 51> Explain the difference between Stream and ParallelStream. When would you use each?
+ =========================================================================================================
+  -> Stream processes elements sequentially, while ParallelStream divides the data into multiple parts and processes them in parallel.
+  -> Use ParallelStream when you need faster processing on large datasets.
+    
+ 52> What is the difference between intermediate and terminal operations in a stream?
+ ===========================================================================================================
+  ->  Intermediate operations (e.g., filter, map) return a stream and are lazy, meaning they don’t process until a terminal operation is invoked.
+  -> Terminal operations (e.g., collect, forEach) produce a result or side effect and mark the end of the stream.
+  
+ 53> How does the filter() method work in Java Streams? Can you provide an example?
+ ===============================================================================================================
+  -> filter() is an intermediate operation that returns a stream containing elements that match a given predicate.
+     Example: stream.filter(x -> x > 10) filters out numbers less than or equal to 10.
+    
+ 54> What is the purpose of the map() function in streams? How does it differ from flatMap()?
+ ================================================================================================================       
+  ->  map() transforms each element of the stream, while flatMap() flattens nested streams or collections into a single stream.
+  -> Example: map() is used for element transformation, whereas flatMap() is used to handle nested lists. 
+  
+  Example : 
+     List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+     List<Integer> nameLengths = names.stream()
+                                 .map(String::length)
+                                 .collect(Collectors.toList());
+      System.out.println(nameLengths);  // Output: [5, 3, 7]
+      
+      
+    List<List<String>> nestedList = Arrays.asList(
+    Arrays.asList("Alice", "Bob"),
+    Arrays.asList("Charlie", "David")
+      );
+           List<String> flatList = nestedList.stream()
+                                  .flatMap(List::stream)
+                                  .collect(Collectors.toList());
+           System.out.println(flatList);  // Output: [Alice, Bob, Charlie, David]
+    
+  55> Can you explain the working of the reduce() method in streams with an example?
+  ===============================================================================================================
+   -> The reduce() method in Java Streams is used to combine elements of a stream into a single result.     
+   
+      List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Using reduce to sum the numbers
+          int sum = numbers.stream()
+                 .reduce(0, (a, b) -> a + b);
+
+          System.out.println("Sum: " + sum);  // Output: Sum: 15
+          
+       // Here’s an example of using reduce() to find the longest string in a list.
+       List<String> words = Arrays.asList("apple", "banana", "pear", "pineapple");
+
+        String longestWord = words.stream()
+                          .reduce("", (word1, word2) -> word1.length() > word2.length() ? word1 : word2);
+
+        System.out.println("Longest word: " + longestWord);  // Output: Longest word: pineapple
+        
+       // Find Max Number 
+       
+       Optional<Integer> max = numbers.stream().reduce((a, b) -> a > b ? a : b);
+
+       max.ifPresent(System.out::println);  // Output: 5
+       
+  56> What are collectors in Java Streams? Explain Collectors.toList() and Collectors.toMap().
+  ===========================================================================================================
+   -> Collectors are utilities for gathering elements of a stream into a collection or another form. 
+      Collectors.toList() collects elements into a List, while Collectors.toMap() collects elements into a Map.
+      
+      List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+       // Collecting stream elements into a List
+        List<String> collectedNames = names.stream()
+                                           .filter(name -> name.length() > 3)
+                                           .collect(Collectors.toList());
+
+        System.out.println(collectedNames);  // Output: [Alice, Charlie]
+        
+        
+      List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+      // Collecting stream elements into a Map
+        Map<String, Integer> nameLengthMap = names.stream()
+                                                  .collect(Collectors.toMap(name -> name, name -> name.length()));
+        
+        System.out.println(nameLengthMap);  
+        // Output: {Alice=5, Bob=3, Charlie=7}
+        
+        
+  57> Explain the forEach() method in streams. How is it different from a traditional loop?
+  ==================================================================================================================
+   -> forEach() is a terminal operation that processes each element in the stream.
+   -> forEach() uses a Consumer, which is designed to take in values and perform actions on them.
+   -> The Consumer interface has a single method, accept(), which takes an argument and performs some operation on it.
+   
+ 58> What is lazy evaluation in streams? How does it affect performance?
+ ===================================================================================================
+  -> Lazy evaluation means intermediate operations.
+  -> Intermediate operations (like filter(), map(), etc.) are lazy because they don’t perform any work until a terminal operation (like collect(), forEach(), etc.) is invoked.       
+       
+  
+ 59> How do you handle exceptions in streams?
+ =============================================================================================
+  -> stream operations cannot directly throw checked exceptions, you can wrap a checked exception inside a runtime exception,
+     such as UncheckedIOException or IllegalStateException.  
      
-           
-   
-   
+     List<String> data = Arrays.asList("123", "abc", "456");
+
+     data.stream()
+    .map(str -> {
+        try {
+            return Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            throw new IllegalStateException("Invalid input: " + str, e);
+        }
+    })
+    .forEach(System.out::println);
+       
+       
+ 60> What is the purpose of peek() in streams? When should it be used?
+ ================================================================================================
+  -> peek() is mainly used for debugging purposes, allowing you to see the elements as they pass through the pipeline. It’s an intermediate operation.
+  
+  List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
+
+        names.stream()
+            .filter(name -> name.length() > 3) // Filter names longer than 3 characters
+            .peek(name -> System.out.println("Filtered name: " + name)) // Inspect names
+            .map(String::toUpperCase) // Convert to uppercase
+            .forEach(System.out::println); // Print final result
+    
+ 61> Can you convert a Stream back to a Collection? How?
+ =====================================================================================================
+  -> Yes, by using collect(Collectors.toList()), collect(Collectors.toSet()), or similar methods.
+  
+ 62> What is the difference between anyMatch(), allMatch(), and noneMatch() in streams?
+ =======================================================================================================
+  ->  anyMatch() checks if any element matches a condition, allMatch() checks if all elements match, and noneMatch() checks if none of the elements match.
+  
+     List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+
+     boolean hasLongName = names.stream().anyMatch(name -> name.length() > 5);
+     System.out.println(hasLongName); // Output: true
+     
+     boolean allLongNames = names.stream().allMatch(name -> name.length() > 2);
+     System.out.println(allLongNames); // Output: true
+     
+     boolean noShortNames = names.stream().noneMatch(name -> name.length() < 3);
+     System.out.println(noShortNames); // Output: false
+     
+     
+ 63> Explain limit() and skip() methods in streams. How are they useful?
+ ======================================================================================================
+  -> limit() restricts the number of elements in a stream, and skip() skips a given number of elements. Useful for pagination and sampling.
+  
+ 64> How can you concatenate two streams in Java 8?
+ =====================================================================================================
+  -> Use Stream.concat(stream1, stream2) to merge two streams into one.
+  
+ 65> What are parallel streams? How do you create one?
+ =====================================================================================================
+  -> Parallel streams allow parallel processing of data. Create one using parallelStream() or stream.parallel().
+  
+     List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+     Stream<String> parallelStream = names.parallelStream();
+     
+     List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+     Stream<String> parallelStream = names.stream().parallel();
+     
+     
+ 66> Explain short-circuiting operations in streams. Give an example.
+ ====================================================================================================
+    -> Short-circuiting operations (e.g., findFirst(), anyMatch()) stop processing as soon as a condition is met.
+       Example: findFirst() halts after finding the first element.
+       
+ 67> What is the role of the distinct() method in streams?
+ ====================================================================================
+  -> distinct() filters out duplicate elements from the stream, ensuring all elements are unique.
+     
+       
+
+     
+     
+      
+    
    
    
    

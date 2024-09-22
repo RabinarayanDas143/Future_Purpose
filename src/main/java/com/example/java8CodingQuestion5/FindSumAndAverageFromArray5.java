@@ -12,6 +12,11 @@ public class FindSumAndAverageFromArray5 {
 
 		System.out.println("Sum is :" + sum);
 		System.out.println("Average is :" + average);
+		
+		int sum1 = Arrays.stream(array).boxed().reduce(0, (a,b)->a+b);
+		System.out.println(sum1);
+		
+	    
 	}
 
 }
