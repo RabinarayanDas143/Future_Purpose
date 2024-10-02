@@ -631,6 +631,103 @@
  67> What is the role of the distinct() method in streams?
  ====================================================================================
   -> distinct() filters out duplicate elements from the stream, ensuring all elements are unique.
+  
+ 68> Exception Handling Rule for Method Overriding
+ ===============================================================================================
+  -> If parent class throws checked exception then child class throws same checked exception or it's child exception or can't throws any exception or unchecked exception.
+     but it can't throws it's parent exception.
+     
+     Ex: 
+          class Parent{
+	          public void print() throws FileNotFoundException{
+	        	System.out.println("Parent print method called....");
+	        }
+          }
+          class Child extends Parent{
+	               public void print() throws RuntimeException{
+	             	System.out.println("Child print method called....");
+	             }
+              }
+         // Above code working fine.
+         
+         
+       class Parent{
+	        public void print() throws FileNotFoundException{
+		         System.out.println("Parent print method called....");
+	         }
+         }
+          class Child extends Parent{
+	             public void print() throws Exception{
+		           System.out.println("Child print method called....");
+	           }
+            }
+            
+         // Above code give compile time error.
+         
+   -> If parent class throws Unchecked exception then child class throws same unchecked or its child exception, but it can't throws 
+      checked exception.
+      
+       Ex: 
+           class Parent{
+	            public void print() throws RuntimeException{
+		           System.out.println("Parent print method called....");
+	            }
+            }
+          class Child extends Parent{
+	             public void print() throws NullPointerException{
+		            System.out.println("Child print method called....");
+	             }
+              }
+              
+            // Above code working fine...
+            
+           
+           class Parent{
+	            public void print() throws RuntimeException{
+		           System.out.println("Parent print method called....");
+	            }
+            }
+          class Child extends Parent{
+	           public void print() throws FileNotFoundException{
+		           System.out.println("Child print method called....");
+	          }
+           }
+           
+           // Above code give compile time error.
+           
+           
+         try {
+			int result = 10 / 0;
+			System.out.println("Result....");
+		} catch (ArithmeticException e) {
+			System.out.println("ArithmeticException exception block...");
+		} catch (Exception e) {
+			System.out.println("Exception class block...");
+		}
+		
+   -> In above case it execute ArithmeticException catch block.
+   
+       try {
+			int result = 10/0;
+			System.out.println("Result....");
+		} catch (ArithmeticException e) {
+			System.out.println("ArithmeticException exception block...");
+		} catch (ArithmeticException e) {
+			System.out.println("Exception class block...");
+		}
+		
+  -> In above case it give compile time error bcz two catch block use same exception.
+  
+        try {
+			int result = 10/0;
+			System.out.println("Result....");
+		} catch (Exception e) {
+			System.out.println("ArithmeticException exception block...");
+		} catch (ArithmeticException e) {
+			System.out.println("Exception class block...");
+		}
+		
+  -> In above case it give compile time error bcz first catch block use parent exception class then sub catch block use child exception class.
      
        
 

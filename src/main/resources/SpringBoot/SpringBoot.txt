@@ -187,7 +187,7 @@ method is execute just after constructor created .
                     
   20> Can you explain the caching mechanism available in Spring boot ?
   ==========================================================================================
-  -> Caching is like a memory box where we can store things we use frequently.
+  -> Caching is like a memory box where we can store the frequently used data.
   -> It make our application faster and more efficient.
   -> There is a Spring cache Abstraction in Spring Boot and it is like a smart memory layer for our application.
   

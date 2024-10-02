@@ -56,7 +56,7 @@
   
  8> What is ORM?
  =================================================================
-  -> ORM is an object relational mapping. It is used to mappe the java object to database table.
+  -> ORM is an object relational mapping. It is used to mapped the java object to database table.
   -> It simplifies data creation, data manipulation, and data access.
   
  9> Explain hibernate architecture?
@@ -103,7 +103,7 @@
  16>  What is lazy loading in hibernate?
  =================================================================================
   -> Lazy loading in hibernate improves the performance. It loads the child objects on demand.
-  -> Basically when when we need the data and hit the database at that time it load the data.
+  -> Basically when we need the data and hit the database at that time it load the data.
   
  17> Difference between persist and merge in hibernate ?
  ================================================================================

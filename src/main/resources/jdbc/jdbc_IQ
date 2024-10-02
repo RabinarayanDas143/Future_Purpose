@@ -1,0 +1,134 @@
+1) What is JDBC?
+=========================================================
+ -> JDBC is a Java API that is used to connect and execute the query to the database.
+ -> JDBC API uses JDBC drivers to connect to the database.
+    
+      Java Application -------> JDBC Driver --------> DataBase
+      
+2) What is JDBC Driver?
+=========================================================
+ -> JDBC Driver is a software component that enables Java application to interact with the database.
+     There are 4 types of JDBC drivers:
+      1. JDBC-ODBC bridge driver: The JDBC-ODBC bridge driver uses the ODBC driver to connect to the database. 
+      2. Native-API driver  (partially java driver)
+      3. Network Protocol driver (fully java driver): 
+      4. Thin driver (fully java driver): 
+      
+3) What are the steps to connect to the database in java?
+=======================================================================
+  -> Registering the driver class:
+      The forName() method of the Class class is used to register the driver class.
+       EX:  Class.forName("oracle.jdbc.driver.OracleDriver");   
+       
+  -> Creating connection: The getConnection() method of DriverManager class is used to establish the connection with the database.
+  
+      EX: private Connection myConnection;
+          myConnection = DriverManager.getConnection(url, login, password);
+          
+  -> Creating the statement: The createStatement() method of Connection interface is used to create the Statement.
+      
+      EX: Statement stmt=con.createStatement();  
+      
+  -> Executing the queries: The executeQuery() method of Statement interface is used to execute queries to the database.
+                            This method returns the object of ResultSet that can be used to get all the records of a table.
+                            
+      EX: ResultSet rs=stmt.executeQuery("select * from emp");  
+              while(rs.next()){  
+                 System.out.println(rs.getInt(1)+" "+rs.getString(2));  
+                }  
+                
+  -> Closing connection: By closing connection, object statement and ResultSet will be closed automatically.
+                         The close() method of Connection interface is used to close the connection.
+                         
+       EX: con.close();  
+       
+4) What are the JDBC API components?
+===============================================================================================  
+   The Components of JDBC API are
+   Interfaces:
+   -> Connection : The Connection object is created by using getConnection() method of DriverManager class   
+   -> Statement: The Statement object is created by using createStatement() method of Connection class.
+   -> PreparedStatement: The PrepareStatement object is created by using prepareStatement() method of Connection class.
+   -> ResultSet:  The object of ResultSet is store the result of executeQuery().   
+   Classes: 
+   -> DriverManager: The DriverManager class is used to establish the between your application database.
+   -> Blob: Blob stands for the binary large object. It represents a collection of binary data stored as a single entity in the database management system.
+   -> Clob: Clob stands for Character large object. It is a data type that is used by various database management systems to store character files.
+   
+5) What are the JDBC statements?
+================================================================================================
+  -> In JDBC, Statements are used to send SQL commands to the database and receive data from the database.
+    
+      There are 3 type of statements.
+      
+      -> Statement -  It executes a static SQL query at runtime.
+      -> PreparedStatement - The PreparedStatement is used when we need to provide input parameters to the query at runtime.
+      -> CallableStatement - CallableStatement is used when we need to access the database stored procedures. It can also accept runtime parameters.
+      
+6) What is the return type of Class.forName() method?
+====================================================================================================
+  -> The Class.forName() method returns the object of java.lang.Class object. 
+                
+
+7) What are the differences between Statement and PreparedStatement interface?
+======================================================================================================
+            Statement                                                 PreparedStatement
+   -----------------------------------                       ------------------------------------------------------
+  -> The Statement interface provides methods             -> The PreparedStatement interface is a subinterface of Statement.
+     to execute queries with the database.                   It is used to execute the parameterized query.
+     It execute the static query.
+  -> In the case of Statement, the query is compiled      -> In the case of PreparedStatement, the query is compiled only once.
+      each time we run the program.
+  -> The Statement is mainly used in the case when        -> PreparedStatement is used when we need to provide input
+     we need to run the static query at runtime.             parameters to the query at runtime.
+     
+     
+8) How can we set null value in JDBC PreparedStatement?
+====================================================================================================
+  -> By using setNull() method of PreparedStatement interface, we can set the null value to an index.
+     EX: void setNull(int parameterIndex, int sqlType) throws SQLException
+     
+9) What are the benefits of PreparedStatement over Statement?
+========================================================================================================
+ -> The PreparedStatement performs faster as compare to Statement because the Statement needs to be compiled everytime
+    we run the code whereas the PreparedStatement compiled once and then execute only on runtime.
+    
+ -> PreparedStatement can execute Parameterized query whereas Statement can only run static queries.
+ 
+ 
+10) What are the differences between execute, executeQuery, and executeUpdate?
+======================================================================================================
+  execute
+  ========================
+  -> The execute method can be used for any SQL statements(Select and Update both).
+  -> The execute method returns a boolean type value where true indicates that the ResultSet s returned which can later be extracted
+     and false indicates that the integer or void value is returned.
+                
+ executeQuery
+ ============================
+  -> The executeQuery method can be used only with the select statement.
+  -> The executeQuery() method returns a ResultSet object which contains the data retrieved by the select statement.
+  
+ executeUpdate
+ =============================
+ -> The executeUpdate method can be used to update/delete/insert operations in the database.
+ -> The executeUpdate() method returns an integer value representing the number of records affected where 0 indicates that query returns nothing.
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                

@@ -148,7 +148,7 @@
   2. ArrayList is not legacy class.                                   2. Vector is legacy class.
   3. ArrayList are non synchronized collection.                       3. Vector are synchronized collection.
   4. ArrayList is not thread safe.                                    4. Vector is thread safe.
-  5. In ArrayList perfomance is fast.                                 5. In vector perfomance is slow.
+  5. In ArrayList performance is fast.                                5.In vector performance is slow.
   6. ArrayList does not provide for data consistency.                 6. Vector provide for data data consistency.
   7. ArrayList capacity = ( oldCapacity * 3 )/2 + 1 ;                 7. Vector capacity = oldCapacity * 2 ; 
   8. ArrayList does not provide any method to find its capacity.      8. Vector class provide a method to find capacity , i.e -> int capacity();
