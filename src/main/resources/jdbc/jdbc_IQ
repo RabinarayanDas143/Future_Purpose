@@ -113,11 +113,116 @@
  =============================
  -> The executeUpdate method can be used to update/delete/insert operations in the database.
  -> The executeUpdate() method returns an integer value representing the number of records affected where 0 indicates that query returns nothing.
-                
-                
-                
-                
-                
+ 
+11) What are the different types of ResultSet?
+=======================================================================================================
+ -> ResultSet.TYPE_Forward_ONLY - The cursor can move in the forward direction only.
+ -> ResultSet.TYPE_SCROLL_INSENSITIVE - The cursor can move in both the direction (forward and backward).
+                                        The ResultSet is not sensitive to the changes made by the others to the database.
+ -> ResultSet.TYPE_SCROLL_SENSITIVE - The cursor can move in both the direction. The ResultSet is sensitive to the changes made by the others to the database.
+ 
+12) What are the differences between ResultSet and RowSet?
+====================================================================================================
+          ResultSet                                                       RowSet
+ -----------------------------------------------                 ----------------------------------------------------------------
+ -> ResultSet cannot be serialized as it maintains            -> RowSet is disconnected from the database and can be serialized.
+     the connection with the database.
+ -> ResultSet is returned by the executeQuery()               -> Rowset Interface extends ResultSet Interface and returned by calling 
+    method of Statement Interface.                               the RowSetProvider.newFactory().createJdbcRowSet() method.
+ -> ResultSet object is non-scrollable and                    -> RowSet object is scrollable and updatable by default.
+    non-updatable by default.
+    
+13) How can we execute stored procedures using CallableStatement?
+===============================================================================================
+  -> Establish a network connection.
+      
+        Class.forName("oracle.jdbc.driver.OracleDriver");  
+        Connection con=DriverManager.getConnection(); 
+         
+  -> Create the Object of CallableStatement.
+     
+        CallableStatement stmt=con.prepareCall("{call insertR(?,?)}");  
+        
+  -> Provide the values and execute the query by using the following syntax.
+  
+       stmt.setInt(1,1011);  
+       stmt.setString(2,"Amit");  
+       stmt.execute(); 
+       
+       
+14) What is the role of the JDBC DriverManager class?
+=============================================================================================
+   -> The DriverManager class acts as an interface between user and drivers.
+   -> It establish the connection between database and appropriate driver.
+   
+15) What are the functions of the JDBC Connection interface?
+=============================================================================================
+  -> The Connection interface maintains a session with the database. It can be used for transaction management.
+  -> It provides factory methods that return the instance of Statement, PreparedStatement, CallableStatement, and DatabaseMetaData. 
+  
+16) What does the JDBC ResultSet interface?
+===========================================================================================
+ -> The ResultSet object represents a row of a table. 
+ -> It can be extracted data which are get from the database.
+ 
+17) What does the JDBC ResultSetMetaData interface?
+===========================================================================================
+ -> The ResultSetMetaData interface returns the information of table such as the total number of columns, column name, column type, etc.
+ 
+18) What does the JDBC DatabaseMetaData interface?
+===================================================================================================
+ -> The DatabaseMetaData interface returns the information of the database such as username, driver name, driver version, number of tables, number of views, etc.
+ 
+19) Which interface is responsible for transaction management in JDBC?
+===============================================================================================
+ -> The Connection interface provides methods for transaction management such as commit(), rollback() etc.
+ 
+ 
+20) What is batch processing and how to perform batch processing in JDBC?
+==============================================================================================
+ -> By using the batch processing technique in JDBC, we can execute multiple queries.
+ -> It makes the performance fast.
+ -> The java.sql.Statement and java.sql.PreparedStatement interfaces provide methods for batch processing.
+ 
+21) What are CLOB and BLOB data types in JDBC?
+==============================================================================================
+ -> BLOB: Binary large object which is used to hold the group of Binary data such as voice, images, and mixed media.
+ -> It can hold up to 2GB data on MySQL database and 128 GB on Oracle database.
+ -> BLOB is supported by many databases such as MySQL, Oracle, and DB2 to store the binary data (images, video, audio, and mixed media).
+ -> CLOB: Clob can be defined as, character-large object which is used to hold the character-based data such as files in many databases. 
+ -> It can hold up to 2 GB on MySQL database, and 128 GB on Oracle Database. A CLOB is considered as a character string.
+ 
+22) What are the differences between stored procedure and functions? 
+=============================================================================================
+           Stored Procedure                                                      Function
+  -------------------------------------------------           --------------------------------------------------------------------
+  ->Is used to perform business logic.                       -> Is used to perform the calculation.
+  -> Return type is not mandatory.                           -> return type is mandatory.
+  -> May return 0 or more values.                            -> May return only one value.
+  -> The procedure supports input and output parameters.     -> The function supports only input parameter.
+  -> Exception handling using try/catch block can be         -> Can't be used try/catch block
+     used in stored procedures.
+     
+     
+23) How can we maintain the integrity of a database by using JDBC?
+================================================================================================
+ -> To maintain the integrity of a database, we need to ensure the ACID properties. ACID properties mean Atomicity, Consistency, Isolation, and durability. 
+ -> In Jdbc, Connection interface provide some method like setAutoCommit(), commit(), and rollback() which can be used to manage transaction.
+ 
+24) What is the major difference between java.util.Date and java.sql.Date data type?               
+=========================================================================================================
+ -> The major difference between java.util.Date and java.sql.Date is that, java.sql.Date represents date without time information.
+ -> java.util.Date represents both date and time information.  
+ 
+25) What does JDBC setMaxRows method do?          
+========================================================================================================
+ -> The setMaxRows(int i) method limits the number of rows the database can return by using the query.  
+ -> This can also be done within the query as we can use the limit cause in MySQL.
+ ->  If you set setMaxRows(100), the query will return at most 100 rows, even if the result set has more rows.
+ 
+     Statement stmt = connection.createStatement();
+     stmt.setMaxRows(100);
+     ResultSet rs = stmt.executeQuery("SELECT * FROM Employees");             
                 
                 
                 
